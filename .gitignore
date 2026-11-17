@@ -1,0 +1,9 @@
+.DS_Store
+*.docx.pdf
+ball_by_ball.csv
+matches.csv
+playing_eleven.csv
+competition_team_player_mapping.csv
+competitions.csv
+teams.csv
+__pycache__/
