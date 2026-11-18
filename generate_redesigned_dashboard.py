@@ -2986,6 +2986,7 @@ html_content = f'''<!DOCTYPE html>
           }}
         }}
       }});
+      }}
     }}
 
     function populateSelectors() {{
