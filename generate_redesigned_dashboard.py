@@ -2038,158 +2038,171 @@ html_content = f'''<!DOCTYPE html>
 
     </div>
 
-    <!-- TAB 4: FINAL 11 & WAR ROOM -->
+    <!-- TAB 4: FINAL 11 & WAR ROOM (EXACT REPLICA OF SCREENSHOT) -->
     <div id="war-room" class="tab-content">
 
-      <div class="chart-panel-card" style="margin-bottom:24px;">
-        <div class="chart-panel-title">Powerplay Runs vs Death Over Runs by Franchise (Execution Under Fire)</div>
-        <div style="height:220px;position:relative;">
-          <canvas id="barPowerplayDeath"></canvas>
-        </div>
-      </div>
-
-      <div class="auction-strategy-grid">
+      <div class="auction-strategy-grid" style="display:grid; grid-template-columns: 1.15fr 0.85fr; gap: 24px; align-items: start; margin-top: 8px;">
         
+        <!-- LEFT: 4 CORE AUCTION RECRUITMENT TARGETS (EXACT SCREENSHOT LAYOUT) -->
         <div>
-          <h2 style="font-family:'Rajdhani',sans-serif;font-size:20px;font-weight:700;color:#FFF;margin-bottom:14px;">
-            RAJASTHAN ROYALS • 4 CORE TACTICAL NEEDS
+          <h2 style="font-family:'Rajdhani',sans-serif; font-size:18px; font-weight:700; color:#FFF; margin-bottom:16px; letter-spacing:0.8px;">
+            RAJASTHAN ROYALS • 4 CORE AUCTION RECRUITMENT TARGETS (IPL 2027)
           </h2>
 
-          <div class="target-slot-card">
-            <div class="target-slot-header">
-              <span class="target-slot-badge">Target Slot 1 • Finisher</span>
-              <span class="target-player-name">Donovan Ferreira (Retained by RR!) / Nehal Wadhera</span>
+          <!-- Slot 1 -->
+          <div class="target-slot-card" style="background:#0D1630; border:1px solid #1E294B; border-radius:12px; padding:18px 20px; margin-bottom:14px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <span style="background:#FF1389; color:#FFF; font-size:10px; font-weight:800; padding:4px 8px; border-radius:4px; text-transform:uppercase; letter-spacing:0.5px;">TARGET SLOT 1 • FINISHER</span>
+              <span style="color:#FACC15; font-weight:700; font-size:15px; font-family:'Rajdhani',sans-serif;">Shashank Singh (PBKS) / Donovan Ferreira</span>
             </div>
-            <div class="target-slot-title">Designated Death Finisher (Overs 16–20)</div>
-            <p class="target-rationale">
-              <strong>Tactical Reality:</strong> RR smartly retained <strong>Donovan Ferreira</strong> (181.8 HP SR). In the auction, RR can bid for released domestic gem <strong>Nehal Wadhera</strong> (PBKS) or <strong>Shahrukh Khan</strong> (GT) to solidify lower-order boundary power.
+            <div style="font-family:'Inter',sans-serif; font-size:16px; font-weight:700; color:#FFF; margin-bottom:6px;">Designated Death Finisher (Overs 16-20)</div>
+            <p style="font-size:12px; color:#94A3B8; line-height:1.55; margin:0;">
+              <strong>Why RR Needs Him:</strong> Solves RR's lower-middle order scoring vacuum. Shashank leads all batters with 640 HP Runs at 184.4 SR (+38.2 Delta SR) and a remarkable 98.9 PPI. Donovan Ferreira offers explosive boundary clearing (181.8 HP SR) and secondary wicket-keeping cover.
             </p>
           </div>
 
-          <div class="target-slot-card">
-            <div class="target-slot-header">
-              <span class="target-slot-badge">Target Slot 2 • Death Pacer</span>
-              <span class="target-player-name">Matheesha Pathirana (Released by KKR!)</span>
+          <!-- Slot 2 -->
+          <div class="target-slot-card" style="background:#0D1630; border:1px solid #1E294B; border-radius:12px; padding:18px 20px; margin-bottom:14px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <span style="background:#FF1389; color:#FFF; font-size:10px; font-weight:800; padding:4px 8px; border-radius:4px; text-transform:uppercase; letter-spacing:0.5px;">TARGET SLOT 2 • DEATH PACER</span>
+              <span style="color:#FACC15; font-weight:700; font-size:15px; font-family:'Rajdhani',sans-serif;">Hasan Mahmud / Matheesha Pathirana</span>
             </div>
-            <div class="target-slot-title">Specialist Overseas Death Pacer</div>
-            <p class="target-rationale">
-              <strong>The Golden Opportunity:</strong> Matheesha Pathirana was released! With an unpickable 140kph sling yorker, 12.2 HP Strike Rate, and +162.5 Runs Saved, Pathirana represents RR's primary target for overseas death bowling alongside Sandeep Sharma and Jofra Archer.
+            <div style="font-family:'Inter',sans-serif; font-size:16px; font-weight:700; color:#FFF; margin-bottom:6px;">Specialist Overseas Death Pacer</div>
+            <p style="font-size:12px; color:#94A3B8; line-height:1.55; margin:0;">
+              <strong>Why RR Needs Him:</strong> Bridges the death-overs boundary leakage alongside Sandeep Sharma. Hasan Mahmud boasts a 90.1 PPI, 7.35 HP Economy, and +48.8 runs saved. Pathirana brings an unpickable 135kph+ sling yorker (12.2 HP SR, +162.5 runs saved).
             </p>
           </div>
 
-          <div class="target-slot-card">
-            <div class="target-slot-header">
-              <span class="target-slot-badge">Target Slot 3 • Seam / Swing</span>
-              <span class="target-player-name">Trent Boult (Released by MI!)</span>
+          <!-- Slot 3 -->
+          <div class="target-slot-card" style="background:#0D1630; border:1px solid #1E294B; border-radius:12px; padding:18px 20px; margin-bottom:14px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <span style="background:#FF1389; color:#FFF; font-size:10px; font-weight:800; padding:4px 8px; border-radius:4px; text-transform:uppercase; letter-spacing:0.5px;">TARGET SLOT 3 • SPIN ENFORCER</span>
+              <span style="color:#FACC15; font-weight:700; font-size:15px; font-family:'Rajdhani',sans-serif;">Sunil Narine / Mitchell Santner</span>
             </div>
-            <div class="target-slot-title">Powerplay Strike Homecoming</div>
-            <p class="target-rationale">
-              <strong>Homecoming Opportunity:</strong> Released by Mumbai Indians, Trent Boult offers immediate familiarity, elite left-arm swing, and leadership in the pace attack to support Mohd. Shami and Jofra Archer.
+            <div style="font-family:'Inter',sans-serif; font-size:16px; font-weight:700; color:#FFF; margin-bottom:6px;">High-Pressure Middle-Overs Spin Anchor</div>
+            <p style="font-size:12px; color:#94A3B8; line-height:1.55; margin:0;">
+              <strong>Why RR Needs Him:</strong> Provides impenetrable run denial when wickets are conserved by the opposition. Narine operates at 6.18 HP Economy (+1.25 Delta Econ) and 81.6 PPI. Santner offers left-arm orthodox control (6.62 HP Econ) and lower-order clutch hitting.
             </p>
           </div>
 
-          <div class="target-slot-card">
-            <div class="target-slot-header">
-              <span class="target-slot-badge">Target Slot 4 • Domestic Engine</span>
-              <span class="target-player-name">Akash Madhwal (Released by CSK) / Avesh Khan</span>
+          <!-- Slot 4 -->
+          <div class="target-slot-card" style="background:#0D1630; border:1px solid #1E294B; border-radius:12px; padding:18px 20px; margin-bottom:14px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <span style="background:#FF1389; color:#FFF; font-size:10px; font-weight:800; padding:4px 8px; border-radius:4px; text-transform:uppercase; letter-spacing:0.5px;">TARGET SLOT 4 • DOMESTIC ENGINE</span>
+              <span style="color:#FACC15; font-weight:700; font-size:15px; font-family:'Rajdhani',sans-serif;">Sakib Hussain / Anshul Kamboj / Rasikh Salam</span>
             </div>
-            <div class="target-slot-title">High-Value Domestic Pace Depth</div>
-            <p class="target-rationale">
-              <strong>Domestic Execution:</strong> Akash Madhwal (yorker specialist) and Avesh Khan provide proven death-overs execution to fill RR's domestic auction slots at budget pricing.
+            <div style="font-family:'Inter',sans-serif; font-size:16px; font-weight:700; color:#FFF; margin-bottom:6px;">High-Value Domestic Pace Depth</div>
+            <p style="font-size:12px; color:#94A3B8; line-height:1.55; margin:0;">
+              <strong>Why RR Needs Him:</strong> High RAE value at uncapped or base purse pricing. Sakib Hussain boasts an extraordinary 81.0 PPI (11.0 HP SR, 4.41 HP Econ). Anshul Kamboj delivers heavy lengths under pressure (73.9 PPI, 7.20 HP Econ).
             </p>
           </div>
 
         </div>
 
+        <!-- RIGHT: PROPOSED RR 2027 STARTING XI (EXACT SCREENSHOT LAYOUT WITH GLOWING PINK FRAME) -->
         <div>
-          <div class="starting-xi-board">
-            <div class="xi-header">
-              <h2>PROPOSED RR 2027 <span>STARTING XI</span></h2>
-              <p style="font-size:11px;color:var(--text-muted);margin-top:4px;">Optimized for Pressure Resilience & Resource Balance</p>
+          <div class="starting-xi-board" style="background:#070D1F; border:2px solid #FF1389; border-radius:16px; padding:22px 20px; box-shadow:0 0 20px rgba(255, 19, 137, 0.4);">
+            <div class="xi-header" style="text-align:center; margin-bottom:16px; border-bottom:1px solid #1E294B; padding-bottom:12px;">
+              <h2 style="font-family:'Rajdhani',sans-serif; font-size:22px; font-weight:800; letter-spacing:1px; color:#FFF;">
+                PROPOSED RR 2027 <span style="color:#FF1389;">STARTING XI</span>
+              </h2>
+              <p style="font-size:11px; color:#94A3B8; margin-top:4px;">Optimized for Pressure Resilience & Resource Balance</p>
             </div>
 
-            <div class="xi-player-row">
-              <span class="xi-pos-num">1</span>
-              <span class="xi-pname">Yashasvi Jaiswal (LHB)</span>
-              <span class="xi-prole">Aggressive Opener</span>
-              <span class="xi-ptag retain">Retained</span>
+            <!-- Row 1 -->
+            <div class="xi-player-row" style="display:flex; align-items:center; justify-content:space-between; padding:9px 12px; border-bottom:1px solid rgba(30, 41, 75, 0.6); font-size:12px;">
+              <span style="color:#FACC15; font-weight:800; width:22px;">1</span>
+              <span style="color:#FFF; font-weight:700; flex:1;">Yashasvi Jaiswal (LHB)</span>
+              <span style="color:#94A3B8; font-size:11px; margin-right:12px;">Aggressive Opener</span>
+              <span style="background:#1E294B; color:#94A3B8; font-size:9px; font-weight:800; padding:3px 7px; border-radius:4px; text-transform:uppercase;">RETAINED</span>
             </div>
 
-            <div class="xi-player-row">
-              <span class="xi-pos-num">2</span>
-              <span class="xi-pname">Dhruv Jurel (RHB / Wicketkeeper)</span>
-              <span class="xi-prole">Dynamic Top-Order Wicketkeeper</span>
-              <span class="xi-ptag retain">Retained</span>
+            <!-- Row 2 -->
+            <div class="xi-player-row" style="display:flex; align-items:center; justify-content:space-between; padding:9px 12px; border-bottom:1px solid rgba(30, 41, 75, 0.6); font-size:12px;">
+              <span style="color:#FACC15; font-weight:800; width:22px;">2</span>
+              <span style="color:#FFF; font-weight:700; flex:1;">Jos Buttler (RHB / Overseas)</span>
+              <span style="color:#94A3B8; font-size:11px; margin-right:12px;">Wicketkeeper Opener</span>
+              <span style="background:#1E294B; color:#94A3B8; font-size:9px; font-weight:800; padding:3px 7px; border-radius:4px; text-transform:uppercase;">RETAINED</span>
             </div>
 
-            <div class="xi-player-row">
-              <span class="xi-pos-num">3</span>
-              <span class="xi-pname">Riyan Parag (RHB / Off-spin)</span>
-              <span class="xi-prole">Middle Order Engine</span>
-              <span class="xi-ptag retain">Retained</span>
+            <!-- Row 3 -->
+            <div class="xi-player-row" style="display:flex; align-items:center; justify-content:space-between; padding:9px 12px; border-bottom:1px solid rgba(30, 41, 75, 0.6); font-size:12px;">
+              <span style="color:#FACC15; font-weight:800; width:22px;">3</span>
+              <span style="color:#FFF; font-weight:700; flex:1;">Sanju Samson (RHB / Captain)</span>
+              <span style="color:#94A3B8; font-size:11px; margin-right:12px;">Anchor & Pace Destroyer</span>
+              <span style="background:#1E294B; color:#94A3B8; font-size:9px; font-weight:800; padding:3px 7px; border-radius:4px; text-transform:uppercase;">RETAINED</span>
             </div>
 
-            <div class="xi-player-row">
-              <span class="xi-pos-num">4</span>
-              <span class="xi-pname">Nehal Wadhera (LHB)</span>
-              <span class="xi-prole">Middle Order Clutch Finisher</span>
-              <span class="xi-ptag target">Auction Target</span>
+            <!-- Row 4 -->
+            <div class="xi-player-row" style="display:flex; align-items:center; justify-content:space-between; padding:9px 12px; border-bottom:1px solid rgba(30, 41, 75, 0.6); font-size:12px;">
+              <span style="color:#FACC15; font-weight:800; width:22px;">4</span>
+              <span style="color:#FFF; font-weight:700; flex:1;">Riyan Parag (RHB / Off-spin)</span>
+              <span style="color:#94A3B8; font-size:11px; margin-right:12px;">Middle Order Engine</span>
+              <span style="background:#1E294B; color:#94A3B8; font-size:9px; font-weight:800; padding:3px 7px; border-radius:4px; text-transform:uppercase;">RETAINED</span>
             </div>
 
-            <div class="xi-player-row">
-              <span class="xi-pos-num">5</span>
-              <span class="xi-pname">Donovan Ferreira (RHB / Overseas)</span>
-              <span class="xi-prole">Explosive Power Finisher</span>
-              <span class="xi-ptag retain">Retained</span>
+            <!-- Row 5 -->
+            <div class="xi-player-row" style="display:flex; align-items:center; justify-content:space-between; padding:9px 12px; border-bottom:1px solid rgba(30, 41, 75, 0.6); font-size:12px;">
+              <span style="color:#FACC15; font-weight:800; width:22px;">5</span>
+              <span style="color:#FFF; font-weight:700; flex:1;">Tristan Stubbs / Naman Dhir</span>
+              <span style="color:#94A3B8; font-size:11px; margin-right:12px;">Dynamic Middle Enforcer</span>
+              <span style="background:#FF1389; color:#FFF; font-size:9px; font-weight:800; padding:3px 7px; border-radius:4px; text-transform:uppercase;">TARGET</span>
             </div>
 
-            <div class="xi-player-row">
-              <span class="xi-pos-num">6</span>
-              <span class="xi-pname">Ravindra Jadeja (LHB / SLA)</span>
-              <span class="xi-prole">Elite Spin All-Rounder</span>
-              <span class="xi-ptag retain">Retained</span>
+            <!-- Row 6 -->
+            <div class="xi-player-row" style="display:flex; align-items:center; justify-content:space-between; padding:9px 12px; border-bottom:1px solid rgba(30, 41, 75, 0.6); font-size:12px;">
+              <span style="color:#FACC15; font-weight:800; width:22px;">6</span>
+              <span style="color:#FFF; font-weight:700; flex:1;">Shashank Singh (RHB)</span>
+              <span style="color:#94A3B8; font-size:11px; margin-right:12px;">Primary Death Finisher</span>
+              <span style="background:#FF1389; color:#FFF; font-size:9px; font-weight:800; padding:3px 7px; border-radius:4px; text-transform:uppercase;">TOP TARGET</span>
             </div>
 
-            <div class="xi-player-row">
-              <span class="xi-pos-num">7</span>
-              <span class="xi-pname">Jofra Archer (RHB / Express Pace / Overseas)</span>
-              <span class="xi-prole">Express Pace Enforcer</span>
-              <span class="xi-ptag retain">Retained</span>
+            <!-- Row 7 -->
+            <div class="xi-player-row" style="display:flex; align-items:center; justify-content:space-between; padding:9px 12px; border-bottom:1px solid rgba(30, 41, 75, 0.6); font-size:12px;">
+              <span style="color:#FACC15; font-weight:800; width:22px;">7</span>
+              <span style="color:#FFF; font-weight:700; flex:1;">Mitchell Santner / Sunil Narine (Overseas)</span>
+              <span style="color:#94A3B8; font-size:11px; margin-right:12px;">Spin All-Rounder</span>
+              <span style="background:#FF1389; color:#FFF; font-size:9px; font-weight:800; padding:3px 7px; border-radius:4px; text-transform:uppercase;">TARGET</span>
             </div>
 
-            <div class="xi-player-row">
-              <span class="xi-pos-num">8</span>
-              <span class="xi-pname">Sandeep Sharma (Right-arm Medium)</span>
-              <span class="xi-prole">Death Yorker Specialist</span>
-              <span class="xi-ptag retain">Retained</span>
+            <!-- Row 8 -->
+            <div class="xi-player-row" style="display:flex; align-items:center; justify-content:space-between; padding:9px 12px; border-bottom:1px solid rgba(30, 41, 75, 0.6); font-size:12px;">
+              <span style="color:#FACC15; font-weight:800; width:22px;">8</span>
+              <span style="color:#FFF; font-weight:700; flex:1;">Sandeep Sharma (Pace)</span>
+              <span style="color:#94A3B8; font-size:11px; margin-right:12px;">Death Yorker Specialist</span>
+              <span style="background:#1E294B; color:#94A3B8; font-size:9px; font-weight:800; padding:3px 7px; border-radius:4px; text-transform:uppercase;">RETAINED</span>
             </div>
 
-            <div class="xi-player-row">
-              <span class="xi-pos-num">9</span>
-              <span class="xi-pname">Mohd. Shami (Right-arm Seam)</span>
-              <span class="xi-prole">Powerplay Seam Master</span>
-              <span class="xi-ptag retain">Retained</span>
+            <!-- Row 9 -->
+            <div class="xi-player-row" style="display:flex; align-items:center; justify-content:space-between; padding:9px 12px; border-bottom:1px solid rgba(30, 41, 75, 0.6); font-size:12px;">
+              <span style="color:#FACC15; font-weight:800; width:22px;">9</span>
+              <span style="color:#FFF; font-weight:700; flex:1;">Hasan Mahmud / Pathirana (Overseas)</span>
+              <span style="color:#94A3B8; font-size:11px; margin-right:12px;">Lead Death Express</span>
+              <span style="background:#FF1389; color:#FFF; font-size:9px; font-weight:800; padding:3px 7px; border-radius:4px; text-transform:uppercase;">TOP TARGET</span>
             </div>
 
-            <div class="xi-player-row">
-              <span class="xi-pos-num">10</span>
-              <span class="xi-pname">Matheesha Pathirana (Right-arm Sling / Overseas)</span>
-              <span class="xi-prole">Lead Death Yorker Express</span>
-              <span class="xi-ptag target">Top Target</span>
+            <!-- Row 10 -->
+            <div class="xi-player-row" style="display:flex; align-items:center; justify-content:space-between; padding:9px 12px; border-bottom:1px solid rgba(30, 41, 75, 0.6); font-size:12px;">
+              <span style="color:#FACC15; font-weight:800; width:22px;">10</span>
+              <span style="color:#FFF; font-weight:700; flex:1;">Yuzvendra Chahal (Leg-spin)</span>
+              <span style="color:#94A3B8; font-size:11px; margin-right:12px;">Attacking Wrist-Spin</span>
+              <span style="background:#1E294B; color:#94A3B8; font-size:9px; font-weight:800; padding:3px 7px; border-radius:4px; text-transform:uppercase;">RETAINED</span>
             </div>
 
-            <div class="xi-player-row">
-              <span class="xi-pos-num">11</span>
-              <span class="xi-pname">Ravi Bishnoi (Right-arm Leg-spin)</span>
-              <span class="xi-prole">Attacking Wrist-Spin</span>
-              <span class="xi-ptag retain">Retained</span>
+            <!-- Row 11 -->
+            <div class="xi-player-row" style="display:flex; align-items:center; justify-content:space-between; padding:9px 12px; border-bottom:1px solid rgba(30, 41, 75, 0.6); font-size:12px;">
+              <span style="color:#FACC15; font-weight:800; width:22px;">11</span>
+              <span style="color:#FFF; font-weight:700; flex:1;">Sakib Hussain / Anshul Kamboj</span>
+              <span style="color:#94A3B8; font-size:11px; margin-right:12px;">Domestic Pace Enforcer</span>
+              <span style="background:#FF1389; color:#FFF; font-size:9px; font-weight:800; padding:3px 7px; border-radius:4px; text-transform:uppercase;">TARGET</span>
             </div>
 
-            <div class="xi-player-row" style="background:rgba(255, 19, 137, 0.15);border-radius:6px;margin-top:8px;">
-              <span class="xi-pos-num">IP</span>
-              <span class="xi-pname" style="color:var(--rr-pink);">Shahrukh Khan / Akash Madhwal</span>
-              <span class="xi-prole">Tactical Impact Sub</span>
-              <span class="xi-ptag" style="background:var(--gold);color:#000;">Flex Target</span>
+            <!-- IP Row -->
+            <div class="xi-player-row" style="background:rgba(255, 19, 137, 0.12); border-radius:8px; margin-top:10px; padding:10px 12px; display:flex; align-items:center; justify-content:space-between;">
+              <span style="color:#FF1389; font-weight:800; width:22px;">IP</span>
+              <span style="color:#FF1389; font-weight:700; flex:1;">Donovan Ferreira / Rasikh Salam</span>
+              <span style="color:#94A3B8; font-size:11px; margin-right:12px;">Tactical Impact Sub</span>
+              <span style="background:#FACC15; color:#0F172A; font-size:9px; font-weight:800; padding:3px 8px; border-radius:4px; text-transform:uppercase;">FLEX</span>
             </div>
 
           </div>
@@ -2940,9 +2953,11 @@ html_content = f'''<!DOCTYPE html>
         }}
       }});
 
-      const ctxPPDeath = document.getElementById('barPowerplayDeath').getContext('2d');
-      const ppDeathData = RAW_DATA.powerplay_death || [];
-      chartPPDeath = new Chart(ctxPPDeath, {{
+      const elPPDeath = document.getElementById('barPowerplayDeath');
+      if (elPPDeath) {{
+        const ctxPPDeath = elPPDeath.getContext('2d');
+        const ppDeathData = RAW_DATA.powerplay_death || [];
+        chartPPDeath = new Chart(ctxPPDeath, {{
         type: 'bar',
         data: {{
           labels: ppDeathData.map(d => d.team),
