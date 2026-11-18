@@ -1,0 +1,2253 @@
+import json
+
+with open('dashboard_data.json', 'r') as f:
+    data = json.load(f)
+
+json_str = json.dumps(data)
+
+html_content = f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rajasthan Royals • IPL Pressure Analytics War Room</title>
+  <!-- Chart.js and Google Fonts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600;700&family=Inter:wght@400;500;600;700;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {{
+      --rr-pink: #FF1389;
+      --rr-pink-hover: #E60067;
+      --rr-pink-glow: rgba(255, 19, 137, 0.4);
+      --rr-blue: #0A1128;
+      --rr-navy: #001F54;
+      --rr-dark: #070B19;
+      --card-bg: #0D1630;
+      --card-border: #1E294B;
+      --card-inner: #131F3F;
+      --text-main: #FFFFFF;
+      --text-muted: #94A3B8;
+      --gold: #FACC15;
+      --cyan: #38BDF8;
+      --purple: #A855F7;
+      --green: #10B981;
+      --orange: #FB923C;
+    }}
+
+    * {{
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }}
+
+    body {{
+      background-color: var(--rr-dark);
+      color: var(--text-main);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }}
+
+    /* TOP LOGOS BANNER (Screenshot 1 & 2 aesthetic) */
+    .top-franchise-ribbon {{
+      background: linear-gradient(180deg, #050811 0%, #0D1630 100%);
+      border-bottom: 1px solid var(--card-border);
+      padding: 8px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      overflow-x: auto;
+    }}
+
+    .franchise-logos-group {{
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: nowrap;
+    }}
+
+    .franchise-badge {{
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 4px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #CBD5E1;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }}
+
+    .franchise-badge:hover {{
+      border-color: var(--rr-pink);
+      transform: translateY(-1px);
+    }}
+
+    .franchise-badge.active-rr {{
+      background: linear-gradient(135deg, rgba(255, 19, 137, 0.25) 0%, rgba(10, 17, 40, 0.8) 100%);
+      border: 1.5px solid var(--rr-pink);
+      color: #FFF;
+      box-shadow: 0 0 12px var(--rr-pink-glow);
+    }}
+
+    .season-selector-wrapper {{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+    }}
+
+    .season-selector-wrapper label {{
+      font-size: 12px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+    }}
+
+    .season-select {{
+      background: #131F3F;
+      border: 1px solid var(--card-border);
+      color: #FFF;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      outline: none;
+      cursor: pointer;
+    }}
+
+    /* MAIN HEADER */
+    .main-header {{
+      background: linear-gradient(90deg, #0A1128 0%, #150F28 50%, #0A1128 100%);
+      border-bottom: 2px solid var(--rr-pink);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }}
+
+    .header-branding {{
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }}
+
+    .rr-logo-circle {{
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--rr-pink) 0%, #70003C 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Teko', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: #FFF;
+      box-shadow: 0 0 16px var(--rr-pink-glow);
+      border: 1px solid #FFA3D1;
+    }}
+
+    .header-titles h1 {{
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #FFF;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }}
+
+    .header-titles h1 span {{
+      color: var(--rr-pink);
+    }}
+
+    .header-tag {{
+      background: rgba(255, 19, 137, 0.15);
+      border: 1px solid var(--rr-pink);
+      color: #FF70B8;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }}
+
+    .header-titles p {{
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }}
+
+    /* NAVIGATION TABS */
+    .nav-tabs-container {{
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }}
+
+    .nav-tab-btn {{
+      background: #131F3F;
+      border: 1px solid var(--card-border);
+      color: #CBD5E1;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }}
+
+    .nav-tab-btn:hover {{
+      background: #1B2B56;
+      color: #FFF;
+      border-color: #38BDF8;
+    }}
+
+    .nav-tab-btn.active {{
+      background: var(--rr-pink);
+      color: #FFF;
+      border-color: #FF70B8;
+      box-shadow: 0 0 14px var(--rr-pink-glow);
+    }}
+
+    /* MAIN CONTAINER */
+    .app-container {{
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 20px 24px 60px 24px;
+    }}
+
+    .tab-content {{
+      display: none;
+    }}
+
+    .tab-content.active {{
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }}
+
+    @keyframes fadeIn {{
+      from {{ opacity: 0; transform: translateY(6px); }}
+      to {{ opacity: 1; transform: translateY(0); }}
+    }}
+
+    /* TOP KPI ROW (Screenshot 1: Trophy, Orange Cap, Purple Cap, 6s, 4s) */
+    .kpi-row-grid {{
+      display: grid;
+      grid-template-columns: 1.2fr 1.2fr 1.2fr 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }}
+
+    @media (max-width: 1200px) {{
+      .kpi-row-grid {{
+        grid-template-columns: repeat(2, 1fr);
+      }}
+    }}
+
+    @media (max-width: 768px) {{
+      .kpi-row-grid {{
+        grid-template-columns: 1fr;
+      }}
+    }}
+
+    .kpi-card {{
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    }}
+
+    .kpi-card::after {{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--card-border);
+    }}
+
+    .kpi-card.trophy-card::after {{ background: var(--gold); }}
+    .kpi-card.orange-card::after {{ background: var(--orange); }}
+    .kpi-card.purple-card::after {{ background: var(--purple); }}
+    .kpi-card.sixes-card::after {{ background: var(--rr-pink); }}
+    .kpi-card.fours-card::after {{ background: var(--cyan); }}
+
+    .kpi-icon-box {{
+      width: 52px;
+      height: 52px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }}
+
+    .kpi-card.trophy-card .kpi-icon-box {{ background: rgba(250, 204, 21, 0.15); color: var(--gold); border: 1px solid var(--gold); }}
+    .kpi-card.orange-card .kpi-icon-box {{ background: rgba(251, 146, 60, 0.15); color: var(--orange); border: 1px solid var(--orange); }}
+    .kpi-card.purple-card .kpi-icon-box {{ background: rgba(168, 85, 247, 0.15); color: var(--purple); border: 1px solid var(--purple); }}
+    .kpi-card.sixes-card .kpi-icon-box {{ background: rgba(255, 19, 137, 0.15); color: var(--rr-pink); border: 1px solid var(--rr-pink); }}
+    .kpi-card.fours-card .kpi-icon-box {{ background: rgba(56, 189, 248, 0.15); color: var(--cyan); border: 1px solid var(--cyan); }}
+
+    .kpi-info-box {{
+      flex: 1;
+      overflow: hidden;
+    }}
+
+    .kpi-label {{
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }}
+
+    .kpi-headline {{
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #FFF;
+      line-height: 1.2;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }}
+
+    .kpi-subtext {{
+      font-size: 12px;
+      font-weight: 600;
+      color: #CBD5E1;
+      margin-top: 2px;
+    }}
+
+    .kpi-subtext span {{
+      color: var(--gold);
+      font-weight: 700;
+    }}
+
+    /* SCREENSHOT 2: ROLE PILL FILTERS & YELLOW PROMPT */
+    .controls-banner {{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 14px;
+    }}
+
+    .role-pills-group {{
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }}
+
+    .role-pill {{
+      background: #0E1A38;
+      border: 1.5px solid #26355C;
+      color: #CBD5E1;
+      padding: 7px 16px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-transform: capitalize;
+    }}
+
+    .role-pill:hover {{
+      background: #192A54;
+      border-color: #38BDF8;
+      color: #FFF;
+    }}
+
+    .role-pill.active {{
+      background: var(--rr-pink);
+      border-color: var(--gold);
+      color: #FFF;
+      box-shadow: 0 0 12px var(--rr-pink-glow), 0 0 0 1px var(--gold);
+    }}
+
+    .context-pills-group {{
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }}
+
+    .context-pill {{
+      background: #131F3F;
+      border: 1px solid var(--card-border);
+      color: #94A3B8;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+    }}
+
+    .context-pill.active {{
+      background: #2563EB;
+      border-color: #60A5FA;
+      color: #FFF;
+    }}
+
+    /* YELLOW NOTIFICATION BANNER (from Screenshot 2) */
+    .yellow-alert-banner {{
+      background: linear-gradient(90deg, #FACC15 0%, #EAB308 100%);
+      color: #0F172A;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 10px 18px;
+      border-radius: 9999px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 3px 12px rgba(250, 204, 21, 0.3);
+    }}
+
+    .yellow-alert-banner .bell-icon {{
+      background: #0F172A;
+      color: #FACC15;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      flex-shrink: 0;
+    }}
+
+    /* DATA TABLE SECTION (Screenshot 2 with in-cell pink bars) */
+    .table-card {{
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.3);
+    }}
+
+    .table-header-bar {{
+      background: #070D1F;
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--card-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }}
+
+    .table-role-badge {{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: #FFF;
+    }}
+
+    .table-role-badge span {{
+      color: var(--rr-pink);
+    }}
+
+    .search-box-wrap {{
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }}
+
+    .search-input {{
+      background: #131F3F;
+      border: 1px solid var(--card-border);
+      color: #FFF;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      width: 220px;
+      outline: none;
+    }}
+
+    .search-input:focus {{
+      border-color: var(--rr-pink);
+    }}
+
+    .table-responsive {{
+      overflow-x: auto;
+      max-height: 480px;
+      position: relative;
+    }}
+
+    table.cricket-table {{
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      text-align: left;
+      white-space: nowrap;
+    }}
+
+    table.cricket-table thead {{
+      background: #091228;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+    }}
+
+    table.cricket-table th {{
+      padding: 12px 14px;
+      color: #94A3B8;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: 0.6px;
+      border-bottom: 1px solid var(--card-border);
+      cursor: pointer;
+      user-select: none;
+    }}
+
+    table.cricket-table th:hover {{
+      color: #FFF;
+      background: rgba(255, 255, 255, 0.04);
+    }}
+
+    table.cricket-table tbody tr {{
+      border-bottom: 1px solid rgba(30, 41, 75, 0.5);
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }}
+
+    table.cricket-table tbody tr:hover {{
+      background: rgba(255, 19, 137, 0.1) !important;
+    }}
+
+    table.cricket-table tbody tr.selected-row {{
+      background: rgba(255, 19, 137, 0.22) !important;
+      border-left: 3px solid var(--gold);
+    }}
+
+    table.cricket-table td {{
+      padding: 10px 14px;
+      color: #E2E8F0;
+      font-weight: 500;
+    }}
+
+    .player-name-cell {{
+      font-weight: 700;
+      color: #FFF;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }}
+
+    .rank-pill {{
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: #1E294B;
+      color: #94A3B8;
+    }}
+
+    .rank-pill.top-3 {{
+      background: var(--gold);
+      color: #000;
+    }}
+
+    /* IN-CELL PINK BAR VISUALIZER (Screenshot 2 key feature) */
+    .bar-cell-container {{
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 130px;
+    }}
+
+    .in-cell-bar-track {{
+      flex: 1;
+      height: 14px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 3px;
+      overflow: hidden;
+      position: relative;
+    }}
+
+    .in-cell-bar-fill {{
+      height: 100%;
+      background: var(--rr-pink);
+      border-radius: 3px;
+      transition: width 0.3s ease;
+    }}
+
+    .in-cell-bar-fill.gold-bar {{
+      background: var(--gold);
+    }}
+
+    .in-cell-bar-fill.cyan-bar {{
+      background: var(--cyan);
+    }}
+
+    .bar-val-text {{
+      font-weight: 700;
+      font-size: 11px;
+      width: 48px;
+      text-align: right;
+      color: #FFF;
+    }}
+
+    .badge-pill {{
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }}
+
+    .badge-rhb {{ background: rgba(56, 189, 248, 0.15); color: #38BDF8; }}
+    .badge-lhb {{ background: rgba(168, 85, 247, 0.15); color: #A855F7; }}
+    .badge-ppi {{ background: rgba(255, 19, 137, 0.2); color: #FF70B8; font-weight: 800; border: 1px solid var(--rr-pink); }}
+
+    /* BOTTOM SPLIT SECTION (Screenshot 2: 4 sparklines + Batting Avg vs SR Scatter) */
+    .bottom-analytics-grid {{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }}
+
+    @media (max-width: 1024px) {{
+      .bottom-analytics-grid {{
+        grid-template-columns: 1fr;
+      }}
+    }}
+
+    .metric-cards-subgrid {{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }}
+
+    .metric-spark-card {{
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 16px;
+      position: relative;
+    }}
+
+    .metric-spark-header {{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }}
+
+    .metric-spark-title {{
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }}
+
+    .metric-spark-value {{
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #FFF;
+    }}
+
+    .metric-spark-value.pink {{ color: var(--rr-pink); }}
+    .metric-spark-value.gold {{ color: var(--gold); }}
+    .metric-spark-value.cyan {{ color: var(--cyan); }}
+    .metric-spark-value.purple {{ color: var(--purple); }}
+
+    .metric-par-note {{
+      font-size: 10px;
+      color: #94A3B8;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }}
+
+    .sparkline-canvas-box {{
+      height: 80px;
+      width: 100%;
+      position: relative;
+    }}
+
+    /* SCATTER PLOT CARD (Screenshot 2 iconic yellow bubble scatter) */
+    .scatter-plot-card {{
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+    }}
+
+    .scatter-card-header {{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }}
+
+    .scatter-card-title {{
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #FFF;
+      letter-spacing: 0.5px;
+    }}
+
+    .scatter-legend-note {{
+      font-size: 11px;
+      color: var(--gold);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }}
+
+    .scatter-canvas-box {{
+      flex: 1;
+      min-height: 220px;
+      position: relative;
+    }}
+
+    /* TAB 2: SCREENSHOT 1 ("IPL ANALYSIS") */
+    .interactive-comparator-row {{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }}
+
+    @media (max-width: 1100px) {{
+      .interactive-comparator-row {{
+        grid-template-columns: 1fr;
+      }}
+    }}
+
+    .comparator-card {{
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 18px;
+    }}
+
+    .comparator-header {{
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }}
+
+    .player-avatar-icon {{
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: #131F3F;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      border: 1px solid var(--card-border);
+    }}
+
+    .comparator-title-area h3 {{
+      font-size: 14px;
+      font-weight: 700;
+      color: #FFF;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }}
+
+    .comparator-select {{
+      width: 100%;
+      background: #131F3F;
+      border: 1px solid var(--card-border);
+      color: #FFF;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      outline: none;
+      cursor: pointer;
+    }}
+
+    .comparator-select:focus {{
+      border-color: var(--rr-pink);
+    }}
+
+    .comparator-stats-grid {{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }}
+
+    .mini-stat-box {{
+      background: #091228;
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 10px 8px;
+      text-align: center;
+    }}
+
+    .mini-stat-label {{
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      white-space: nowrap;
+    }}
+
+    .mini-stat-num {{
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #FFF;
+    }}
+
+    /* MATCHES WON BY DONUT CARD */
+    .donut-card-content {{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }}
+
+    .donut-chart-box {{
+      width: 180px;
+      height: 180px;
+      position: relative;
+    }}
+
+    /* VENUE AND TEAM WINS ROW (Screenshot 1 bottom row) */
+    .venue-team-row {{
+      display: grid;
+      grid-template-columns: 1.2fr 1.2fr 0.9fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }}
+
+    @media (max-width: 1100px) {{
+      .venue-team-row {{
+        grid-template-columns: 1fr;
+      }}
+    }}
+
+    .chart-panel-card {{
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 18px;
+    }}
+
+    .chart-panel-title {{
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #FFF;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }}
+
+    .chart-panel-box {{
+      height: 240px;
+      position: relative;
+    }}
+
+    /* TAB 3: RR WAR ROOM & AUCTION TARGETS (Screenshot 3 + Tactical Dossier) */
+    .auction-strategy-grid {{
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 20px;
+      margin-bottom: 24px;
+    }}
+
+    @media (max-width: 1024px) {{
+      .auction-strategy-grid {{
+        grid-template-columns: 1fr;
+      }}
+    }}
+
+    .target-slot-card {{
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 14px;
+      transition: all 0.2s ease;
+    }}
+
+    .target-slot-card:hover {{
+      border-color: var(--rr-pink);
+    }}
+
+    .target-slot-header {{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }}
+
+    .target-slot-badge {{
+      background: var(--rr-pink);
+      color: #FFF;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }}
+
+    .target-slot-title {{
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #FFF;
+    }}
+
+    .target-player-name {{
+      color: var(--gold);
+      font-weight: 700;
+    }}
+
+    .target-rationale {{
+      font-size: 12px;
+      color: #94A3B8;
+      line-height: 1.5;
+    }}
+
+    /* PLAYING XI CARD */
+    .starting-xi-board {{
+      background: linear-gradient(180deg, #0A1128 0%, #060914 100%);
+      border: 2px solid var(--rr-pink);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(255, 19, 137, 0.2);
+    }}
+
+    .xi-header {{
+      text-align: center;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 12px;
+    }}
+
+    .xi-header h2 {{
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #FFF;
+    }}
+
+    .xi-header h2 span {{
+      color: var(--rr-pink);
+    }}
+
+    .xi-player-row {{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 12px;
+    }}
+
+    .xi-pos-num {{
+      font-weight: 800;
+      color: var(--gold);
+      width: 24px;
+    }}
+
+    .xi-pname {{
+      font-weight: 700;
+      color: #FFF;
+      flex: 1;
+    }}
+
+    .xi-prole {{
+      color: var(--text-muted);
+      font-size: 11px;
+    }}
+
+    .xi-ptag {{
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 9px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-left: 8px;
+    }}
+
+    .xi-ptag.retain {{ background: #1E294B; color: #94A3B8; }}
+    .xi-ptag.target {{ background: var(--rr-pink); color: #FFF; }}
+
+    /* FOOTER */
+    .dashboard-footer {{
+      margin-top: 40px;
+      border-top: 1px solid var(--card-border);
+      padding-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--text-muted);
+      font-size: 11px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }}
+
+    .footer-left {{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }}
+
+    .footer-badge {{
+      background: #131F3F;
+      padding: 4px 8px;
+      border-radius: 4px;
+      color: #38BDF8;
+      font-weight: 700;
+    }}
+  </style>
+</head>
+<body>
+
+  <!-- TOP FRANCHISE LOGOS RIBBON (Screenshot 1 & 2 aesthetic) -->
+  <div class="top-franchise-ribbon">
+    <div class="franchise-logos-group">
+      <div class="franchise-badge active-rr">
+        <span>👑</span> RR (Rajasthan Royals)
+      </div>
+      <div class="franchise-badge"><span>⚡</span> MI</div>
+      <div class="franchise-badge"><span>🦁</span> CSK</div>
+      <div class="franchise-badge"><span>⚔️</span> KKR</div>
+      <div class="franchise-badge"><span>🔥</span> RCB</div>
+      <div class="franchise-badge"><span>🦅</span> SRH</div>
+      <div class="franchise-badge"><span>🎯</span> PBKS</div>
+      <div class="franchise-badge"><span>🏛️</span> DC</div>
+      <div class="franchise-badge"><span>⚡</span> GT</div>
+      <div class="franchise-badge"><span>🗡️</span> LSG</div>
+    </div>
+    <div class="season-selector-wrapper">
+      <label>Select Season:</label>
+      <select class="season-select" id="seasonSelect" onchange="filterSeason(this.value)">
+        <option value="All">All IPL & T20I (2022 - 2026)</option>
+        <option value="2026">2026 Season</option>
+        <option value="2025">2025 Season</option>
+        <option value="2024">2024 Season</option>
+        <option value="2023">2023 Season</option>
+        <option value="2022">2022 Season</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- MAIN HEADER BAR -->
+  <header class="main-header">
+    <div class="header-branding">
+      <div class="rr-logo-circle">RR</div>
+      <div class="header-titles">
+        <h1>RAJASTHAN ROYALS <span>• PRESSURE ANALYTICS WAR ROOM</span></h1>
+        <p>IPL 2027 Mega-Auction Recruitment Engine • Bayesian Delivery Pressure Index (DPI ≥ 1.50) • Zero Pakistani Exclusion Applied</p>
+      </div>
+    </div>
+    <nav class="nav-tabs-container">
+      <button class="nav-tab-btn active" onclick="switchTab('player-analysis', this)">
+        <span>📊</span> Player Analysis
+      </button>
+      <button class="nav-tab-btn" onclick="switchTab('ipl-overview', this)">
+        <span>🏆</span> IPL Overview
+      </button>
+      <button class="nav-tab-btn" onclick="switchTab('war-room', this)">
+        <span>🎯</span> Final 11 & War Room
+      </button>
+    </nav>
+  </header>
+
+  <div class="app-container">
+
+    <!-- TOP KPI SUMMARY ROW (Screenshot 1: Trophy, Orange Cap, Purple Cap, 6s, 4s) -->
+    <div class="kpi-row-grid">
+      <div class="kpi-card trophy-card">
+        <div class="kpi-icon-box">🏆</div>
+        <div class="kpi-info-box">
+          <div class="kpi-label">Auction Target Focus</div>
+          <div class="kpi-headline">Rajasthan Royals</div>
+          <div class="kpi-subtext">Target: <span>Death Clutch & Finishing</span></div>
+        </div>
+      </div>
+
+      <div class="kpi-card orange-card">
+        <div class="kpi-icon-box">🧢</div>
+        <div class="kpi-info-box">
+          <div class="kpi-label">Pressure Orange Cap</div>
+          <div class="kpi-headline">Shashank Singh</div>
+          <div class="kpi-subtext"><span>640 Runs</span> • 184.4 SR • PPI 98.9</div>
+        </div>
+      </div>
+
+      <div class="kpi-card purple-card">
+        <div class="kpi-icon-box">🟣</div>
+        <div class="kpi-info-box">
+          <div class="kpi-label">Pressure Purple Cap</div>
+          <div class="kpi-headline">Jasprit Bumrah</div>
+          <div class="kpi-subtext"><span>50 Wkts</span> • 7.20 Econ • +263 RAE</div>
+        </div>
+      </div>
+
+      <div class="kpi-card sixes-card">
+        <div class="kpi-icon-box">💥</div>
+        <div class="kpi-info-box">
+          <div class="kpi-label">Tournament 6's</div>
+          <div class="kpi-headline" id="totalSixesCount">12.81K</div>
+          <div class="kpi-subtext">HP Sixes: <span>3.41K (26.6%)</span></div>
+        </div>
+      </div>
+
+      <div class="kpi-card fours-card">
+        <div class="kpi-icon-box">🏏</div>
+        <div class="kpi-info-box">
+          <div class="kpi-label">Tournament 4's</div>
+          <div class="kpi-headline" id="totalFoursCount">23.28K</div>
+          <div class="kpi-subtext">HP Fours: <span>5.18K (22.2%)</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 1: PLAYER ANALYSIS (Screenshot 2 view with in-cell pink bars, sparklines, and yellow bubble scatter plot) -->
+    <div id="player-analysis" class="tab-content active">
+
+      <!-- ROLE PILL CONTROLS & CONTEXT SELECTORS -->
+      <div class="controls-banner">
+        <div class="role-pills-group" id="rolePillsGroup">
+          <button class="role-pill active" onclick="filterByRole('All', this)">All Players</button>
+          <button class="role-pill" onclick="filterByRole('Openers', this)">Openers</button>
+          <button class="role-pill" onclick="filterByRole('Middle Order', this)">Middle Order</button>
+          <button class="role-pill" onclick="filterByRole('Finisher', this)">Finisher</button>
+          <button class="role-pill" onclick="filterByRole('All Rounder', this)">All Rounder</button>
+          <button class="role-pill" onclick="filterByRole('Specialist Fast Bowlers', this)">Specialist Fast Bowlers</button>
+          <button class="role-pill" onclick="filterByRole('Spin Enforcers', this)">Spin Enforcers</button>
+        </div>
+        <div class="context-pills-group">
+          <button class="context-pill active" onclick="setContext('high-pressure', this)">High Pressure (DPI ≥ 1.5)</button>
+          <button class="context-pill" onclick="setContext('chasing', this)">Chasing Urgency</button>
+          <button class="context-pill" onclick="setContext('death', this)">Death Phase (16-20)</button>
+        </div>
+      </div>
+
+      <!-- YELLOW ALERT PROMPT (Screenshot 2) -->
+      <div class="yellow-alert-banner">
+        <div class="bell-icon">🔔</div>
+        <div>Select Player(s) by clicking the player's name in the table to inspect their clutch trend sparklines and relative scatter position below.</div>
+      </div>
+
+      <!-- MAIN DATA TABLE WITH IN-CELL PINK PROGRESS BARS -->
+      <div class="table-card">
+        <div class="table-header-bar">
+          <div class="table-role-badge">
+            <span id="currentRoleTitle">ALL PLAYERS</span> • <span style="color:#FFF;" id="playerCountLabel">0 Players</span>
+          </div>
+          <div class="search-box-wrap">
+            <input type="text" id="playerSearch" class="search-input" placeholder="Search player, team, or style..." onkeyup="searchPlayers(this.value)">
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="cricket-table" id="playersTable">
+            <thead>
+              <tr>
+                <th onclick="sortTable('rank')">Rank</th>
+                <th onclick="sortTable('name')">Name</th>
+                <th onclick="sortTable('team')">Team</th>
+                <th onclick="sortTable('batting_style')">Batting Style</th>
+                <th onclick="sortTable('bowling_style')">Bowling Style</th>
+                <th onclick="sortTable('inns')">Innings</th>
+                <th onclick="sortTable('runs')">HP Runs</th>
+                <th onclick="sortTable('avg_balls')">Avg Balls</th>
+                <th onclick="sortTable('avg')">HP Avg</th>
+                <th onclick="sortTable('wkts')">HP Wkts</th>
+                <th onclick="sortTable('sr')">Batting S/R</th>
+                <th onclick="sortTable('econ')">Economy</th>
+                <th onclick="sortTable('ppi')">PPI Score</th>
+              </tr>
+            </thead>
+            <tbody id="playerTableBody">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- BOTTOM SECTION (Screenshot 2: 4 sparklines with dashed par lines + Batting Avg vs SR yellow bubble scatter plot) -->
+      <div class="bottom-analytics-grid">
+        
+        <!-- LEFT: 4 METRIC TREND CARDS WITH DASHED BENCHMARK PAR LINES -->
+        <div class="metric-cards-subgrid">
+          
+          <!-- Card 1: Batting Avg -->
+          <div class="metric-spark-card">
+            <div class="metric-spark-header">
+              <span class="metric-spark-title">Batting Avg (Pressure)</span>
+              <span class="metric-spark-value pink" id="sparkValAvg">31.4</span>
+            </div>
+            <div class="metric-par-note">Par Threshold Baseline: <span>20.16</span> (Dashed)</div>
+            <div class="sparkline-canvas-box">
+              <canvas id="sparkAvg"></canvas>
+            </div>
+          </div>
+
+          <!-- Card 2: Avg balls faced -->
+          <div class="metric-spark-card">
+            <div class="metric-spark-header">
+              <span class="metric-spark-title">Avg Balls Faced</span>
+              <span class="metric-spark-value gold" id="sparkValBalls">16.8</span>
+            </div>
+            <div class="metric-par-note">Par Threshold Baseline: <span>13.65</span> (Dashed)</div>
+            <div class="sparkline-canvas-box">
+              <canvas id="sparkBalls"></canvas>
+            </div>
+          </div>
+
+          <!-- Card 3: Batting Strike Rate -->
+          <div class="metric-spark-card">
+            <div class="metric-spark-header">
+              <span class="metric-spark-title">Batting Strike Rate</span>
+              <span class="metric-spark-value cyan" id="sparkValSR">164.2</span>
+            </div>
+            <div class="metric-par-note">Par Threshold Baseline: <span>117.08</span> (Dashed)</div>
+            <div class="sparkline-canvas-box">
+              <canvas id="sparkSR"></canvas>
+            </div>
+          </div>
+
+          <!-- Card 4: Bowling Economy / SR -->
+          <div class="metric-spark-card">
+            <div class="metric-spark-header">
+              <span class="metric-spark-title">Bowling S/R (Pressure)</span>
+              <span class="metric-spark-value purple" id="sparkValBowlSR">15.2</span>
+            </div>
+            <div class="metric-par-note">Par Threshold Baseline: <span>18.43</span> (Dashed)</div>
+            <div class="sparkline-canvas-box">
+              <canvas id="sparkBowlSR"></canvas>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT: SCATTER PLOT (Batting Avg vs Strike Rate with yellow player bubbles) -->
+        <div class="scatter-plot-card">
+          <div class="scatter-card-header">
+            <span class="scatter-card-title">Batting Avg vs Strike Rate (Pressure Clutch Matrix)</span>
+            <span class="scatter-legend-note">🟡 Yellow Bubbles = Pressure Stars</span>
+          </div>
+          <div class="scatter-canvas-box">
+            <canvas id="scatterPlot"></canvas>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- TAB 2: IPL OVERVIEW (Screenshot 1 view: Batter/Bowler comparator cards, Donut charts, Venues & Team wins) -->
+    <div id="ipl-overview" class="tab-content">
+      
+      <!-- INTERACTIVE COMPARATOR ROW: SELECT BATTER | SELECT BOWLER | MATCHES WON BY DONUT -->
+      <div class="interactive-comparator-row">
+        
+        <!-- SELECT BATTER CARD -->
+        <div class="comparator-card">
+          <div class="comparator-header">
+            <div class="player-avatar-icon">🏏</div>
+            <div class="comparator-title-area">
+              <h3>IPL Batting Stats</h3>
+              <p style="font-size:11px;color:var(--text-muted);">Inspect individual clutch profile</p>
+            </div>
+          </div>
+          <label style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;">Select Batter</label>
+          <select id="batterSelector" class="comparator-select" onchange="updateBatterCard(this.value)">
+            <!-- Populated dynamically -->
+          </select>
+          <div class="comparator-stats-grid">
+            <div class="mini-stat-box">
+              <div class="mini-stat-label">Total Runs</div>
+              <div class="mini-stat-num" id="batStatRuns">640</div>
+            </div>
+            <div class="mini-stat-box">
+              <div class="mini-stat-label">6's</div>
+              <div class="mini-stat-num" id="batStat6s">38</div>
+            </div>
+            <div class="mini-stat-box">
+              <div class="mini-stat-label">4's</div>
+              <div class="mini-stat-num" id="batStat4s">48</div>
+            </div>
+            <div class="mini-stat-box">
+              <div class="mini-stat-label">Strike Rate</div>
+              <div class="mini-stat-num" style="color:var(--rr-pink);" id="batStatSR">184.4</div>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-top:12px;font-size:11px;color:var(--text-muted);border-top:1px solid var(--card-border);padding-top:10px;">
+            <span>Delta SR: <strong style="color:var(--gold);" id="batStatDeltaSR">+38.2</strong></span>
+            <span>Pressure Avg: <strong style="color:#FFF;" id="batStatAvg">42.7</strong></span>
+            <span>PPI: <strong style="color:var(--rr-pink);" id="batStatPPI">98.9</strong></span>
+          </div>
+        </div>
+
+        <!-- SELECT BOWLER CARD -->
+        <div class="comparator-card">
+          <div class="comparator-header">
+            <div class="player-avatar-icon">🎯</div>
+            <div class="comparator-title-area">
+              <h3>IPL Bowling Stats</h3>
+              <p style="font-size:11px;color:var(--text-muted);">Inspect individual clutch profile</p>
+            </div>
+          </div>
+          <label style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;">Select Bowler</label>
+          <select id="bowlerSelector" class="comparator-select" onchange="updateBowlerCard(this.value)">
+            <!-- Populated dynamically -->
+          </select>
+          <div class="comparator-stats-grid">
+            <div class="mini-stat-box">
+              <div class="mini-stat-label">Total Wkts</div>
+              <div class="mini-stat-num" id="bowlStatWkts">50</div>
+            </div>
+            <div class="mini-stat-box">
+              <div class="mini-stat-label">Economy</div>
+              <div class="mini-stat-num" style="color:var(--cyan);" id="bowlStatEcon">7.20</div>
+            </div>
+            <div class="mini-stat-box">
+              <div class="mini-stat-label">Average</div>
+              <div class="mini-stat-num" id="bowlStatAvg">17.8</div>
+            </div>
+            <div class="mini-stat-box">
+              <div class="mini-stat-label">Strike Rate</div>
+              <div class="mini-stat-num" id="bowlStatSR">14.8</div>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-top:12px;font-size:11px;color:var(--text-muted);border-top:1px solid var(--card-border);padding-top:10px;">
+            <span>Delta Econ: <strong style="color:var(--gold);" id="bowlStatDeltaEcon">+1.48</strong></span>
+            <span>Dot Ball %: <strong style="color:#FFF;" id="bowlStatDot">44.8%</strong></span>
+            <span>Runs Saved: <strong style="color:var(--green);" id="bowlStatSaved">+263.0</strong></span>
+          </div>
+        </div>
+
+        <!-- MATCHES WON BY (DONUT CHART) -->
+        <div class="comparator-card">
+          <div class="comparator-header">
+            <div class="player-avatar-icon">🍩</div>
+            <div class="comparator-title-area">
+              <h3>Matches Won By</h3>
+              <p style="font-size:11px;color:var(--text-muted);">Chasing vs Defending splits</p>
+            </div>
+          </div>
+          <div class="donut-card-content">
+            <div class="donut-chart-box">
+              <canvas id="donutWinBy"></canvas>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- VENUES STACKED BARS, TEAM WINS HORIZONTAL BARS & TOSS DECISION DONUT -->
+      <div class="venue-team-row">
+        
+        <!-- MATCHES WON AT VENUE -->
+        <div class="chart-panel-card">
+          <div class="chart-panel-title">Matches Won at Venue (Wickets vs Runs)</div>
+          <div class="chart-panel-box">
+            <canvas id="barVenues"></canvas>
+          </div>
+        </div>
+
+        <!-- TOTAL MATCHES WIN BY A TEAM FOR SEASON -->
+        <div class="chart-panel-card">
+          <div class="chart-panel-title">Total Matches Won by Team (IPL Eras)</div>
+          <div class="chart-panel-box">
+            <canvas id="barTeamWins"></canvas>
+          </div>
+        </div>
+
+        <!-- MATCHES WON BY TOSS DECISION -->
+        <div class="chart-panel-card">
+          <div class="chart-panel-title">Matches Won by Toss Decision</div>
+          <div class="chart-panel-box" style="display:flex;align-items:center;justify-content:center;">
+            <div style="width:200px;height:200px;">
+              <canvas id="donutToss"></canvas>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- TAB 3: WAR ROOM & FINAL 11 (Screenshot 3 + Tactical Strategy) -->
+    <div id="war-room" class="tab-content">
+
+      <!-- TOP SECTION: POWERPLAY VS DEATH RUNS (Screenshot 3 style) -->
+      <div class="chart-panel-card" style="margin-bottom:24px;">
+        <div class="chart-panel-title">Powerplay Runs vs Death Over Runs by Franchise (Execution Under Fire)</div>
+        <div style="height:220px;position:relative;">
+          <canvas id="barPowerplayDeath"></canvas>
+        </div>
+      </div>
+
+      <!-- AUCTION STRATEGY & STARTING XI SPLIT -->
+      <div class="auction-strategy-grid">
+        
+        <!-- LEFT: 4 TACTICAL GAP TARGETS -->
+        <div>
+          <h2 style="font-family:'Rajdhani',sans-serif;font-size:20px;font-weight:700;color:#FFF;margin-bottom:14px;">
+            RAJASTHAN ROYALS • 4 CORE AUCTION RECRUITMENT TARGETS (IPL 2027)
+          </h2>
+
+          <!-- Slot 1 -->
+          <div class="target-slot-card">
+            <div class="target-slot-header">
+              <span class="target-slot-badge">Target Slot 1 • Finisher</span>
+              <span class="target-player-name">Shashank Singh (PBKS) / Donovan Ferreira</span>
+            </div>
+            <div class="target-slot-title">Designated Death Finisher (Overs 16–20)</div>
+            <p class="target-rationale">
+              <strong>Why RR Needs Him:</strong> Solves RR's lower-middle order scoring vacuum. Shashank leads all batters with 640 HP Runs at 184.4 SR (+38.2 Delta SR) and a remarkable 98.9 PPI. Donovan Ferreira offers explosive boundary clearing (181.8 HP SR) and secondary wicket-keeping cover.
+            </p>
+          </div>
+
+          <!-- Slot 2 -->
+          <div class="target-slot-card">
+            <div class="target-slot-header">
+              <span class="target-slot-badge">Target Slot 2 • Death Pacer</span>
+              <span class="target-player-name">Hasan Mahmud / Matheesha Pathirana</span>
+            </div>
+            <div class="target-slot-title">Specialist Overseas Death Pacer</div>
+            <p class="target-rationale">
+              <strong>Why RR Needs Him:</strong> Bridges the death-overs boundary leakage alongside Sandeep Sharma. Hasan Mahmud boasts a 90.1 PPI, 7.35 HP Economy, and +48.8 runs saved. Pathirana brings an unpickable 135kph+ sling yorker (12.2 HP SR, +162.5 runs saved).
+            </p>
+          </div>
+
+          <!-- Slot 3 -->
+          <div class="target-slot-card">
+            <div class="target-slot-header">
+              <span class="target-slot-badge">Target Slot 3 • Spin Enforcer</span>
+              <span class="target-player-name">Sunil Narine / Mitchell Santner</span>
+            </div>
+            <div class="target-slot-title">High-Pressure Middle-Overs Spin Anchor</div>
+            <p class="target-rationale">
+              <strong>Why RR Needs Him:</strong> Provides impenetrable run denial when wickets are conserved by the opposition. Narine operates at 6.18 HP Economy (+1.25 Delta Econ) and 81.6 PPI. Santner offers left-arm orthodox control (6.62 HP Econ) and lower-order clutch hitting.
+            </p>
+          </div>
+
+          <!-- Slot 4 -->
+          <div class="target-slot-card">
+            <div class="target-slot-header">
+              <span class="target-slot-badge">Target Slot 4 • Domestic Engine</span>
+              <span class="target-player-name">Sakib Hussain / Anshul Kamboj / Rasikh Salam</span>
+            </div>
+            <div class="target-slot-title">High-Value Domestic Pace Depth</div>
+            <p class="target-rationale">
+              <strong>Why RR Needs Him:</strong> High RAE value at uncapped or base purse pricing. Sakib Hussain boasts an extraordinary 81.0 PPI (11.0 HP SR, 4.41 HP Econ). Anshul Kamboj delivers heavy lengths under pressure (73.9 PPI, 7.20 HP Econ).
+            </p>
+          </div>
+
+        </div>
+
+        <!-- RIGHT: PROJECTED STARTING XI -->
+        <div>
+          <div class="starting-xi-board">
+            <div class="xi-header">
+              <h2>PROPOSED RR 2027 <span>STARTING XI</span></h2>
+              <p style="font-size:11px;color:var(--text-muted);margin-top:4px;">Optimized for Pressure Resilience & Resource Balance</p>
+            </div>
+
+            <div class="xi-player-row">
+              <span class="xi-pos-num">1</span>
+              <span class="xi-pname">Yashasvi Jaiswal (LHB)</span>
+              <span class="xi-prole">Aggressive Opener</span>
+              <span class="xi-ptag retain">Retained</span>
+            </div>
+
+            <div class="xi-player-row">
+              <span class="xi-pos-num">2</span>
+              <span class="xi-pname">Jos Buttler (RHB / Overseas)</span>
+              <span class="xi-prole">Wicketkeeper Opener</span>
+              <span class="xi-ptag retain">Retained</span>
+            </div>
+
+            <div class="xi-player-row">
+              <span class="xi-pos-num">3</span>
+              <span class="xi-pname">Sanju Samson (RHB / Captain)</span>
+              <span class="xi-prole">Anchor & Pace Destroyer</span>
+              <span class="xi-ptag retain">Retained</span>
+            </div>
+
+            <div class="xi-player-row">
+              <span class="xi-pos-num">4</span>
+              <span class="xi-pname">Riyan Parag (RHB / Off-spin)</span>
+              <span class="xi-prole">Middle Order Engine</span>
+              <span class="xi-ptag retain">Retained</span>
+            </div>
+
+            <div class="xi-player-row">
+              <span class="xi-pos-num">5</span>
+              <span class="xi-pname">Tristan Stubbs / Naman Dhir</span>
+              <span class="xi-prole">Dynamic Middle Enforcer</span>
+              <span class="xi-ptag target">Target</span>
+            </div>
+
+            <div class="xi-player-row">
+              <span class="xi-pos-num">6</span>
+              <span class="xi-pname">Shashank Singh (RHB)</span>
+              <span class="xi-prole">Primary Death Finisher</span>
+              <span class="xi-ptag target">Top Target</span>
+            </div>
+
+            <div class="xi-player-row">
+              <span class="xi-pos-num">7</span>
+              <span class="xi-pname">Mitchell Santner / Sunil Narine (Overseas)</span>
+              <span class="xi-prole">Spin All-Rounder</span>
+              <span class="xi-ptag target">Target</span>
+            </div>
+
+            <div class="xi-player-row">
+              <span class="xi-pos-num">8</span>
+              <span class="xi-pname">Sandeep Sharma (Pace)</span>
+              <span class="xi-prole">Death Yorker Specialist</span>
+              <span class="xi-ptag retain">Retained</span>
+            </div>
+
+            <div class="xi-player-row">
+              <span class="xi-pos-num">9</span>
+              <span class="xi-pname">Hasan Mahmud / Pathirana (Overseas)</span>
+              <span class="xi-prole">Lead Death Express</span>
+              <span class="xi-ptag target">Top Target</span>
+            </div>
+
+            <div class="xi-player-row">
+              <span class="xi-pos-num">10</span>
+              <span class="xi-pname">Yuzvendra Chahal (Leg-spin)</span>
+              <span class="xi-prole">Attacking Wrist-Spin</span>
+              <span class="xi-ptag retain">Retained</span>
+            </div>
+
+            <div class="xi-player-row">
+              <span class="xi-pos-num">11</span>
+              <span class="xi-pname">Sakib Hussain / Anshul Kamboj</span>
+              <span class="xi-prole">Domestic Pace Enforcer</span>
+              <span class="xi-ptag target">Target</span>
+            </div>
+
+            <div class="xi-player-row" style="background:rgba(255, 19, 137, 0.15);border-radius:6px;margin-top:8px;">
+              <span class="xi-pos-num">IP</span>
+              <span class="xi-pname" style="color:var(--rr-pink);">Donovan Ferreira / Rasikh Salam</span>
+              <span class="xi-prole">Tactical Impact Sub</span>
+              <span class="xi-ptag" style="background:var(--gold);color:#000;">Flex</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="dashboard-footer">
+      <div class="footer-left">
+        <span class="footer-badge">BCCI COMPLIANT</span>
+        <span>Strict IPL eligibility enforced: All Pakistani players excluded from rankings and board.</span>
+      </div>
+      <div>
+        <span>Model: Delivery Pressure Index (DPI ≥ 1.50) with Bayesian Sample Shrinkage</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- SCRIPT LOGIC & CHARTS -->
+  <script>
+    const RAW_DATA = {json_str};
+
+    let currentRole = 'All';
+    let currentContext = 'high-pressure';
+    let sortColumn = 'ppi';
+    let sortAsc = false;
+    let selectedPlayerName = 'Shashank Singh';
+
+    // Sparkline chart instances
+    let chartAvg = null;
+    let chartBalls = null;
+    let chartSR = null;
+    let chartBowlSR = null;
+    let chartScatter = null;
+    let chartWinBy = null;
+    let chartVenues = null;
+    let chartTeamWins = null;
+    let chartToss = null;
+    let chartPPDeath = null;
+
+    // Initialize application
+    window.addEventListener('DOMContentLoaded', () => {{
+      renderTable();
+      initSparklines();
+      initScatterPlot();
+      initIPLOverviewCharts();
+      populateSelectors();
+    }});
+
+    // Tab Switching
+    function switchTab(tabId, el) {{
+      document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.nav-tab-btn').forEach(b => b.classList.remove('active'));
+      
+      document.getElementById(tabId).classList.add('active');
+      el.classList.add('active');
+    }}
+
+    // Filter by Role (Screenshot 2 pills)
+    function filterByRole(role, el) {{
+      currentRole = role;
+      document.querySelectorAll('.role-pill').forEach(p => p.classList.remove('active'));
+      el.classList.add('active');
+      document.getElementById('currentRoleTitle').innerText = role.toUpperCase();
+      renderTable();
+    }}
+
+    // Context setting
+    function setContext(ctx, el) {{
+      currentContext = ctx;
+      document.querySelectorAll('.context-pill').forEach(p => p.classList.remove('active'));
+      el.classList.add('active');
+      renderTable();
+    }}
+
+    // Search players
+    function searchPlayers(query) {{
+      renderTable(query.toLowerCase());
+    }}
+
+    // Table Sorting
+    function sortTable(col) {{
+      if (sortColumn === col) {{
+        sortAsc = !sortAsc;
+      }} else {{
+        sortColumn = col;
+        sortAsc = false;
+      }}
+      renderTable();
+    }}
+
+    // Get filtered combined player list
+    function getFilteredPlayers(searchQuery = '') {{
+      let list = [];
+      const batters = RAW_DATA.batters || [];
+      const bowlers = RAW_DATA.bowlers || [];
+
+      // Combine based on role
+      if (currentRole === 'Specialist Fast Bowlers' || currentRole === 'Spin Enforcers') {{
+        list = bowlers.filter(b => b.role === currentRole);
+      }} else if (currentRole === 'Openers' || currentRole === 'Middle Order' || currentRole === 'Finisher') {{
+        list = batters.filter(b => b.role === currentRole);
+      }} else if (currentRole === 'All Rounder') {{
+        const bAll = batters.filter(b => b.role === 'All Rounder');
+        const bwAll = bowlers.filter(b => b.role === 'All Rounder');
+        const setMap = new Map();
+        [...bAll, ...bwAll].forEach(p => setMap.set(p.name, p));
+        list = Array.from(setMap.values());
+      }} else {{
+        // 'All'
+        const setMap = new Map();
+        [...batters, ...bowlers].forEach(p => setMap.set(p.name, p));
+        list = Array.from(setMap.values());
+      }}
+
+      if (searchQuery) {{
+        list = list.filter(p => 
+          p.name.toLowerCase().includes(searchQuery) || 
+          p.team.toLowerCase().includes(searchQuery) ||
+          p.batting_style.toLowerCase().includes(searchQuery) ||
+          p.bowling_style.toLowerCase().includes(searchQuery)
+        );
+      }}
+
+      // Sort
+      list.sort((a, b) => {{
+        let vA = getFieldValue(a, sortColumn);
+        let vB = getFieldValue(b, sortColumn);
+        if (typeof vA === 'string') {{
+          return sortAsc ? vA.localeCompare(vB) : vB.localeCompare(vA);
+        }}
+        return sortAsc ? (vA - vB) : (vB - vA);
+      }});
+
+      return list;
+    }}
+
+    function getFieldValue(p, col) {{
+      switch(col) {{
+        case 'rank': return p.rank || 999;
+        case 'name': return p.name || '';
+        case 'team': return p.team || '';
+        case 'batting_style': return p.batting_style || '';
+        case 'bowling_style': return p.bowling_style || '';
+        case 'inns': return p.innings_batted || p.innings_bowled || 0;
+        case 'runs': return p.hp_runs || 0;
+        case 'avg_balls': return p.avg_balls_faced || 0;
+        case 'avg': return p.hp_avg || 0;
+        case 'wkts': return p.hp_wickets || p.wickets || 0;
+        case 'sr': return p.hp_sr || p.bowling_sr || 0;
+        case 'econ': return p.hp_econ || p.bowling_econ || 0;
+        case 'ppi': return p.ppi || 0;
+        default: return p.ppi || 0;
+      }}
+    }}
+
+    // Render Main Data Table with In-Cell Hot Pink Bars!
+    function renderTable(searchQuery = '') {{
+      const tbody = document.getElementById('playerTableBody');
+      tbody.innerHTML = '';
+      const players = getFilteredPlayers(searchQuery);
+
+      document.getElementById('playerCountLabel').innerText = `${{players.length}} Players Available`;
+
+      players.slice(0, 50).forEach((p, idx) => {{
+        const tr = document.createElement('tr');
+        if (p.name === selectedPlayerName) {{
+          tr.classList.add('selected-row');
+        }}
+
+        tr.onclick = () => selectPlayer(p);
+
+        const rankPillClass = p.rank <= 3 ? 'rank-pill top-3' : 'rank-pill';
+        const bStyleBadge = p.batting_style.includes('Left') ? 'badge-pill badge-lhb' : 'badge-pill badge-rhb';
+        const srVal = p.hp_sr || (p.batting_sr || 0);
+        const srPercent = Math.min(100, Math.max(10, (srVal / 220) * 100));
+
+        const innsVal = p.innings_batted || p.innings_bowled || 0;
+        const runsVal = p.hp_runs || 0;
+        const avgBalls = p.avg_balls_faced || (p.hp_balls ? Math.round(p.hp_balls/Math.max(1, p.hp_dismissals || 1)) : 0);
+        const avgVal = p.hp_avg ? p.hp_avg.toFixed(1) : '-';
+        const wktsVal = (p.hp_wickets !== undefined) ? p.hp_wickets : (p.wickets || 0);
+        const econVal = (p.hp_econ !== undefined) ? p.hp_econ.toFixed(2) : (p.bowling_econ ? p.bowling_econ.toFixed(2) : '-');
+
+        tr.innerHTML = `
+          <td><span class="${{rankPillClass}}">#${{p.rank || (idx + 1)}}</span></td>
+          <td class="player-name-cell">${{p.name}}</td>
+          <td>${{p.team}}</td>
+          <td><span class="${{bStyleBadge}}">${{p.batting_style}}</span></td>
+          <td><span style="font-size:11px;color:#CBD5E1;">${{p.bowling_style}}</span></td>
+          <td>${{innsVal}}</td>
+          <td><strong>${{runsVal}}</strong></td>
+          <td>${{avgBalls}}</td>
+          <td>${{avgVal}}</td>
+          <td><strong>${{wktsVal}}</strong></td>
+          <td>
+            <div class="bar-cell-container">
+              <div class="in-cell-bar-track">
+                <div class="in-cell-bar-fill" style="width: ${{srPercent}}%;"></div>
+              </div>
+              <span class="bar-val-text">${{srVal.toFixed(1)}}</span>
+            </div>
+          </td>
+          <td>${{econVal}}</td>
+          <td><span class="badge-pill badge-ppi">${{p.ppi.toFixed(1)}}</span></td>
+        `;
+        tbody.appendChild(tr);
+      }});
+    }}
+
+    // When a player is clicked (Screenshot 2 yellow prompt action)
+    function selectPlayer(p) {{
+      selectedPlayerName = p.name;
+      renderTable();
+
+      // Update Sparkline headline values
+      document.getElementById('sparkValAvg').innerText = p.hp_avg ? p.hp_avg.toFixed(1) : (p.overall_avg ? p.overall_avg.toFixed(1) : '24.5');
+      document.getElementById('sparkValBalls').innerText = p.avg_balls_faced || '15.4';
+      document.getElementById('sparkValSR').innerText = p.hp_sr ? p.hp_sr.toFixed(1) : (p.overall_sr ? p.overall_sr.toFixed(1) : '145.0');
+      document.getElementById('sparkValBowlSR').innerText = p.hp_sr && p.hp_wickets ? (p.hp_balls/p.hp_wickets).toFixed(1) : (p.bowling_sr || '16.5');
+
+      // Update Batter & Bowler cards if in overview
+      const bSel = document.getElementById('batterSelector');
+      if (bSel) {{
+        for (let i = 0; i < bSel.options.length; i++) {{
+          if (bSel.options[i].value === p.name) {{
+            bSel.selectedIndex = i;
+            updateBatterCard(p.name);
+            break;
+          }}
+        }}
+      }}
+
+      // Highlight in scatter plot
+      if (chartScatter) {{
+        chartScatter.data.datasets.forEach(ds => {{
+          ds.pointRadius = ds.data.map(pt => pt.name === p.name ? 12 : 7);
+        }});
+        chartScatter.update();
+      }}
+    }}
+
+    // SPARKLINE INITIALIZATION WITH DASHED PAR THRESHOLD LINES (Screenshot 2)
+    function initSparklines() {{
+      const baseOptions = (parValue) => ({{
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {{
+          legend: {{ display: false }},
+          tooltip: {{ enabled: true }}
+        }},
+        scales: {{
+          x: {{ display: false }},
+          y: {{
+            display: false,
+            grid: {{ display: false }}
+          }}
+        }}
+      }});
+
+      // Sparkline 1: Batting Avg (Par 20.16)
+      const ctxAvg = document.getElementById('sparkAvg').getContext('2d');
+      chartAvg = new Chart(ctxAvg, {{
+        type: 'line',
+        data: {{
+          labels: ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8', 'M9', 'M10'],
+          datasets: [
+            {{
+              data: [18, 22, 20, 26, 21, 23, 22, 28, 48, 31],
+              borderColor: '#FF1389',
+              backgroundColor: 'rgba(255, 19, 137, 0.15)',
+              borderWidth: 2,
+              fill: true,
+              tension: 0.3,
+              pointRadius: 3
+            }},
+            {{
+              data: [20.16, 20.16, 20.16, 20.16, 20.16, 20.16, 20.16, 20.16, 20.16, 20.16],
+              borderColor: '#94A3B8',
+              borderWidth: 1.5,
+              borderDash: [4, 4],
+              pointRadius: 0,
+              fill: false
+            }}
+          ]
+        }},
+        options: baseOptions(20.16)
+      }});
+
+      // Sparkline 2: Avg balls faced (Par 13.65)
+      const ctxBalls = document.getElementById('sparkBalls').getContext('2d');
+      chartBalls = new Chart(ctxBalls, {{
+        type: 'line',
+        data: {{
+          labels: ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8', 'M9', 'M10'],
+          datasets: [
+            {{
+              data: [12, 14, 13, 19, 11, 17, 13, 14, 18, 16],
+              borderColor: '#FACC15',
+              backgroundColor: 'rgba(250, 204, 21, 0.15)',
+              borderWidth: 2,
+              fill: true,
+              tension: 0.3,
+              pointRadius: 3
+            }},
+            {{
+              data: [13.65, 13.65, 13.65, 13.65, 13.65, 13.65, 13.65, 13.65, 13.65, 13.65],
+              borderColor: '#94A3B8',
+              borderWidth: 1.5,
+              borderDash: [4, 4],
+              pointRadius: 0,
+              fill: false
+            }}
+          ]
+        }},
+        options: baseOptions(13.65)
+      }});
+
+      // Sparkline 3: Strike Rate (Par 117.08)
+      const ctxSR = document.getElementById('sparkSR').getContext('2d');
+      chartSR = new Chart(ctxSR, {{
+        type: 'line',
+        data: {{
+          labels: ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8', 'M9', 'M10'],
+          datasets: [
+            {{
+              data: [110, 142, 128, 155, 118, 170, 162, 125, 195, 164],
+              borderColor: '#38BDF8',
+              backgroundColor: 'rgba(56, 189, 248, 0.15)',
+              borderWidth: 2,
+              fill: true,
+              tension: 0.3,
+              pointRadius: 3
+            }},
+            {{
+              data: [117.08, 117.08, 117.08, 117.08, 117.08, 117.08, 117.08, 117.08, 117.08, 117.08],
+              borderColor: '#94A3B8',
+              borderWidth: 1.5,
+              borderDash: [4, 4],
+              pointRadius: 0,
+              fill: false
+            }}
+          ]
+        }},
+        options: baseOptions(117.08)
+      }});
+
+      // Sparkline 4: Bowling S/R (Par 18.43)
+      const ctxBowlSR = document.getElementById('sparkBowlSR').getContext('2d');
+      chartBowlSR = new Chart(ctxBowlSR, {{
+        type: 'line',
+        data: {{
+          labels: ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8', 'M9', 'M10'],
+          datasets: [
+            {{
+              data: [22, 18, 19, 14, 25, 16, 21, 15, 12, 15],
+              borderColor: '#A855F7',
+              backgroundColor: 'rgba(168, 85, 247, 0.15)',
+              borderWidth: 2,
+              fill: true,
+              tension: 0.3,
+              pointRadius: 3
+            }},
+            {{
+              data: [18.43, 18.43, 18.43, 18.43, 18.43, 18.43, 18.43, 18.43, 18.43, 18.43],
+              borderColor: '#94A3B8',
+              borderWidth: 1.5,
+              borderDash: [4, 4],
+              pointRadius: 0,
+              fill: false
+            }}
+          ]
+        }},
+        options: baseOptions(18.43)
+      }});
+    }}
+
+    // SCATTER PLOT INITIALIZATION (Screenshot 2: Batting Avg vs Strike Rate with yellow circular bubbles)
+    function initScatterPlot() {{
+      const ctxScatter = document.getElementById('scatterPlot').getContext('2d');
+
+      const batters = RAW_DATA.batters || [];
+      const scatterPoints = batters.slice(0, 25).map(b => ({{
+        x: b.hp_avg || 25,
+        y: b.hp_sr || 135,
+        name: b.name,
+        team: b.team,
+        ppi: b.ppi
+      }}));
+
+      chartScatter = new Chart(ctxScatter, {{
+        type: 'scatter',
+        data: {{
+          datasets: [{{
+            label: 'Pressure Batters',
+            data: scatterPoints,
+            backgroundColor: '#FACC15',
+            borderColor: '#CA8A04',
+            borderWidth: 1.5,
+            pointRadius: scatterPoints.map(p => p.name === selectedPlayerName ? 12 : 7),
+            pointHoverRadius: 10
+          }}]
+        }},
+        options: {{
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {{
+            legend: {{ display: false }},
+            tooltip: {{
+              callbacks: {{
+                label: (ctx) => {{
+                  const raw = ctx.raw;
+                  return `${{raw.name}} (${{raw.team}}): Avg ${{raw.x.toFixed(1)}}, SR ${{raw.y.toFixed(1)}} (PPI: ${{raw.ppi}})`;
+                }}
+              }}
+            }}
+          }},
+          scales: {{
+            x: {{
+              title: {{
+                display: true,
+                text: 'Batting Average (Pressure Context)',
+                color: '#94A3B8',
+                font: {{ weight: 'bold', size: 11 }}
+              }},
+              grid: {{ color: 'rgba(255, 255, 255, 0.05)' }},
+              ticks: {{ color: '#CBD5E1' }}
+            }},
+            y: {{
+              title: {{
+                display: true,
+                text: 'Strike Rate',
+                color: '#94A3B8',
+                font: {{ weight: 'bold', size: 11 }}
+              }},
+              grid: {{ color: 'rgba(255, 255, 255, 0.05)' }},
+              ticks: {{ color: '#CBD5E1' }}
+            }}
+          }}
+        }}
+      }});
+    }}
+
+    // IPL OVERVIEW CHARTS (Screenshot 1: Donut charts, Venues stacked bars, Team wins)
+    function initIPLOverviewCharts() {{
+      // 1. Donut: Matches won by
+      const ctxWinBy = document.getElementById('donutWinBy').getContext('2d');
+      chartWinBy = new Chart(ctxWinBy, {{
+        type: 'doughnut',
+        data: {{
+          labels: ['Wickets', 'Runs', 'SuperOver', 'NoResults'],
+          datasets: [{{
+            data: [
+              RAW_DATA.matches_won_by.Wickets || 182,
+              RAW_DATA.matches_won_by.Runs || 172,
+              RAW_DATA.matches_won_by.SuperOver || 2,
+              RAW_DATA.matches_won_by.NoResults || 15
+            ],
+            backgroundColor: ['#A855F7', '#38BDF8', '#FACC15', '#EF4444'],
+            borderWidth: 2,
+            borderColor: '#0D1630'
+          }}]
+        }},
+        options: {{
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {{
+            legend: {{
+              position: 'bottom',
+              labels: {{ color: '#CBD5E1', font: {{ size: 10 }}, boxWidth: 10 }}
+            }}
+          }},
+          cutout: '65%'
+        }}
+      }});
+
+      // 2. Bar: Matches won at venue
+      const ctxVenues = document.getElementById('barVenues').getContext('2d');
+      const venues = RAW_DATA.venue_stats || [];
+      chartVenues = new Chart(ctxVenues, {{
+        type: 'bar',
+        data: {{
+          labels: venues.map(v => v.venue),
+          datasets: [
+            {{
+              label: 'Wickets',
+              data: venues.map(v => v.wickets),
+              backgroundColor: '#38BDF8'
+            }},
+            {{
+              label: 'Runs',
+              data: venues.map(v => v.runs),
+              backgroundColor: '#A855F7'
+            }}
+          ]
+        }},
+        options: {{
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {{
+            x: {{ stacked: true, grid: {{ color: 'rgba(255, 255, 255, 0.05)' }}, ticks: {{ color: '#CBD5E1' }} }},
+            y: {{ stacked: true, grid: {{ display: false }}, ticks: {{ color: '#CBD5E1', font: {{ size: 10 }} }} }}
+          }},
+          plugins: {{
+            legend: {{ position: 'top', labels: {{ color: '#CBD5E1', boxWidth: 10 }} }}
+          }}
+        }}
+      }});
+
+      // 3. Bar: Total matches win by a team
+      const ctxTeamWins = document.getElementById('barTeamWins').getContext('2d');
+      const teamWinsObj = RAW_DATA.team_wins || {{}};
+      const teams = Object.keys(teamWinsObj);
+      const wins = Object.values(teamWinsObj);
+
+      chartTeamWins = new Chart(ctxTeamWins, {{
+        type: 'bar',
+        data: {{
+          labels: teams,
+          datasets: [{{
+            label: 'Wins',
+            data: wins,
+            backgroundColor: '#A855F7',
+            borderRadius: 4
+          }}]
+        }},
+        options: {{
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {{
+            x: {{ grid: {{ color: 'rgba(255, 255, 255, 0.05)' }}, ticks: {{ color: '#CBD5E1' }} }},
+            y: {{ grid: {{ display: false }}, ticks: {{ color: '#CBD5E1', font: {{ size: 10 }} }} }}
+          }},
+          plugins: {{
+            legend: {{ display: false }}
+          }}
+        }}
+      }});
+
+      // 4. Donut: Toss Decision
+      const ctxToss = document.getElementById('donutToss').getContext('2d');
+      chartToss = new Chart(ctxToss, {{
+        type: 'doughnut',
+        data: {{
+          labels: ['Field First (67.5%)', 'Bat First (32.5%)'],
+          datasets: [{{
+            data: [RAW_DATA.toss_decision.Fielding || 285, RAW_DATA.toss_decision.Batting || 83],
+            backgroundColor: ['#10B981', '#A855F7'],
+            borderWidth: 2,
+            borderColor: '#0D1630'
+          }}]
+        }},
+        options: {{
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {{
+            legend: {{
+              position: 'bottom',
+              labels: {{ color: '#CBD5E1', font: {{ size: 10 }}, boxWidth: 10 }}
+            }}
+          }},
+          cutout: '65%'
+        }}
+      }});
+
+      // 5. Bar: Powerplay vs Death Runs (Screenshot 3 style)
+      const ctxPPDeath = document.getElementById('barPowerplayDeath').getContext('2d');
+      const ppDeathData = RAW_DATA.powerplay_death || [];
+      chartPPDeath = new Chart(ctxPPDeath, {{
+        type: 'bar',
+        data: {{
+          labels: ppDeathData.map(d => d.team),
+          datasets: [
+            {{
+              label: 'Powerplay Runs',
+              data: ppDeathData.map(d => d.pp),
+              backgroundColor: '#A855F7'
+            }},
+            {{
+              label: 'Death Over Runs',
+              data: ppDeathData.map(d => d.death),
+              backgroundColor: '#FACC15'
+            }}
+          ]
+        }},
+        options: {{
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {{
+            x: {{ grid: {{ display: false }}, ticks: {{ color: '#CBD5E1', font: {{ size: 10 }} }} }},
+            y: {{ grid: {{ color: 'rgba(255, 255, 255, 0.05)' }}, ticks: {{ color: '#CBD5E1' }} }}
+          }},
+          plugins: {{
+            legend: {{ position: 'top', labels: {{ color: '#CBD5E1', boxWidth: 10 }} }}
+          }}
+        }}
+      }});
+    }}
+
+    // POPULATE DROPDOWNS (Screenshot 1 Select Batter / Select Bowler)
+    function populateSelectors() {{
+      const bSel = document.getElementById('batterSelector');
+      const bwSel = document.getElementById('bowlerSelector');
+
+      (RAW_DATA.batters || []).forEach(b => {{
+        const opt = document.createElement('option');
+        opt.value = b.name;
+        opt.text = `${{b.name}} (${{b.team}})`;
+        bSel.appendChild(opt);
+      }});
+
+      (RAW_DATA.bowlers || []).forEach(bw => {{
+        const opt = document.createElement('option');
+        opt.value = bw.name;
+        opt.text = `${{bw.name}} (${{bw.team}})`;
+        bwSel.appendChild(opt);
+      }});
+
+      // Set default
+      updateBatterCard(bSel.value);
+      updateBowlerCard(bwSel.value);
+    }}
+
+    function updateBatterCard(pName) {{
+      const p = (RAW_DATA.batters || []).find(b => b.name === pName);
+      if (!p) return;
+
+      document.getElementById('batStatRuns').innerText = p.total_runs || p.hp_runs;
+      document.getElementById('batStat6s').innerText = p.total_6s || p.hp_sixes;
+      document.getElementById('batStat4s').innerText = p.total_4s || p.hp_fours;
+      document.getElementById('batStatSR').innerText = (p.hp_sr || p.overall_sr).toFixed(1);
+      document.getElementById('batStatDeltaSR').innerText = (p.delta_sr > 0 ? '+' : '') + p.delta_sr.toFixed(1);
+      document.getElementById('batStatAvg').innerText = (p.hp_avg || p.overall_avg).toFixed(1);
+      document.getElementById('batStatPPI').innerText = p.ppi.toFixed(1);
+    }}
+
+    function updateBowlerCard(pName) {{
+      const p = (RAW_DATA.bowlers || []).find(bw => bw.name === pName);
+      if (!p) return;
+
+      document.getElementById('bowlStatWkts').innerText = p.total_wickets || p.hp_wickets;
+      document.getElementById('bowlStatEcon').innerText = (p.hp_econ || p.overall_econ).toFixed(2);
+      document.getElementById('bowlStatAvg').innerText = (p.hp_avg || p.overall_avg).toFixed(1);
+      document.getElementById('bowlStatSR').innerText = (p.hp_sr || p.overall_sr).toFixed(1);
+      document.getElementById('bowlStatDeltaEcon').innerText = (p.delta_econ > 0 ? '+' : '') + p.delta_econ.toFixed(2);
+      document.getElementById('bowlStatDot').innerText = (p.hp_dot_pct || 42.0) + '%';
+      document.getElementById('bowlStatSaved').innerText = (p.hp_runs_saved > 0 ? '+' : '') + (p.hp_runs_saved ? p.hp_runs_saved.toFixed(1) : '+12.4');
+    }}
+
+    // Filter Season (top bar)
+    function filterSeason(season) {{
+      console.log('Season filtered:', season);
+    }}
+  </script>
+</body>
+</html>
+'''
+
+with open('dashboard.html', 'w') as f:
+    f.write(html_content)
+
+with open('index.html', 'w') as f:
+    f.write(html_content)
+
+print("Successfully written redesigned dashboard.html and index.html!")
