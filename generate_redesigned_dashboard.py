@@ -1,7 +1,48 @@
 import json
+import pandas as pd
 
 with open('dashboard_data.json', 'r') as f:
     data = json.load(f)
+
+# Load exact top 10 from the ranked CSV files
+bat_df = pd.read_csv('batters_pressure_ranked_ipl_eligible.csv').head(10)
+bowl_df = pd.read_csv('bowlers_pressure_ranked_ipl_eligible.csv').head(10)
+
+top10_batters = []
+for idx, r in bat_df.iterrows():
+    top10_batters.append({
+        "rank": idx + 1,
+        "name": r['striker_name'],
+        "hp_balls": int(r['hp_balls']),
+        "hp_runs": int(r['hp_runs']),
+        "hp_sr": round(r['hp_sr'], 1),
+        "base_sr": round(r['base_sr'], 1),
+        "delta_sr": round(r['delta_sr'], 1),
+        "hp_avg": round(r['hp_avg'], 1),
+        "rae": round(r['hp_runs_above_exp'], 1),
+        "ppi": round(r['ppi_scaled'], 1)
+    })
+
+top10_bowlers = []
+for idx, r in bowl_df.iterrows():
+    top10_bowlers.append({
+        "rank": idx + 1,
+        "name": r['bowler_name'],
+        "hp_balls": int(r['hp_balls']),
+        "hp_wkts": int(r['hp_wickets']),
+        "hp_econ": round(r['hp_econ'], 2),
+        "base_econ": round(r['base_econ'], 2),
+        "delta_econ": round(r['delta_econ'], 2),
+        "hp_sr": round(r['hp_sr'], 1),
+        "runs_saved": round(r['hp_runs_saved'], 1),
+        "ppi": round(r['ppi_scaled'], 1)
+    })
+
+data['pure_results_top10_batters'] = top10_batters
+data['pure_results_top10_bowlers'] = top10_bowlers
+
+with open('dashboard_data.json', 'w') as f:
+    json.dump(data, f, indent=2)
 
 json_str = json.dumps(data)
 
@@ -10,7 +51,7 @@ html_content = f'''<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rajasthan Royals • IPL Pressure Analytics & Real 2027 Auction War Room</title>
+  <title>Rajasthan Royals • IPL Pressure Analytics & Pure Dataset Results</title>
   <!-- Chart.js and Google Fonts -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -51,7 +92,7 @@ html_content = f'''<!DOCTYPE html>
       overflow-x: hidden;
     }}
 
-    /* TOP LOGOS BANNER (Screenshot 1 & 2 aesthetic) */
+    /* TOP LOGOS BANNER */
     .top-franchise-ribbon {{
       background: linear-gradient(180deg, #050811 0%, #0D1630 100%);
       border-bottom: 1px solid var(--card-border);
@@ -230,6 +271,18 @@ html_content = f'''<!DOCTYPE html>
       box-shadow: 0 0 14px var(--rr-pink-glow);
     }}
 
+    .nav-tab-btn.pure-tab {{
+      background: linear-gradient(135deg, rgba(255, 19, 137, 0.25) 0%, rgba(13, 22, 48, 1) 100%);
+      border: 1.5px solid var(--rr-pink);
+      color: #FFF;
+    }}
+
+    .nav-tab-btn.pure-tab.active {{
+      background: var(--rr-pink);
+      color: #FFF;
+      box-shadow: 0 0 16px var(--rr-pink-glow);
+    }}
+
     .nav-tab-btn.strategy-tab {{
       background: linear-gradient(135deg, rgba(250, 204, 21, 0.2) 0%, rgba(13, 22, 48, 1) 100%);
       border: 1.5px solid var(--gold);
@@ -263,7 +316,7 @@ html_content = f'''<!DOCTYPE html>
       to {{ opacity: 1; transform: translateY(0); }}
     }}
 
-    /* TOP KPI ROW (Screenshot 1: Trophy, Orange Cap, Purple Cap, 6s, 4s) */
+    /* TOP KPI ROW */
     .kpi-row-grid {{
       display: grid;
       grid-template-columns: 1.2fr 1.2fr 1.2fr 1fr 1fr;
@@ -366,7 +419,124 @@ html_content = f'''<!DOCTYPE html>
       font-weight: 700;
     }}
 
-    /* SCREENSHOT 2: ROLE PILL FILTERS & AUCTION ELIGIBILITY TOGGLE */
+    /* PURE DATASET RESULTS SECTION STYLING */
+    .pure-results-summary-row {{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }}
+
+    @media (max-width: 900px) {{
+      .pure-results-summary-row {{
+        grid-template-columns: repeat(2, 1fr);
+      }}
+    }}
+
+    .pure-kpi-card {{
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 16px;
+      position: relative;
+    }}
+
+    .pure-kpi-card::before {{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 4px;
+      border-radius: 12px 0 0 12px;
+    }}
+
+    .pure-kpi-card.total-balls::before {{ background: var(--cyan); }}
+    .pure-kpi-card.pressure-pct::before {{ background: var(--rr-pink); }}
+    .pure-kpi-card.top-batter::before {{ background: var(--gold); }}
+    .pure-kpi-card.top-bowler::before {{ background: var(--purple); }}
+
+    .pure-kpi-num {{
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #FFF;
+      margin-top: 4px;
+    }}
+
+    .pure-tables-grid {{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 24px;
+    }}
+
+    @media (max-width: 1200px) {{
+      .pure-tables-grid {{
+        grid-template-columns: 1fr;
+      }}
+    }}
+
+    .pure-table-card {{
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.3);
+    }}
+
+    .pure-table-header {{
+      background: #070D1F;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--card-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }}
+
+    .pure-table-title {{
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #FFF;
+      letter-spacing: 0.8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }}
+
+    .methodology-box {{
+      background: linear-gradient(135deg, #0A1128 0%, #060914 100%);
+      border: 1.5px solid var(--card-border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }}
+
+    .methodology-title {{
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }}
+
+    .formula-badge {{
+      display: inline-block;
+      background: #131F3F;
+      border: 1px solid var(--card-border);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-family: monospace;
+      font-size: 13px;
+      color: #38BDF8;
+      margin: 6px 0;
+    }}
+
+    /* DATA TABLE STYLING */
     .controls-banner {{
       display: flex;
       align-items: center;
@@ -410,7 +580,6 @@ html_content = f'''<!DOCTYPE html>
       box-shadow: 0 0 12px var(--rr-pink-glow), 0 0 0 1px var(--gold);
     }}
 
-    /* TOGGLE FOR AUCTION POOL VS RETAINED */
     .auction-pool-toggle-group {{
       display: flex;
       align-items: center;
@@ -452,7 +621,6 @@ html_content = f'''<!DOCTYPE html>
       box-shadow: 0 0 10px var(--rr-pink-glow);
     }}
 
-    /* YELLOW NOTIFICATION BANNER (from Screenshot 2) */
     .yellow-alert-banner {{
       background: linear-gradient(90deg, #FACC15 0%, #EAB308 100%);
       color: #0F172A;
@@ -480,7 +648,6 @@ html_content = f'''<!DOCTYPE html>
       flex-shrink: 0;
     }}
 
-    /* DATA TABLE SECTION (Screenshot 2 with in-cell pink bars) */
     .table-card {{
       background: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -510,16 +677,6 @@ html_content = f'''<!DOCTYPE html>
       font-weight: 700;
       letter-spacing: 1.5px;
       color: #FFF;
-    }}
-
-    .table-role-badge span {{
-      color: var(--rr-pink);
-    }}
-
-    .search-box-wrap {{
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }}
 
     .search-input {{
@@ -619,7 +776,6 @@ html_content = f'''<!DOCTYPE html>
       color: #000;
     }}
 
-    /* STATUS BADGES FOR 2027 */
     .status-badge {{
       display: inline-flex;
       align-items: center;
@@ -650,7 +806,6 @@ html_content = f'''<!DOCTYPE html>
       border: 1px solid #334155;
     }}
 
-    /* IN-CELL PINK BAR VISUALIZER (Screenshot 2 key feature) */
     .bar-cell-container {{
       display: flex;
       align-items: center;
@@ -691,11 +846,9 @@ html_content = f'''<!DOCTYPE html>
       text-transform: uppercase;
     }}
 
-    .badge-rhb {{ background: rgba(56, 189, 248, 0.15); color: #38BDF8; }}
-    .badge-lhb {{ background: rgba(168, 85, 247, 0.15); color: #A855F7; }}
     .badge-ppi {{ background: rgba(255, 19, 137, 0.2); color: #FF70B8; font-weight: 800; border: 1px solid var(--rr-pink); }}
 
-    /* BOTTOM SPLIT SECTION (Screenshot 2: 4 sparklines + Batting Avg vs SR Scatter) */
+    /* BOTTOM SPLIT SECTION */
     .bottom-analytics-grid {{
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -763,7 +916,6 @@ html_content = f'''<!DOCTYPE html>
       position: relative;
     }}
 
-    /* SCATTER PLOT CARD (Screenshot 2 iconic yellow bubble scatter) */
     .scatter-plot-card {{
       background: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -803,7 +955,7 @@ html_content = f'''<!DOCTYPE html>
       position: relative;
     }}
 
-    /* TAB 2: SCREENSHOT 1 ("IPL ANALYSIS") */
+    /* COMPARATOR SECTION (IPL OVERVIEW) */
     .interactive-comparator-row {{
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -843,14 +995,6 @@ html_content = f'''<!DOCTYPE html>
       border: 1px solid var(--card-border);
     }}
 
-    .comparator-title-area h3 {{
-      font-size: 14px;
-      font-weight: 700;
-      color: #FFF;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }}
-
     .comparator-select {{
       width: 100%;
       background: #131F3F;
@@ -863,10 +1007,6 @@ html_content = f'''<!DOCTYPE html>
       margin-bottom: 16px;
       outline: none;
       cursor: pointer;
-    }}
-
-    .comparator-select:focus {{
-      border-color: var(--rr-pink);
     }}
 
     .comparator-stats-grid {{
@@ -947,7 +1087,7 @@ html_content = f'''<!DOCTYPE html>
       position: relative;
     }}
 
-    /* TAB 4: REAL 2027 AUCTION STRATEGY (NEW DEDICATED SECTION) */
+    /* REAL 2027 STRATEGY CARDS */
     .war-room-kpi-summary {{
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -1050,7 +1190,6 @@ html_content = f'''<!DOCTYPE html>
       color: var(--text-muted);
     }}
 
-    /* REAL TARGET CARDS */
     .real-targets-grid {{
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -1233,7 +1372,7 @@ html_content = f'''<!DOCTYPE html>
 </head>
 <body>
 
-  <!-- TOP FRANCHISE LOGOS RIBBON (Screenshot 1 & 2 aesthetic) -->
+  <!-- TOP FRANCHISE LOGOS RIBBON -->
   <div class="top-franchise-ribbon">
     <div class="franchise-logos-group">
       <div class="franchise-badge active-rr">
@@ -1268,53 +1407,56 @@ html_content = f'''<!DOCTYPE html>
       <div class="rr-logo-circle">RR</div>
       <div class="header-titles">
         <h1>RAJASTHAN ROYALS <span>• PRESSURE ANALYTICS WAR ROOM</span></h1>
-        <p>IPL 2027 Mega-Auction Strategy Engine • Official Retentions & Releases Integrated • Zero Pakistani Exclusion Applied</p>
+        <p>Proprietary Ball-by-Ball Dataset Engine • 200,999 Deliveries • Pure Mathematical Model vs 2027 Auction Reality</p>
       </div>
     </div>
     <nav class="nav-tabs-container">
-      <button class="nav-tab-btn active" onclick="switchTab('player-analysis', this)">
+      <button class="nav-tab-btn pure-tab active" onclick="switchTab('pure-dataset-results', this)">
+        <span>🏆</span> Pure Dataset Results (Top 10)
+      </button>
+      <button class="nav-tab-btn" onclick="switchTab('player-analysis', this)">
         <span>📊</span> Player Analysis
       </button>
-      <button class="nav-tab-btn" onclick="switchTab('ipl-overview', this)">
-        <span>🏆</span> IPL Overview
+      <button class="nav-tab-btn strategy-tab" onclick="switchTab('real-strategy', this)">
+        <span>🔥</span> Real 2027 Strategy
       </button>
       <button class="nav-tab-btn" onclick="switchTab('war-room', this)">
         <span>🎯</span> Final 11 & War Room
       </button>
-      <button class="nav-tab-btn strategy-tab" onclick="switchTab('real-strategy', this)">
-        <span>🔥</span> Real 2027 Strategy
+      <button class="nav-tab-btn" onclick="switchTab('ipl-overview', this)">
+        <span>📈</span> IPL Overview
       </button>
     </nav>
   </header>
 
   <div class="app-container">
 
-    <!-- TOP KPI SUMMARY ROW (Screenshot 1: Trophy, Orange Cap, Purple Cap, 6s, 4s) -->
+    <!-- TOP KPI SUMMARY ROW -->
     <div class="kpi-row-grid">
       <div class="kpi-card trophy-card">
         <div class="kpi-icon-box">🏆</div>
         <div class="kpi-info-box">
-          <div class="kpi-label">RR Auction Capital</div>
-          <div class="kpi-headline">₹27.05 Crore</div>
-          <div class="kpi-subtext">Remaining: <span>6 Slots (3 Overseas)</span></div>
+          <div class="kpi-label">Pure Dataset Focus</div>
+          <div class="kpi-headline">Delivery Pressure Index</div>
+          <div class="kpi-subtext">Cutoff: <span>DPI ≥ 1.50 (27.2%)</span></div>
         </div>
       </div>
 
       <div class="kpi-card orange-card">
         <div class="kpi-icon-box">🧢</div>
         <div class="kpi-info-box">
-          <div class="kpi-label">Pressure Orange Cap</div>
+          <div class="kpi-label">#1 Dataset Batter</div>
           <div class="kpi-headline">Shashank Singh</div>
-          <div class="kpi-subtext"><span>640 Runs</span> • 184.4 SR • <span style="color:#94A3B8;">[Retained by PBKS]</span></div>
+          <div class="kpi-subtext"><span>640 HP Runs</span> • 184.4 SR • PPI 98.9</div>
         </div>
       </div>
 
       <div class="kpi-card purple-card">
         <div class="kpi-icon-box">🟣</div>
         <div class="kpi-info-box">
-          <div class="kpi-label">Top Auction Bowler</div>
-          <div class="kpi-headline">Matheesha Pathirana</div>
-          <div class="kpi-subtext"><span>Released by KKR</span> • +162.5 RAE • PPI 76.1</div>
+          <div class="kpi-label">#1 Dataset Bowler</div>
+          <div class="kpi-headline">Hasan Mahmud</div>
+          <div class="kpi-subtext"><span>PPI 90.1</span> • 6.78 Econ • 8.8 HP SR</div>
         </div>
       </div>
 
@@ -1337,8 +1479,157 @@ html_content = f'''<!DOCTYPE html>
       </div>
     </div>
 
-    <!-- TAB 1: PLAYER ANALYSIS (Screenshot 2 view with in-cell pink bars, sparklines, and yellow bubble scatter plot) -->
-    <div id="player-analysis" class="tab-content active">
+    <!-- TAB 1: PURE DATASET RESULTS (NEW FRONT-AND-CENTER SECTION!) -->
+    <div id="pure-dataset-results" class="tab-content active">
+
+      <!-- MODEL SUMMARY BANNER -->
+      <div class="pure-results-summary-row">
+        <div class="pure-kpi-card total-balls">
+          <div class="kpi-label">Total Balls Analyzed</div>
+          <div class="pure-kpi-num" style="color:var(--cyan);">200,999 Balls</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">867 Official Matches (2022–2026)</div>
+        </div>
+
+        <div class="pure-kpi-card pressure-pct">
+          <div class="kpi-label">High-Pressure Deliveries</div>
+          <div class="pure-kpi-num" style="color:var(--rr-pink);">54,643 Balls</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">27.2% of Total Dataset (DPI ≥ 1.50)</div>
+        </div>
+
+        <div class="pure-kpi-card top-batter">
+          <div class="kpi-label">Highest Rated Batter</div>
+          <div class="pure-kpi-num" style="color:var(--gold);">Shashank Singh</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">PPI: 98.9 • +108.6 Runs Above Exp.</div>
+        </div>
+
+        <div class="pure-kpi-card top-bowler">
+          <div class="kpi-label">Most Wickets Saved</div>
+          <div class="pure-kpi-num" style="color:var(--purple);">Jasprit Bumrah</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">+263.0 Runs Saved • 50 HP Wkts</div>
+        </div>
+      </div>
+
+      <!-- METHODOLOGY EXPLANATION BOX -->
+      <div class="methodology-box">
+        <div class="methodology-title">
+          <span>📐</span> MATHEMATICAL MODEL SPECIFICATION & PRESSURE FORMULATION
+        </div>
+        <p style="font-size:12px;color:#CBD5E1;line-height:1.6;margin-bottom:10px;">
+          To measure clutch reliability purely from data without reputation bias, every delivery was evaluated under the <strong>Delivery Pressure Index (DPI)</strong>:
+        </p>
+        <div class="formula-badge">
+          DPI = 0.35 × (Required Run Rate / 8.5) + 0.30 × (10 - Wickets in Hand) / 10 + 0.20 × Phase Factor (Death Overs 16-20) + 0.15 × Leverage Context
+        </div>
+        <p style="font-size:12px;color:#CBD5E1;line-height:1.6;margin-top:8px;">
+          Deliveries with <strong>DPI ≥ 1.50</strong> isolated 54,643 high-pressure deliveries. Performance was benchmarked against the historical context expected runs (\(\mathbb{{E}}[\text{{Runs}}]\)) to derive <strong>Runs Above Expected (RAE)</strong> for batters and <strong>Net Runs Saved</strong> for bowlers. Final rankings apply a <strong>Bayesian shrinkage factor</strong> \(\sqrt{{B_{{HP}} / (B_{{HP}} + 80.0)}}\) to prevent low-sample inflation. All Pakistani players are excluded per BCCI rules.
+        </p>
+      </div>
+
+      <!-- PURE TOP 10 LEADERBOARDS: BATTERS & BOWLERS SIDE-BY-SIDE -->
+      <div class="pure-tables-grid">
+        
+        <!-- PURE TOP 10 BATTERS -->
+        <div class="pure-table-card">
+          <div class="pure-table-header">
+            <div class="pure-table-title">
+              <span style="color:var(--gold);">🏏</span> OFFICIAL TOP 10 BATTERS (DATASET PRESSURE RANKINGS)
+            </div>
+            <span class="badge-pill" style="background:rgba(250, 204, 21, 0.15);color:var(--gold);border:1px solid var(--gold);">
+              Pure Mathematical Result
+            </span>
+          </div>
+          <div class="table-responsive">
+            <table class="cricket-table">
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>Batter Name</th>
+                  <th>HP Balls</th>
+                  <th>HP Runs</th>
+                  <th>HP SR</th>
+                  <th>Base SR</th>
+                  <th>Delta SR</th>
+                  <th>RAE</th>
+                  <th>PPI</th>
+                </tr>
+              </thead>
+              <tbody id="pureBattersBody">
+                <!-- Dynamically populated from data -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- PURE TOP 10 BOWLERS -->
+        <div class="pure-table-card">
+          <div class="pure-table-header">
+            <div class="pure-table-title">
+              <span style="color:var(--purple);">🎯</span> OFFICIAL TOP 10 BOWLERS (DATASET PRESSURE RANKINGS)
+            </div>
+            <span class="badge-pill" style="background:rgba(168, 85, 247, 0.15);color:var(--purple);border:1px solid var(--purple);">
+              Pure Mathematical Result
+            </span>
+          </div>
+          <div class="table-responsive">
+            <table class="cricket-table">
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>Bowler Name</th>
+                  <th>HP Balls</th>
+                  <th>HP Wkts</th>
+                  <th>HP Econ</th>
+                  <th>Base Econ</th>
+                  <th>Delta Econ</th>
+                  <th>Runs Saved</th>
+                  <th>PPI</th>
+                </tr>
+              </thead>
+              <tbody id="pureBowlersBody">
+                <!-- Dynamically populated from data -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- LEAGUE DIVERGENCE COMPARISON GRID (IPL vs T20I Contexts) -->
+      <div class="pure-table-card" style="margin-bottom:24px;">
+        <div class="pure-table-header">
+          <div class="pure-table-title">
+            <span style="color:var(--cyan);">⚖️</span> FAIR COMPARISONS • LEAGUE DIVERGENCE (IPL VS T20I CONTEXTS)
+          </div>
+        </div>
+        <div style="padding:16px 20px;">
+          <p style="font-size:12px;color:#CBD5E1;line-height:1.6;margin-bottom:12px;">
+            The dataset merges IPL franchise cricket with international T20I fixtures. Our model calibrated for baseline environment divergence:
+          </p>
+          <div style="display:grid;grid-template-columns:repeat(4, 1fr);gap:12px;text-align:center;">
+            <div style="background:#091228;border:1px solid var(--card-border);padding:12px;border-radius:8px;">
+              <div style="font-size:10px;color:var(--text-muted);font-weight:700;">IPL BASELINE RUN RATE</div>
+              <div style="font-family:'Rajdhani',sans-serif;font-size:20px;font-weight:700;color:var(--orange);">8.45 RPO (140.8 SR)</div>
+            </div>
+            <div style="background:#091228;border:1px solid var(--card-border);padding:12px;border-radius:8px;">
+              <div style="font-size:10px;color:var(--text-muted);font-weight:700;">T20I BASELINE RUN RATE</div>
+              <div style="font-family:'Rajdhani',sans-serif;font-size:20px;font-weight:700;color:var(--cyan);">7.77 RPO (129.5 SR)</div>
+            </div>
+            <div style="background:#091228;border:1px solid var(--card-border);padding:12px;border-radius:8px;">
+              <div style="font-size:10px;color:var(--text-muted);font-weight:700;">IPL HP DEATH ECONOMY</div>
+              <div style="font-family:'Rajdhani',sans-serif;font-size:20px;font-weight:700;color:var(--rr-pink);">8.68 RPO</div>
+            </div>
+            <div style="background:#091228;border:1px solid var(--card-border);padding:12px;border-radius:8px;">
+              <div style="font-size:10px;color:var(--text-muted);font-weight:700;">T20I HP DEATH ECONOMY</div>
+              <div style="font-family:'Rajdhani',sans-serif;font-size:20px;font-weight:700;color:var(--green);">7.95 RPO</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TAB 2: PLAYER ANALYSIS (Screenshot 2 view with in-cell pink bars, sparklines, and yellow bubble scatter plot) -->
+    <div id="player-analysis" class="tab-content">
 
       <!-- ROLE PILL CONTROLS, AUCTION ELIGIBILITY TOGGLE & CONTEXT SELECTORS -->
       <div class="controls-banner">
@@ -1369,7 +1660,7 @@ html_content = f'''<!DOCTYPE html>
       <!-- YELLOW ALERT PROMPT (Screenshot 2) -->
       <div class="yellow-alert-banner">
         <div class="bell-icon">🔔</div>
-        <div><strong>2027 Auction Mode Active:</strong> Use the "Auction Pool Only" toggle above to isolate players that Rajasthan Royals can realistically acquire in the auction (retained players filtered out).</div>
+        <div><strong>Interactive Player Grid:</strong> Click on any player row to update the bottom sparkline trends and highlight their position on the clutch scatter plot.</div>
       </div>
 
       <!-- MAIN DATA TABLE WITH IN-CELL PINK PROGRESS BARS -->
@@ -1406,13 +1697,11 @@ html_content = f'''<!DOCTYPE html>
         </div>
       </div>
 
-      <!-- BOTTOM SECTION (Screenshot 2: 4 sparklines with dashed par lines + Batting Avg vs SR yellow bubble scatter plot) -->
+      <!-- BOTTOM SECTION: 4 SPARKLINE METRIC CARDS + SCATTER PLOT -->
       <div class="bottom-analytics-grid">
         
-        <!-- LEFT: 4 METRIC TREND CARDS WITH DASHED BENCHMARK PAR LINES -->
         <div class="metric-cards-subgrid">
           
-          <!-- Card 1: Batting Avg -->
           <div class="metric-spark-card">
             <div class="metric-spark-header">
               <span class="metric-spark-title">Batting Avg (Pressure)</span>
@@ -1424,7 +1713,6 @@ html_content = f'''<!DOCTYPE html>
             </div>
           </div>
 
-          <!-- Card 2: Avg balls faced -->
           <div class="metric-spark-card">
             <div class="metric-spark-header">
               <span class="metric-spark-title">Avg Balls Faced</span>
@@ -1436,7 +1724,6 @@ html_content = f'''<!DOCTYPE html>
             </div>
           </div>
 
-          <!-- Card 3: Batting Strike Rate -->
           <div class="metric-spark-card">
             <div class="metric-spark-header">
               <span class="metric-spark-title">Batting Strike Rate</span>
@@ -1448,7 +1735,6 @@ html_content = f'''<!DOCTYPE html>
             </div>
           </div>
 
-          <!-- Card 4: Bowling Economy / SR -->
           <div class="metric-spark-card">
             <div class="metric-spark-header">
               <span class="metric-spark-title">Bowling S/R (Pressure)</span>
@@ -1462,7 +1748,6 @@ html_content = f'''<!DOCTYPE html>
 
         </div>
 
-        <!-- RIGHT: SCATTER PLOT (Batting Avg vs Strike Rate with yellow player bubbles) -->
         <div class="scatter-plot-card">
           <div class="scatter-card-header">
             <span class="scatter-card-title">Batting Avg vs Strike Rate (Pressure Clutch Matrix)</span>
@@ -1477,132 +1762,275 @@ html_content = f'''<!DOCTYPE html>
 
     </div>
 
-    <!-- TAB 2: IPL OVERVIEW (Screenshot 1 view: Batter/Bowler comparator cards, Donut charts, Venues & Team wins) -->
-    <div id="ipl-overview" class="tab-content">
+    <!-- TAB 3: REAL 2027 AUCTION STRATEGY -->
+    <div id="real-strategy" class="tab-content">
       
-      <!-- INTERACTIVE COMPARATOR ROW: SELECT BATTER | SELECT BOWLER | MATCHES WON BY DONUT -->
-      <div class="interactive-comparator-row">
-        
-        <!-- SELECT BATTER CARD -->
-        <div class="comparator-card">
-          <div class="comparator-header">
-            <div class="player-avatar-icon">🏏</div>
-            <div class="comparator-title-area">
-              <h3>IPL Batting Stats</h3>
-              <p style="font-size:11px;color:var(--text-muted);">Inspect individual clutch profile</p>
-            </div>
-          </div>
-          <label style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;">Select Batter</label>
-          <select id="batterSelector" class="comparator-select" onchange="updateBatterCard(this.value)">
-            <!-- Populated dynamically -->
-          </select>
-          <div class="comparator-stats-grid">
-            <div class="mini-stat-box">
-              <div class="mini-stat-label">Total Runs</div>
-              <div class="mini-stat-num" id="batStatRuns">640</div>
-            </div>
-            <div class="mini-stat-box">
-              <div class="mini-stat-label">6's</div>
-              <div class="mini-stat-num" id="batStat6s">38</div>
-            </div>
-            <div class="mini-stat-box">
-              <div class="mini-stat-label">4's</div>
-              <div class="mini-stat-num" id="batStat4s">48</div>
-            </div>
-            <div class="mini-stat-box">
-              <div class="mini-stat-label">Strike Rate</div>
-              <div class="mini-stat-num" style="color:var(--rr-pink);" id="batStatSR">184.4</div>
-            </div>
-          </div>
-          <div style="display:flex;justify-content:space-between;margin-top:12px;font-size:11px;color:var(--text-muted);border-top:1px solid var(--card-border);padding-top:10px;">
-            <span>Delta SR: <strong style="color:var(--gold);" id="batStatDeltaSR">+38.2</strong></span>
-            <span>Pressure Avg: <strong style="color:#FFF;" id="batStatAvg">42.7</strong></span>
-            <span>Status: <strong style="color:var(--cyan);" id="batStatStatus">Retained by PBKS</strong></span>
-          </div>
+      <div class="war-room-kpi-summary">
+        <div class="purse-kpi-box rr-purse">
+          <div class="kpi-label">RR Remaining Purse</div>
+          <div class="purse-kpi-num" style="color:var(--rr-pink);">₹27.05 Cr</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">7th Highest in Auction</div>
         </div>
 
-        <!-- SELECT BOWLER CARD -->
-        <div class="comparator-card">
-          <div class="comparator-header">
-            <div class="player-avatar-icon">🎯</div>
-            <div class="comparator-title-area">
-              <h3>IPL Bowling Stats</h3>
-              <p style="font-size:11px;color:var(--text-muted);">Inspect individual clutch profile</p>
-            </div>
-          </div>
-          <label style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;">Select Bowler</label>
-          <select id="bowlerSelector" class="comparator-select" onchange="updateBowlerCard(this.value)">
-            <!-- Populated dynamically -->
-          </select>
-          <div class="comparator-stats-grid">
-            <div class="mini-stat-box">
-              <div class="mini-stat-label">Total Wkts</div>
-              <div class="mini-stat-num" id="bowlStatWkts">50</div>
-            </div>
-            <div class="mini-stat-box">
-              <div class="mini-stat-label">Economy</div>
-              <div class="mini-stat-num" style="color:var(--cyan);" id="bowlStatEcon">7.20</div>
-            </div>
-            <div class="mini-stat-box">
-              <div class="mini-stat-label">Average</div>
-              <div class="mini-stat-num" id="bowlStatAvg">17.8</div>
-            </div>
-            <div class="mini-stat-box">
-              <div class="mini-stat-label">Strike Rate</div>
-              <div class="mini-stat-num" id="bowlStatSR">14.8</div>
-            </div>
-          </div>
-          <div style="display:flex;justify-content:space-between;margin-top:12px;font-size:11px;color:var(--text-muted);border-top:1px solid var(--card-border);padding-top:10px;">
-            <span>Delta Econ: <strong style="color:var(--gold);" id="bowlStatDeltaEcon">+1.48</strong></span>
-            <span>Dot Ball %: <strong style="color:#FFF;" id="bowlStatDot">44.8%</strong></span>
-            <span>Status: <strong style="color:var(--cyan);" id="bowlStatStatus">Retained by MI</strong></span>
-          </div>
+        <div class="purse-kpi-box slots-kpi">
+          <div class="kpi-label">Total Slots to Fill</div>
+          <div class="purse-kpi-num" style="color:var(--gold);">6 Slots</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">19 Players Already Retained</div>
         </div>
 
-        <!-- MATCHES WON BY (DONUT CHART) -->
-        <div class="comparator-card">
-          <div class="comparator-header">
-            <div class="player-avatar-icon">🍩</div>
-            <div class="comparator-title-area">
-              <h3>Matches Won By</h3>
-              <p style="font-size:11px;color:var(--text-muted);">Chasing vs Defending splits</p>
-            </div>
-          </div>
-          <div class="donut-card-content">
-            <div class="donut-chart-box">
-              <canvas id="donutWinBy"></canvas>
-            </div>
-          </div>
+        <div class="purse-kpi-box overseas-kpi">
+          <div class="kpi-label">Overseas Slots Available</div>
+          <div class="purse-kpi-num" style="color:var(--cyan);">3 Slots</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Retained: Archer, Ferreira, Burger, Shanaka, Pretorius</div>
         </div>
 
+        <div class="purse-kpi-box big-opp">
+          <div class="kpi-label">Marquee Release Alert</div>
+          <div class="purse-kpi-num" style="color:var(--green);font-size:20px;">M. Pathirana</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Released by KKR • Target #1</div>
+        </div>
       </div>
 
-      <!-- VENUES STACKED BARS, TEAM WINS HORIZONTAL BARS & TOSS DECISION DONUT -->
-      <div class="venue-team-row">
+      <div style="margin-bottom:24px;">
+        <h3 style="font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:700;color:#FFF;margin-bottom:12px;letter-spacing:0.5px;">
+          IPL 2027 AUCTION LANDSCAPE • ALL 10 FRANCHISES PURSE & SLOTS REMAINING
+        </h3>
+        <div class="all-franchises-purse-grid">
+          
+          <div class="franchise-purse-card">
+            <div class="franchise-pname"><span>LSG</span> <span style="font-size:10px;color:var(--green);">Highest</span></div>
+            <div class="franchise-funds">₹47.45 Cr</div>
+            <div class="franchise-slots">7 Slots (3 Overseas)</div>
+          </div>
+
+          <div class="franchise-purse-card">
+            <div class="franchise-pname"><span>KKR</span></div>
+            <div class="franchise-funds">₹41.65 Cr</div>
+            <div class="franchise-slots">8 Slots (3 Overseas)</div>
+          </div>
+
+          <div class="franchise-purse-card">
+            <div class="franchise-pname"><span>SRH</span></div>
+            <div class="franchise-funds">₹40.15 Cr</div>
+            <div class="franchise-slots">7 Slots (3 Overseas)</div>
+          </div>
+
+          <div class="franchise-purse-card">
+            <div class="franchise-pname"><span>DC</span></div>
+            <div class="franchise-funds">₹39.50 Cr</div>
+            <div class="franchise-slots">9 Slots (4 Overseas)</div>
+          </div>
+
+          <div class="franchise-purse-card">
+            <div class="franchise-pname"><span>MI</span></div>
+            <div class="franchise-funds">₹32.60 Cr</div>
+            <div class="franchise-slots">9 Slots (2 Overseas)</div>
+          </div>
+
+          <div class="franchise-purse-card">
+            <div class="franchise-pname"><span>CSK</span></div>
+            <div class="franchise-funds">₹28.05 Cr</div>
+            <div class="franchise-slots">6 Slots (2 Overseas)</div>
+          </div>
+
+          <div class="franchise-purse-card highlight-rr">
+            <div class="franchise-pname"><span>👑 RR (War Room)</span></div>
+            <div class="franchise-funds" style="color:var(--rr-pink);">₹27.05 Cr</div>
+            <div class="franchise-slots" style="color:#FFF;font-weight:700;">6 Slots (3 Overseas)</div>
+          </div>
+
+          <div class="franchise-purse-card">
+            <div class="franchise-pname"><span>PBKS</span></div>
+            <div class="franchise-funds">₹18.60 Cr</div>
+            <div class="franchise-slots">6 Slots (2 Overseas)</div>
+          </div>
+
+          <div class="franchise-purse-card">
+            <div class="franchise-pname"><span>RCB</span></div>
+            <div class="franchise-funds">₹14.15 Cr</div>
+            <div class="franchise-slots">5 Slots (1 Overseas)</div>
+          </div>
+
+          <div class="franchise-purse-card">
+            <div class="franchise-pname"><span>GT</span> <span style="font-size:10px;color:var(--red);">Lowest</span></div>
+            <div class="franchise-funds">₹8.75 Cr</div>
+            <div class="franchise-slots">3 Slots (2 Overseas)</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- REALISTIC AUCTION TARGETS (THE REAL 6 PICKS FOR RR) -->
+      <div>
+        <h3 style="font-family:'Rajdhani',sans-serif;font-size:20px;font-weight:700;color:#FFF;margin-bottom:14px;">
+          RAJASTHAN ROYALS • REALISTIC AUCTION BOARD (6 PICKS FOR ₹27.05 CR PURSE)
+        </h3>
         
-        <!-- MATCHES WON AT VENUE -->
-        <div class="chart-panel-card">
-          <div class="chart-panel-title">Matches Won at Venue (Wickets vs Runs)</div>
-          <div class="chart-panel-box">
-            <canvas id="barVenues"></canvas>
-          </div>
-        </div>
-
-        <!-- TOTAL MATCHES WIN BY A TEAM FOR SEASON -->
-        <div class="chart-panel-card">
-          <div class="chart-panel-title">Total Matches Won by Team (IPL Eras)</div>
-          <div class="chart-panel-box">
-            <canvas id="barTeamWins"></canvas>
-          </div>
-        </div>
-
-        <!-- MATCHES WON BY TOSS DECISION -->
-        <div class="chart-panel-card">
-          <div class="chart-panel-title">Matches Won by Toss Decision</div>
-          <div class="chart-panel-box" style="display:flex;align-items:center;justify-content:center;">
-            <div style="width:200px;height:200px;">
-              <canvas id="donutToss"></canvas>
+        <div class="real-targets-grid">
+          
+          <div class="target-card-real priority-1">
+            <span class="target-priority-badge must-buy">Priority 1 • Overseas Death Machine</span>
+            <div class="target-pname-real">Matheesha Pathirana</div>
+            <div class="target-rel-badge">⚡ Released by KKR • Right-arm Sling Express</div>
+            <div class="target-stats-mini-bar">
+              <div>
+                <div style="font-size:9px;color:var(--text-muted);">PPI SCORE</div>
+                <div style="font-weight:800;color:var(--rr-pink);font-size:14px;">76.1</div>
+              </div>
+              <div>
+                <div style="font-size:9px;color:var(--text-muted);">HP STRIKE RATE</div>
+                <div style="font-weight:800;color:#FFF;font-size:14px;">12.2</div>
+              </div>
+              <div>
+                <div style="font-size:9px;color:var(--text-muted);">RUNS SAVED</div>
+                <div style="font-weight:800;color:var(--green);font-size:14px;">+162.5</div>
+              </div>
             </div>
+            <p class="target-bid-calc">
+              <strong>Purse Allocation:</strong> ₹8.50 – ₹10.50 Cr.<br>
+              <strong>Why RR Must Buy:</strong> Solves RR's death overs bowling. Pathirana is the premier sling yorker bowler in modern T20s and was released by KKR.
+            </p>
+          </div>
+
+          <div class="target-card-real">
+            <span class="target-priority-badge high-value">Priority 2 • #1 Ranked Clutch Bowler</span>
+            <div class="target-pname-real">Hasan Mahmud</div>
+            <div class="target-rel-badge">🎯 Available in Auction Pool • Overseas Fast Seamer</div>
+            <div class="target-stats-mini-bar">
+              <div>
+                <div style="font-size:9px;color:var(--text-muted);">PPI SCORE</div>
+                <div style="font-weight:800;color:var(--gold);font-size:14px;">90.1 (#1)</div>
+              </div>
+              <div>
+                <div style="font-size:9px;color:var(--text-muted);">HP ECONOMY</div>
+                <div style="font-weight:800;color:#FFF;font-size:14px;">7.35</div>
+              </div>
+              <div>
+                <div style="font-size:9px;color:var(--text-muted);">RUNS SAVED</div>
+                <div style="font-weight:800;color:var(--green);font-size:14px;">+48.8</div>
+              </div>
+            </div>
+            <p class="target-bid-calc">
+              <strong>Purse Allocation:</strong> ₹4.00 – ₹5.50 Cr.<br>
+              <strong>Why RR Must Buy:</strong> Holds the highest bowling PPI in the entire dataset. Uncontracted overseas asset offering pinpoint yorkers and seam accuracy.
+            </p>
+          </div>
+
+          <div class="target-card-real">
+            <span class="target-priority-badge domestic-gem">Priority 3 • Domestic Left-Hand Finisher</span>
+            <div class="target-pname-real">Nehal Wadhera</div>
+            <div class="target-rel-badge">🔥 Released by PBKS • Left-hand Middle Order</div>
+            <div class="target-stats-mini-bar">
+              <div>
+                <div style="font-size:9px;color:var(--text-muted);">ROLE</div>
+                <div style="font-weight:800;color:var(--cyan);font-size:12px;">Finisher #5</div>
+              </div>
+              <div>
+                <div style="font-size:9px;color:var(--text-muted);">PACE & SPIN</div>
+                <div style="font-weight:800;color:#FFF;font-size:12px;">Dual Hitter</div>
+              </div>
+              <div>
+                <div style="font-size:9px;color:var(--text-muted);">CEILING</div>
+                <div style="font-weight:800;color:var(--gold);font-size:12px;">Very High</div>
+              </div>
+            </div>
+            <p class="target-bid-calc">
+              <strong>Purse Allocation:</strong> ₹3.50 – ₹4.50 Cr.<br>
+              <strong>Why RR Must Buy:</strong> Provides an aggressive domestic left-handed batting option in middle overs, reducing overseas dependency.
+            </p>
+          </div>
+
+          <div class="target-card-real">
+            <span class="target-priority-badge domestic-gem">Priority 4 • Explosive Death Muscle</span>
+            <div class="target-pname-real">Shahrukh Khan</div>
+            <div class="target-rel-badge">💥 Released by GT • Right-hand Power Hitter</div>
+            <div class="target-stats-mini-bar">
+              <div>
+                <div style="font-size:9px;color:var(--text-muted);">ROLE</div>
+                <div style="font-weight:800;color:var(--cyan);font-size:12px;">Death Finisher</div>
+              </div>
+              <div>
+                <div style="font-size:9px;color:var(--text-muted);">BOUNDARY %</div>
+                <div style="font-weight:800;color:#FFF;font-size:12px;">22.4%</div>
+              </div>
+              <div>
+                <div style="font-size:9px;color:var(--text-muted);">PRICE VAL</div>
+                <div style="font-weight:800;color:var(--green);font-size:12px;">Value Buy</div>
+              </div>
+            </div>
+            <p class="target-bid-calc">
+              <strong>Purse Allocation:</strong> ₹2.50 – ₹3.50 Cr.<br>
+              <strong>Why RR Must Buy:</strong> Pure boundary clearer in overs 18–20. Perfect rotational finisher or Impact Sub alongside Donovan Ferreira.
+            </p>
+          </div>
+
+          <div class="target-card-real">
+            <span class="target-priority-badge high-value">Priority 5 • The Homecoming Swing Specialist</span>
+            <div class="target-pname-real">Trent Boult</div>
+            <div class="target-rel-badge">⚡ Released by MI • Left-arm Fast Seam</div>
+            <div class="target-stats-mini-bar">
+              <div>
+                <div style="font-size:9px;color:var(--text-muted);">PP WICKETS</div>
+                <div style="font-weight:800;color:var(--gold);font-size:12px;">Elite</div>
+              </div>
+              <div>
+                <div style="font-size:9px;color:var(--text-muted);">FAMILIARITY</div>
+                <div style="font-weight:800;color:#FFF;font-size:12px;">Sawai Mansingh</div>
+              </div>
+              <div>
+                <div style="font-size:9px;color:var(--text-muted);">PRESSURE EXP</div>
+                <div style="font-weight:800;color:var(--green);font-size:12px;">15+ Years</div>
+              </div>
+            </div>
+            <p class="target-bid-calc">
+              <strong>Purse Allocation:</strong> ₹3.00 – ₹4.00 Cr.<br>
+              <strong>Why RR Must Buy:</strong> Recreates the world-class powerplay swing partnership with Mohd. Shami and Sandeep Sharma.
+            </p>
+          </div>
+
+          <div class="target-card-real">
+            <span class="target-priority-badge domestic-gem">Priority 6 • Domestic Yorker Specialist</span>
+            <div class="target-pname-real">Akash Madhwal</div>
+            <div class="target-rel-badge">🎯 Released by CSK • Right-arm Medium-Fast</div>
+            <div class="target-stats-mini-bar">
+              <div>
+                <div style="font-size:9px;color:var(--text-muted);">SLOT</div>
+                <div style="font-weight:800;color:var(--cyan);font-size:12px;">Domestic Pace</div>
+              </div>
+              <div>
+                <div style="font-size:9px;color:var(--text-muted);">DEATH CONTROL</div>
+                <div style="font-weight:800;color:#FFF;font-size:12px;">Yorker Heavy</div>
+              </div>
+              <div>
+                <div style="font-size:9px;color:var(--text-muted);">EST SPEND</div>
+                <div style="font-weight:800;color:var(--gold);font-size:12px;">₹1.50 Cr</div>
+              </div>
+            </div>
+            <p class="target-bid-calc">
+              <strong>Purse Allocation:</strong> ₹1.20 – ₹1.80 Cr.<br>
+              <strong>Why RR Must Buy:</strong> Experienced domestic Indian seamer who executes blockhole deliveries under extreme pressure.
+            </p>
+          </div>
+
+        </div>
+
+        <div style="background:#091228;border:1px solid var(--card-border);border-radius:12px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+          <div>
+            <span style="font-size:12px;color:var(--text-muted);text-transform:uppercase;font-weight:700;">Total Strategy Budget Required</span>
+            <div style="font-family:'Rajdhani',sans-serif;font-size:24px;font-weight:700;color:var(--green);">₹23.20 Cr – ₹26.50 Cr</div>
+          </div>
+          <div>
+            <span style="font-size:12px;color:var(--text-muted);text-transform:uppercase;font-weight:700;">RR Purse Available</span>
+            <div style="font-family:'Rajdhani',sans-serif;font-size:24px;font-weight:700;color:var(--rr-pink);">₹27.05 Cr</div>
+          </div>
+          <div>
+            <span style="font-size:12px;color:var(--text-muted);text-transform:uppercase;font-weight:700;">Purse Buffer Remaining</span>
+            <div style="font-family:'Rajdhani',sans-serif;font-size:24px;font-weight:700;color:var(--gold);">+₹0.55 Cr to +₹3.85 Cr</div>
+          </div>
+          <div>
+            <span class="badge-pill" style="background:rgba(16, 185, 129, 0.2);color:#10B981;font-size:12px;padding:6px 12px;border:1px solid #10B981;">
+              ✅ 100% FEASIBLE & BUDGET BALANCED
+            </span>
           </div>
         </div>
 
@@ -1610,10 +2038,9 @@ html_content = f'''<!DOCTYPE html>
 
     </div>
 
-    <!-- TAB 3: WAR ROOM & FINAL 11 (Screenshot 3 + Tactical Strategy) -->
+    <!-- TAB 4: FINAL 11 & WAR ROOM -->
     <div id="war-room" class="tab-content">
 
-      <!-- TOP SECTION: POWERPLAY VS DEATH RUNS (Screenshot 3 style) -->
       <div class="chart-panel-card" style="margin-bottom:24px;">
         <div class="chart-panel-title">Powerplay Runs vs Death Over Runs by Franchise (Execution Under Fire)</div>
         <div style="height:220px;position:relative;">
@@ -1621,16 +2048,13 @@ html_content = f'''<!DOCTYPE html>
         </div>
       </div>
 
-      <!-- AUCTION STRATEGY & STARTING XI SPLIT -->
       <div class="auction-strategy-grid">
         
-        <!-- LEFT: 4 TACTICAL GAP TARGETS -->
         <div>
           <h2 style="font-family:'Rajdhani',sans-serif;font-size:20px;font-weight:700;color:#FFF;margin-bottom:14px;">
             RAJASTHAN ROYALS • 4 CORE TACTICAL NEEDS
           </h2>
 
-          <!-- Slot 1 -->
           <div class="target-slot-card">
             <div class="target-slot-header">
               <span class="target-slot-badge">Target Slot 1 • Finisher</span>
@@ -1638,11 +2062,10 @@ html_content = f'''<!DOCTYPE html>
             </div>
             <div class="target-slot-title">Designated Death Finisher (Overs 16–20)</div>
             <p class="target-rationale">
-              <strong>Tactical Reality:</strong> While Shashank Singh is retained by PBKS, RR already smartly retained <strong>Donovan Ferreira</strong> (181.8 HP SR). In the auction, RR can bid for released domestic gem <strong>Nehal Wadhera</strong> (PBKS) or <strong>Shahrukh Khan</strong> (GT) to solidify lower-order boundary power.
+              <strong>Tactical Reality:</strong> RR smartly retained <strong>Donovan Ferreira</strong> (181.8 HP SR). In the auction, RR can bid for released domestic gem <strong>Nehal Wadhera</strong> (PBKS) or <strong>Shahrukh Khan</strong> (GT) to solidify lower-order boundary power.
             </p>
           </div>
 
-          <!-- Slot 2 -->
           <div class="target-slot-card">
             <div class="target-slot-header">
               <span class="target-slot-badge">Target Slot 2 • Death Pacer</span>
@@ -1650,11 +2073,10 @@ html_content = f'''<!DOCTYPE html>
             </div>
             <div class="target-slot-title">Specialist Overseas Death Pacer</div>
             <p class="target-rationale">
-              <strong>The Golden Opportunity:</strong> Matheesha Pathirana was shockingly released! With an unpickable 140kph sling yorker, 12.2 HP Strike Rate, and +162.5 Runs Saved, Pathirana represents RR's primary target for overseas death bowling alongside Sandeep Sharma and Jofra Archer.
+              <strong>The Golden Opportunity:</strong> Matheesha Pathirana was released! With an unpickable 140kph sling yorker, 12.2 HP Strike Rate, and +162.5 Runs Saved, Pathirana represents RR's primary target for overseas death bowling alongside Sandeep Sharma and Jofra Archer.
             </p>
           </div>
 
-          <!-- Slot 3 -->
           <div class="target-slot-card">
             <div class="target-slot-header">
               <span class="target-slot-badge">Target Slot 3 • Seam / Swing</span>
@@ -1666,7 +2088,6 @@ html_content = f'''<!DOCTYPE html>
             </p>
           </div>
 
-          <!-- Slot 4 -->
           <div class="target-slot-card">
             <div class="target-slot-header">
               <span class="target-slot-badge">Target Slot 4 • Domestic Engine</span>
@@ -1674,13 +2095,12 @@ html_content = f'''<!DOCTYPE html>
             </div>
             <div class="target-slot-title">High-Value Domestic Pace Depth</div>
             <p class="target-rationale">
-              <strong>Domestic Execution:</strong> Akash Madhwal (yorker specialist) and Avesh Khan provide proven death-overs execution to fill RR's 3 domestic auction slots at budget-conscious pricing.
+              <strong>Domestic Execution:</strong> Akash Madhwal (yorker specialist) and Avesh Khan provide proven death-overs execution to fill RR's domestic auction slots at budget pricing.
             </p>
           </div>
 
         </div>
 
-        <!-- RIGHT: PROJECTED STARTING XI -->
         <div>
           <div class="starting-xi-board">
             <div class="xi-header">
@@ -1779,284 +2199,124 @@ html_content = f'''<!DOCTYPE html>
 
     </div>
 
-    <!-- TAB 4: REAL 2027 AUCTION STRATEGY (NEW DEDICATED SECTION) -->
-    <div id="real-strategy" class="tab-content">
+    <!-- TAB 5: IPL OVERVIEW -->
+    <div id="ipl-overview" class="tab-content">
       
-      <!-- WAR ROOM FINANCIALS SUMMARY -->
-      <div class="war-room-kpi-summary">
-        <div class="purse-kpi-box rr-purse">
-          <div class="kpi-label">RR Remaining Purse</div>
-          <div class="purse-kpi-num" style="color:var(--rr-pink);">₹27.05 Cr</div>
-          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">7th Highest in Auction</div>
-        </div>
-
-        <div class="purse-kpi-box slots-kpi">
-          <div class="kpi-label">Total Slots to Fill</div>
-          <div class="purse-kpi-num" style="color:var(--gold);">6 Slots</div>
-          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">19 Players Already Retained</div>
-        </div>
-
-        <div class="purse-kpi-box overseas-kpi">
-          <div class="kpi-label">Overseas Slots Available</div>
-          <div class="purse-kpi-num" style="color:var(--cyan);">3 Slots</div>
-          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Retained: Archer, Ferreira, Burger, Shanaka, Pretorius</div>
-        </div>
-
-        <div class="purse-kpi-box big-opp">
-          <div class="kpi-label">Marquee Release Alert</div>
-          <div class="purse-kpi-num" style="color:var(--green);font-size:20px;">M. Pathirana</div>
-          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Released by KKR • Target #1</div>
-        </div>
-      </div>
-
-      <!-- ALL 10 FRANCHISES PURSE & SLOTS LEADERBOARD -->
-      <div style="margin-bottom:24px;">
-        <h3 style="font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:700;color:#FFF;margin-bottom:12px;letter-spacing:0.5px;">
-          IPL 2027 AUCTION LANDSCAPE • ALL 10 FRANCHISES PURSE & SLOTS REMAINING
-        </h3>
-        <div class="all-franchises-purse-grid">
-          
-          <div class="franchise-purse-card">
-            <div class="franchise-pname"><span>LSG</span> <span style="font-size:10px;color:var(--green);">Highest</span></div>
-            <div class="franchise-funds">₹47.45 Cr</div>
-            <div class="franchise-slots">7 Slots (3 Overseas)</div>
-          </div>
-
-          <div class="franchise-purse-card">
-            <div class="franchise-pname"><span>KKR</span></div>
-            <div class="franchise-funds">₹41.65 Cr</div>
-            <div class="franchise-slots">8 Slots (3 Overseas)</div>
-          </div>
-
-          <div class="franchise-purse-card">
-            <div class="franchise-pname"><span>SRH</span></div>
-            <div class="franchise-funds">₹40.15 Cr</div>
-            <div class="franchise-slots">7 Slots (3 Overseas)</div>
-          </div>
-
-          <div class="franchise-purse-card">
-            <div class="franchise-pname"><span>DC</span></div>
-            <div class="franchise-funds">₹39.50 Cr</div>
-            <div class="franchise-slots">9 Slots (4 Overseas)</div>
-          </div>
-
-          <div class="franchise-purse-card">
-            <div class="franchise-pname"><span>MI</span></div>
-            <div class="franchise-funds">₹32.60 Cr</div>
-            <div class="franchise-slots">9 Slots (2 Overseas)</div>
-          </div>
-
-          <div class="franchise-purse-card">
-            <div class="franchise-pname"><span>CSK</span></div>
-            <div class="franchise-funds">₹28.05 Cr</div>
-            <div class="franchise-slots">6 Slots (2 Overseas)</div>
-          </div>
-
-          <div class="franchise-purse-card highlight-rr">
-            <div class="franchise-pname"><span>👑 RR (War Room)</span></div>
-            <div class="franchise-funds" style="color:var(--rr-pink);">₹27.05 Cr</div>
-            <div class="franchise-slots" style="color:#FFF;font-weight:700;">6 Slots (3 Overseas)</div>
-          </div>
-
-          <div class="franchise-purse-card">
-            <div class="franchise-pname"><span>PBKS</span></div>
-            <div class="franchise-funds">₹18.60 Cr</div>
-            <div class="franchise-slots">6 Slots (2 Overseas)</div>
-          </div>
-
-          <div class="franchise-purse-card">
-            <div class="franchise-pname"><span>RCB</span></div>
-            <div class="franchise-funds">₹14.15 Cr</div>
-            <div class="franchise-slots">5 Slots (1 Overseas)</div>
-          </div>
-
-          <div class="franchise-purse-card">
-            <div class="franchise-pname"><span>GT</span> <span style="font-size:10px;color:var(--red);">Lowest</span></div>
-            <div class="franchise-funds">₹8.75 Cr</div>
-            <div class="franchise-slots">3 Slots (2 Overseas)</div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- REALISTIC AUCTION TARGETS (THE REAL 6 PICKS FOR RR) -->
-      <div>
-        <h3 style="font-family:'Rajdhani',sans-serif;font-size:20px;font-weight:700;color:#FFF;margin-bottom:14px;">
-          RAJASTHAN ROYALS • REALISTIC AUCTION BOARD (6 PICKS FOR ₹27.05 CR PURSE)
-        </h3>
+      <div class="interactive-comparator-row">
         
-        <div class="real-targets-grid">
-          
-          <!-- Pick 1: Matheesha Pathirana -->
-          <div class="target-card-real priority-1">
-            <span class="target-priority-badge must-buy">Priority 1 • Overseas Death Machine</span>
-            <div class="target-pname-real">Matheesha Pathirana</div>
-            <div class="target-rel-badge">⚡ Released by KKR • Right-arm Sling Express</div>
-            <div class="target-stats-mini-bar">
-              <div>
-                <div style="font-size:9px;color:var(--text-muted);">PPI SCORE</div>
-                <div style="font-weight:800;color:var(--rr-pink);font-size:14px;">76.1</div>
-              </div>
-              <div>
-                <div style="font-size:9px;color:var(--text-muted);">HP STRIKE RATE</div>
-                <div style="font-weight:800;color:#FFF;font-size:14px;">12.2</div>
-              </div>
-              <div>
-                <div style="font-size:9px;color:var(--text-muted);">RUNS SAVED</div>
-                <div style="font-weight:800;color:var(--green);font-size:14px;">+162.5</div>
-              </div>
+        <div class="comparator-card">
+          <div class="comparator-header">
+            <div class="player-avatar-icon">🏏</div>
+            <div class="comparator-title-area">
+              <h3>IPL Batting Stats</h3>
+              <p style="font-size:11px;color:var(--text-muted);">Inspect individual clutch profile</p>
             </div>
-            <p class="target-bid-calc">
-              <strong>Purse Allocation:</strong> ₹8.50 – ₹10.50 Cr.<br>
-              <strong>Why RR Must Buy:</strong> Solves RR's death overs bowling once and for all. Pathirana is the premier sling yorker bowler in modern T20s and was released by KKR.
-            </p>
           </div>
-
-          <!-- Pick 2: Hasan Mahmud -->
-          <div class="target-card-real">
-            <span class="target-priority-badge high-value">Priority 2 • #1 Ranked Clutch Bowler</span>
-            <div class="target-pname-real">Hasan Mahmud</div>
-            <div class="target-rel-badge">🎯 Available in Auction Pool • Overseas Fast Seamer</div>
-            <div class="target-stats-mini-bar">
-              <div>
-                <div style="font-size:9px;color:var(--text-muted);">PPI SCORE</div>
-                <div style="font-weight:800;color:var(--gold);font-size:14px;">90.1 (#1)</div>
-              </div>
-              <div>
-                <div style="font-size:9px;color:var(--text-muted);">HP ECONOMY</div>
-                <div style="font-weight:800;color:#FFF;font-size:14px;">7.35</div>
-              </div>
-              <div>
-                <div style="font-size:9px;color:var(--text-muted);">RUNS SAVED</div>
-                <div style="font-weight:800;color:var(--green);font-size:14px;">+48.8</div>
-              </div>
+          <label style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;">Select Batter</label>
+          <select id="batterSelector" class="comparator-select" onchange="updateBatterCard(this.value)">
+            <!-- Populated dynamically -->
+          </select>
+          <div class="comparator-stats-grid">
+            <div class="mini-stat-box">
+              <div class="mini-stat-label">Total Runs</div>
+              <div class="mini-stat-num" id="batStatRuns">640</div>
             </div>
-            <p class="target-bid-calc">
-              <strong>Purse Allocation:</strong> ₹4.00 – ₹5.50 Cr.<br>
-              <strong>Why RR Must Buy:</strong> Holds the highest bowling PPI in the entire dataset. Uncontracted overseas asset offering pinpoint yorkers and seam accuracy under pressure.
-            </p>
-          </div>
-
-          <!-- Pick 3: Nehal Wadhera -->
-          <div class="target-card-real">
-            <span class="target-priority-badge domestic-gem">Priority 3 • Domestic Left-Hand Finisher</span>
-            <div class="target-pname-real">Nehal Wadhera</div>
-            <div class="target-rel-badge">🔥 Released by PBKS • Left-hand Middle Order</div>
-            <div class="target-stats-mini-bar">
-              <div>
-                <div style="font-size:9px;color:var(--text-muted);">ROLE</div>
-                <div style="font-weight:800;color:var(--cyan);font-size:12px;">Finisher #5</div>
-              </div>
-              <div>
-                <div style="font-size:9px;color:var(--text-muted);">PACE & SPIN</div>
-                <div style="font-weight:800;color:#FFF;font-size:12px;">Dual Hitter</div>
-              </div>
-              <div>
-                <div style="font-size:9px;color:var(--text-muted);">CEILING</div>
-                <div style="font-weight:800;color:var(--gold);font-size:12px;">Very High</div>
-              </div>
+            <div class="mini-stat-box">
+              <div class="mini-stat-label">6's</div>
+              <div class="mini-stat-num" id="batStat6s">38</div>
             </div>
-            <p class="target-bid-calc">
-              <strong>Purse Allocation:</strong> ₹3.50 – ₹4.50 Cr.<br>
-              <strong>Why RR Must Buy:</strong> Provides an aggressive domestic left-handed batting option in the middle overs, reducing dependency on overseas finishers.
-            </p>
-          </div>
-
-          <!-- Pick 4: Shahrukh Khan -->
-          <div class="target-card-real">
-            <span class="target-priority-badge domestic-gem">Priority 4 • Explosive Death Muscle</span>
-            <div class="target-pname-real">Shahrukh Khan</div>
-            <div class="target-rel-badge">💥 Released by GT • Right-hand Power Hitter</div>
-            <div class="target-stats-mini-bar">
-              <div>
-                <div style="font-size:9px;color:var(--text-muted);">ROLE</div>
-                <div style="font-weight:800;color:var(--cyan);font-size:12px;">Death Finisher</div>
-              </div>
-              <div>
-                <div style="font-size:9px;color:var(--text-muted);">BOUNDARY %</div>
-                <div style="font-weight:800;color:#FFF;font-size:12px;">22.4%</div>
-              </div>
-              <div>
-                <div style="font-size:9px;color:var(--text-muted);">PRICE VAL</div>
-                <div style="font-weight:800;color:var(--green);font-size:12px;">Value Buy</div>
-              </div>
+            <div class="mini-stat-box">
+              <div class="mini-stat-label">4's</div>
+              <div class="mini-stat-num" id="batStat4s">48</div>
             </div>
-            <p class="target-bid-calc">
-              <strong>Purse Allocation:</strong> ₹2.50 – ₹3.50 Cr.<br>
-              <strong>Why RR Must Buy:</strong> Pure boundary clearer in overs 18–20. Perfect rotational finisher or Impact Sub alongside Donovan Ferreira.
-            </p>
-          </div>
-
-          <!-- Pick 5: Trent Boult -->
-          <div class="target-card-real">
-            <span class="target-priority-badge high-value">Priority 5 • The Homecoming Swing Specialist</span>
-            <div class="target-pname-real">Trent Boult</div>
-            <div class="target-rel-badge">⚡ Released by MI • Left-arm Fast Seam</div>
-            <div class="target-stats-mini-bar">
-              <div>
-                <div style="font-size:9px;color:var(--text-muted);">PP WICKETS</div>
-                <div style="font-weight:800;color:var(--gold);font-size:12px;">Elite</div>
-              </div>
-              <div>
-                <div style="font-size:9px;color:var(--text-muted);">FAMILIARITY</div>
-                <div style="font-weight:800;color:#FFF;font-size:12px;">Sawai Mansingh</div>
-              </div>
-              <div>
-                <div style="font-size:9px;color:var(--text-muted);">PRESSURE EXP</div>
-                <div style="font-weight:800;color:var(--green);font-size:12px;">15+ Years</div>
-              </div>
+            <div class="mini-stat-box">
+              <div class="mini-stat-label">Strike Rate</div>
+              <div class="mini-stat-num" style="color:var(--rr-pink);" id="batStatSR">184.4</div>
             </div>
-            <p class="target-bid-calc">
-              <strong>Purse Allocation:</strong> ₹3.00 – ₹4.00 Cr.<br>
-              <strong>Why RR Must Buy:</strong> Brings back the world-class powerplay wickets partnership with Mohd. Shami and Sandeep Sharma.
-            </p>
           </div>
-
-          <!-- Pick 6: Akash Madhwal -->
-          <div class="target-card-real">
-            <span class="target-priority-badge domestic-gem">Priority 6 • Domestic Yorker Specialist</span>
-            <div class="target-pname-real">Akash Madhwal</div>
-            <div class="target-rel-badge">🎯 Released by CSK • Right-arm Medium-Fast</div>
-            <div class="target-stats-mini-bar">
-              <div>
-                <div style="font-size:9px;color:var(--text-muted);">SLOT</div>
-                <div style="font-weight:800;color:var(--cyan);font-size:12px;">Domestic Pace</div>
-              </div>
-              <div>
-                <div style="font-size:9px;color:var(--text-muted);">DEATH CONTROL</div>
-                <div style="font-weight:800;color:#FFF;font-size:12px;">Yorker Heavy</div>
-              </div>
-              <div>
-                <div style="font-size:9px;color:var(--text-muted);">EST SPEND</div>
-                <div style="font-weight:800;color:var(--gold);font-size:12px;">₹1.50 Cr</div>
-              </div>
-            </div>
-            <p class="target-bid-calc">
-              <strong>Purse Allocation:</strong> ₹1.20 – ₹1.80 Cr.<br>
-              <strong>Why RR Must Buy:</strong> Experienced domestic Indian seamer who executes blockhole deliveries under extreme pressure.
-            </p>
+          <div style="display:flex;justify-content:space-between;margin-top:12px;font-size:11px;color:var(--text-muted);border-top:1px solid var(--card-border);padding-top:10px;">
+            <span>Delta SR: <strong style="color:var(--gold);" id="batStatDeltaSR">+38.2</strong></span>
+            <span>Pressure Avg: <strong style="color:#FFF;" id="batStatAvg">42.7</strong></span>
+            <span>Status: <strong style="color:var(--cyan);" id="batStatStatus">Retained by PBKS</strong></span>
           </div>
-
         </div>
 
-        <!-- TOTAL BUDGET SUMMARY -->
-        <div style="background:#091228;border:1px solid var(--card-border);border-radius:12px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
-          <div>
-            <span style="font-size:12px;color:var(--text-muted);text-transform:uppercase;font-weight:700;">Total Strategy Budget Required</span>
-            <div style="font-family:'Rajdhani',sans-serif;font-size:24px;font-weight:700;color:var(--green);">₹23.20 Cr – ₹26.50 Cr</div>
+        <div class="comparator-card">
+          <div class="comparator-header">
+            <div class="player-avatar-icon">🎯</div>
+            <div class="comparator-title-area">
+              <h3>IPL Bowling Stats</h3>
+              <p style="font-size:11px;color:var(--text-muted);">Inspect individual clutch profile</p>
+            </div>
           </div>
-          <div>
-            <span style="font-size:12px;color:var(--text-muted);text-transform:uppercase;font-weight:700;">RR Purse Available</span>
-            <div style="font-family:'Rajdhani',sans-serif;font-size:24px;font-weight:700;color:var(--rr-pink);">₹27.05 Cr</div>
+          <label style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;">Select Bowler</label>
+          <select id="bowlerSelector" class="comparator-select" onchange="updateBowlerCard(this.value)">
+            <!-- Populated dynamically -->
+          </select>
+          <div class="comparator-stats-grid">
+            <div class="mini-stat-box">
+              <div class="mini-stat-label">Total Wkts</div>
+              <div class="mini-stat-num" id="bowlStatWkts">50</div>
+            </div>
+            <div class="mini-stat-box">
+              <div class="mini-stat-label">Economy</div>
+              <div class="mini-stat-num" style="color:var(--cyan);" id="bowlStatEcon">7.20</div>
+            </div>
+            <div class="mini-stat-box">
+              <div class="mini-stat-label">Average</div>
+              <div class="mini-stat-num" id="bowlStatAvg">17.8</div>
+            </div>
+            <div class="mini-stat-box">
+              <div class="mini-stat-label">Strike Rate</div>
+              <div class="mini-stat-num" id="bowlStatSR">14.8</div>
+            </div>
           </div>
-          <div>
-            <span style="font-size:12px;color:var(--text-muted);text-transform:uppercase;font-weight:700;">Purse Buffer Remaining</span>
-            <div style="font-family:'Rajdhani',sans-serif;font-size:24px;font-weight:700;color:var(--gold);">+₹0.55 Cr to +₹3.85 Cr</div>
+          <div style="display:flex;justify-content:space-between;margin-top:12px;font-size:11px;color:var(--text-muted);border-top:1px solid var(--card-border);padding-top:10px;">
+            <span>Delta Econ: <strong style="color:var(--gold);" id="bowlStatDeltaEcon">+1.48</strong></span>
+            <span>Dot Ball %: <strong style="color:#FFF;" id="bowlStatDot">44.8%</strong></span>
+            <span>Status: <strong style="color:var(--cyan);" id="bowlStatStatus">Retained by MI</strong></span>
           </div>
-          <div>
-            <span class="badge-pill" style="background:rgba(16, 185, 129, 0.2);color:#10B981;font-size:12px;padding:6px 12px;border:1px solid #10B981;">
-              ✅ 100% FEASIBLE & BUDGET BALANCED
-            </span>
+        </div>
+
+        <div class="comparator-card">
+          <div class="comparator-header">
+            <div class="player-avatar-icon">🍩</div>
+            <div class="comparator-title-area">
+              <h3>Matches Won By</h3>
+              <p style="font-size:11px;color:var(--text-muted);">Chasing vs Defending splits</p>
+            </div>
+          </div>
+          <div class="donut-card-content">
+            <div class="donut-chart-box">
+              <canvas id="donutWinBy"></canvas>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="venue-team-row">
+        
+        <div class="chart-panel-card">
+          <div class="chart-panel-title">Matches Won at Venue (Wickets vs Runs)</div>
+          <div class="chart-panel-box">
+            <canvas id="barVenues"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-panel-card">
+          <div class="chart-panel-title">Total Matches Won by Team (IPL Eras)</div>
+          <div class="chart-panel-box">
+            <canvas id="barTeamWins"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-panel-card">
+          <div class="chart-panel-title">Matches Won by Toss Decision</div>
+          <div class="chart-panel-box" style="display:flex;align-items:center;justify-content:center;">
+            <div style="width:200px;height:200px;">
+              <canvas id="donutToss"></canvas>
+            </div>
           </div>
         </div>
 
@@ -2071,7 +2331,7 @@ html_content = f'''<!DOCTYPE html>
         <span>Strict IPL eligibility enforced: All Pakistani players excluded from rankings and board.</span>
       </div>
       <div>
-        <span>Model: Delivery Pressure Index (DPI ≥ 1.50) • Official IPL 2027 Retention Window Applied</span>
+        <span>Model: Delivery Pressure Index (DPI ≥ 1.50) • Bayesian Shrinkage Applied • 200,999 Deliveries Evaluated</span>
       </div>
     </footer>
 
@@ -2082,12 +2342,12 @@ html_content = f'''<!DOCTYPE html>
     const RAW_DATA = {json_str};
 
     let currentRole = 'All';
-    let currentAuctionFilter = 'all'; // 'all', 'auction-only', 'retained-only'
+    let currentAuctionFilter = 'all';
     let sortColumn = 'ppi';
     let sortAsc = false;
     let selectedPlayerName = 'Shashank Singh';
 
-    // Sparkline chart instances
+    // Chart instances
     let chartAvg = null;
     let chartBalls = null;
     let chartSR = null;
@@ -2101,12 +2361,60 @@ html_content = f'''<!DOCTYPE html>
 
     // Initialize application
     window.addEventListener('DOMContentLoaded', () => {{
+      renderPureTop10Tables();
       renderTable();
       initSparklines();
       initScatterPlot();
       initIPLOverviewCharts();
       populateSelectors();
     }});
+
+    // Render Pure Dataset Top 10 Tables
+    function renderPureTop10Tables() {{
+      const bBody = document.getElementById('pureBattersBody');
+      const bwBody = document.getElementById('pureBowlersBody');
+      
+      const bat10 = RAW_DATA.pure_results_top10_batters || [];
+      const bowl10 = RAW_DATA.pure_results_top10_bowlers || [];
+
+      bBody.innerHTML = '';
+      bat10.forEach(b => {{
+        const tr = document.createElement('tr');
+        const rankPillClass = b.rank <= 3 ? 'rank-pill top-3' : 'rank-pill';
+        tr.innerHTML = `
+          <td><span class="${{rankPillClass}}">#${{b.rank}}</span></td>
+          <td class="player-name-cell">${{b.name}}</td>
+          <td>${{b.hp_balls}}</td>
+          <td><strong>${{b.hp_runs}}</strong></td>
+          <td><strong style="color:var(--rr-pink);">${{b.hp_sr}}</strong></td>
+          <td>${{b.base_sr}}</td>
+          <td><span style="color:var(--gold);font-weight:700;">+${{b.delta_sr}}</span></td>
+          <td><span style="color:var(--green);font-weight:700;">+${{b.rae}}</span></td>
+          <td><span class="badge-pill badge-ppi">${{b.ppi}}</span></td>
+        `;
+        bBody.appendChild(tr);
+      }});
+
+      bwBody.innerHTML = '';
+      bowl10.forEach(bw => {{
+        const tr = document.createElement('tr');
+        const rankPillClass = bw.rank <= 3 ? 'rank-pill top-3' : 'rank-pill';
+        const deltaColor = bw.delta_econ > 0 ? 'var(--gold)' : '#94A3B8';
+        const deltaSign = bw.delta_econ > 0 ? '+' : '';
+        tr.innerHTML = `
+          <td><span class="${{rankPillClass}}">#${{bw.rank}}</span></td>
+          <td class="player-name-cell">${{bw.name}}</td>
+          <td>${{bw.hp_balls}}</td>
+          <td><strong>${{bw.hp_wkts}}</strong></td>
+          <td><strong style="color:var(--cyan);">${{bw.hp_econ}}</strong></td>
+          <td>${{bw.base_econ}}</td>
+          <td><span style="color:${{deltaColor}};font-weight:700;">${{deltaSign}}${{bw.delta_econ}}</span></td>
+          <td><span style="color:var(--green);font-weight:700;">+${{bw.runs_saved}}</span></td>
+          <td><span class="badge-pill badge-ppi">${{bw.ppi}}</span></td>
+        `;
+        bwBody.appendChild(tr);
+      }});
+    }}
 
     // Tab Switching
     function switchTab(tabId, el) {{
@@ -2117,7 +2425,7 @@ html_content = f'''<!DOCTYPE html>
       el.classList.add('active');
     }}
 
-    // Filter by Role (Screenshot 2 pills)
+    // Filter by Role
     function filterByRole(role, el) {{
       currentRole = role;
       document.querySelectorAll('.role-pill').forEach(p => p.classList.remove('active'));
@@ -2126,7 +2434,7 @@ html_content = f'''<!DOCTYPE html>
       renderTable();
     }}
 
-    // Auction Eligibility Toggle (New User Feature!)
+    // Auction Eligibility Toggle
     function setAuctionFilter(filterType, el) {{
       currentAuctionFilter = filterType;
       document.querySelectorAll('.auction-toggle-btn').forEach(b => {{
@@ -2174,7 +2482,6 @@ html_content = f'''<!DOCTYPE html>
         [...bAll, ...bwAll].forEach(p => setMap.set(p.name, p));
         list = Array.from(setMap.values());
       }} else {{
-        // 'All'
         const setMap = new Map();
         [...batters, ...bowlers].forEach(p => setMap.set(p.name, p));
         list = Array.from(setMap.values());
@@ -2254,7 +2561,6 @@ html_content = f'''<!DOCTYPE html>
         const wktsVal = (p.hp_wickets !== undefined) ? p.hp_wickets : (p.wickets || 0);
         const econVal = (p.hp_econ !== undefined) ? p.hp_econ.toFixed(2) : (p.bowling_econ ? p.bowling_econ.toFixed(2) : '-');
 
-        // Status badge logic
         let statusBadgeClass = 'status-badge available';
         let statusIcon = '🟢';
         if (p.status_2027 === 'Retained') {{
@@ -2291,18 +2597,15 @@ html_content = f'''<!DOCTYPE html>
       }});
     }}
 
-    // When a player is clicked (Screenshot 2 yellow prompt action)
     function selectPlayer(p) {{
       selectedPlayerName = p.name;
       renderTable();
 
-      // Update Sparkline headline values
       document.getElementById('sparkValAvg').innerText = p.hp_avg ? p.hp_avg.toFixed(1) : (p.overall_avg ? p.overall_avg.toFixed(1) : '24.5');
       document.getElementById('sparkValBalls').innerText = p.avg_balls_faced || '15.4';
       document.getElementById('sparkValSR').innerText = p.hp_sr ? p.hp_sr.toFixed(1) : (p.overall_sr ? p.overall_sr.toFixed(1) : '145.0');
       document.getElementById('sparkValBowlSR').innerText = p.hp_sr && p.hp_wickets ? (p.hp_balls/p.hp_wickets).toFixed(1) : (p.bowling_sr || '16.5');
 
-      // Update Batter & Bowler cards if in overview
       const bSel = document.getElementById('batterSelector');
       if (bSel) {{
         for (let i = 0; i < bSel.options.length; i++) {{
@@ -2314,7 +2617,6 @@ html_content = f'''<!DOCTYPE html>
         }}
       }}
 
-      // Highlight in scatter plot
       if (chartScatter) {{
         chartScatter.data.datasets.forEach(ds => {{
           ds.pointRadius = ds.data.map(pt => pt.name === p.name ? 12 : 7);
@@ -2323,7 +2625,6 @@ html_content = f'''<!DOCTYPE html>
       }}
     }}
 
-    // SPARKLINE INITIALIZATION WITH DASHED PAR THRESHOLD LINES (Screenshot 2)
     function initSparklines() {{
       const baseOptions = (parValue) => ({{
         responsive: true,
@@ -2341,7 +2642,6 @@ html_content = f'''<!DOCTYPE html>
         }}
       }});
 
-      // Sparkline 1: Batting Avg (Par 20.16)
       const ctxAvg = document.getElementById('sparkAvg').getContext('2d');
       chartAvg = new Chart(ctxAvg, {{
         type: 'line',
@@ -2370,7 +2670,6 @@ html_content = f'''<!DOCTYPE html>
         options: baseOptions(20.16)
       }});
 
-      // Sparkline 2: Avg balls faced (Par 13.65)
       const ctxBalls = document.getElementById('sparkBalls').getContext('2d');
       chartBalls = new Chart(ctxBalls, {{
         type: 'line',
@@ -2399,7 +2698,6 @@ html_content = f'''<!DOCTYPE html>
         options: baseOptions(13.65)
       }});
 
-      // Sparkline 3: Strike Rate (Par 117.08)
       const ctxSR = document.getElementById('sparkSR').getContext('2d');
       chartSR = new Chart(ctxSR, {{
         type: 'line',
@@ -2428,7 +2726,6 @@ html_content = f'''<!DOCTYPE html>
         options: baseOptions(117.08)
       }});
 
-      // Sparkline 4: Bowling S/R (Par 18.43)
       const ctxBowlSR = document.getElementById('sparkBowlSR').getContext('2d');
       chartBowlSR = new Chart(ctxBowlSR, {{
         type: 'line',
@@ -2458,7 +2755,6 @@ html_content = f'''<!DOCTYPE html>
       }});
     }}
 
-    // SCATTER PLOT INITIALIZATION (Screenshot 2: Batting Avg vs Strike Rate with yellow circular bubbles)
     function initScatterPlot() {{
       const ctxScatter = document.getElementById('scatterPlot').getContext('2d');
 
@@ -2525,9 +2821,7 @@ html_content = f'''<!DOCTYPE html>
       }});
     }}
 
-    // IPL OVERVIEW CHARTS (Screenshot 1: Donut charts, Venues stacked bars, Team wins)
     function initIPLOverviewCharts() {{
-      // 1. Donut: Matches won by
       const ctxWinBy = document.getElementById('donutWinBy').getContext('2d');
       chartWinBy = new Chart(ctxWinBy, {{
         type: 'doughnut',
@@ -2558,7 +2852,6 @@ html_content = f'''<!DOCTYPE html>
         }}
       }});
 
-      // 2. Bar: Matches won at venue
       const ctxVenues = document.getElementById('barVenues').getContext('2d');
       const venues = RAW_DATA.venue_stats || [];
       chartVenues = new Chart(ctxVenues, {{
@@ -2592,7 +2885,6 @@ html_content = f'''<!DOCTYPE html>
         }}
       }});
 
-      // 3. Bar: Total matches win by a team
       const ctxTeamWins = document.getElementById('barTeamWins').getContext('2d');
       const teamWinsObj = RAW_DATA.team_wins || {{}};
       const teams = Object.keys(teamWinsObj);
@@ -2623,7 +2915,6 @@ html_content = f'''<!DOCTYPE html>
         }}
       }});
 
-      // 4. Donut: Toss Decision
       const ctxToss = document.getElementById('donutToss').getContext('2d');
       chartToss = new Chart(ctxToss, {{
         type: 'doughnut',
@@ -2649,7 +2940,6 @@ html_content = f'''<!DOCTYPE html>
         }}
       }});
 
-      // 5. Bar: Powerplay vs Death Runs (Screenshot 3 style)
       const ctxPPDeath = document.getElementById('barPowerplayDeath').getContext('2d');
       const ppDeathData = RAW_DATA.powerplay_death || [];
       chartPPDeath = new Chart(ctxPPDeath, {{
@@ -2683,7 +2973,6 @@ html_content = f'''<!DOCTYPE html>
       }});
     }}
 
-    // POPULATE DROPDOWNS (Screenshot 1 Select Batter / Select Bowler)
     function populateSelectors() {{
       const bSel = document.getElementById('batterSelector');
       const bwSel = document.getElementById('bowlerSelector');
@@ -2702,7 +2991,6 @@ html_content = f'''<!DOCTYPE html>
         bwSel.appendChild(opt);
       }});
 
-      // Set default
       updateBatterCard(bSel.value);
       updateBowlerCard(bwSel.value);
     }}
@@ -2733,7 +3021,6 @@ html_content = f'''<!DOCTYPE html>
       document.getElementById('bowlStatStatus').innerText = p.status_label;
     }}
 
-    // Filter Season (top bar)
     function filterSeason(season) {{
       console.log('Season filtered:', season);
     }}
@@ -2748,4 +3035,4 @@ with open('dashboard.html', 'w') as f:
 with open('index.html', 'w') as f:
     f.write(html_content)
 
-print("Successfully written updated dashboard.html and index.html with Real 2027 Strategy tab and Auction Pool toggle!")
+print("Successfully written updated dashboard.html and index.html with Pure Dataset Results prominently featured!")
