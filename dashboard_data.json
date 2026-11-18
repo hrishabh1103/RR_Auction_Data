@@ -1,6 +1,7 @@
 {
   "tournament_stats": {
     "title_focus": "Rajasthan Royals (IPL 2027 Auction Target Board)",
+    "rr_purse": "\u20b927.05 Cr (6 Slots, 3 Overseas)",
     "orange_cap_all": {
       "name": "Virat Kohli",
       "runs": 6634,
@@ -13,8 +14,7 @@
       "runs": 640,
       "sr": 184.4,
       "ppi": 98.9,
-      "fours": 48,
-      "sixes": 38
+      "status": "Retained by PBKS"
     },
     "purple_cap_all": {
       "name": "Dwayne Bravo",
@@ -28,7 +28,8 @@
       "wickets": 50,
       "econ": 7.2,
       "runs_saved": 263.0,
-      "ppi": 82.7
+      "ppi": 82.7,
+      "status": "Retained by MI"
     },
     "tournament_6s": "12.81K",
     "tournament_4s": "23.28K",
@@ -149,6 +150,423 @@
       "death": 3180
     }
   ],
+  "purse_and_slots": [
+    {
+      "team": "Lucknow Super Giants",
+      "purse_cr": 47.45,
+      "slots": 7,
+      "overseas": 3
+    },
+    {
+      "team": "Kolkata Knight Riders",
+      "purse_cr": 41.65,
+      "slots": 8,
+      "overseas": 3
+    },
+    {
+      "team": "Sunrisers Hyderabad",
+      "purse_cr": 40.15,
+      "slots": 7,
+      "overseas": 3
+    },
+    {
+      "team": "Delhi Capitals",
+      "purse_cr": 39.5,
+      "slots": 9,
+      "overseas": 4
+    },
+    {
+      "team": "Mumbai Indians",
+      "purse_cr": 32.6,
+      "slots": 9,
+      "overseas": 2
+    },
+    {
+      "team": "Chennai Super Kings",
+      "purse_cr": 28.05,
+      "slots": 6,
+      "overseas": 2
+    },
+    {
+      "team": "Rajasthan Royals",
+      "purse_cr": 27.05,
+      "slots": 6,
+      "overseas": 3
+    },
+    {
+      "team": "Punjab Kings",
+      "purse_cr": 18.6,
+      "slots": 6,
+      "overseas": 2
+    },
+    {
+      "team": "Royal Challengers Bengaluru",
+      "purse_cr": 14.15,
+      "slots": 5,
+      "overseas": 1
+    },
+    {
+      "team": "Gujarat Titans",
+      "purse_cr": 8.75,
+      "slots": 3,
+      "overseas": 2
+    }
+  ],
+  "retained_dict": {
+    "Chennai Super Kings": [
+      "Ruturaj Gaikwad",
+      "Sanju Samson",
+      "Ayush Mhatre",
+      "Urvil Patel",
+      "Dewald Brevis",
+      "Liam Livingstone",
+      "Jack Edwards",
+      "Akeal Hosein",
+      "Noor Ahmad",
+      "Kartik Sharma",
+      "Shivam Dube",
+      "Gurjapneet Singh",
+      "Anshul Kamboj",
+      "Sarfaraz Khan",
+      "Jamie Overton",
+      "Mukesh Choudhary",
+      "Rahul Chahar",
+      "Ramakrishna Ghosh",
+      "Shreyas Gopal"
+    ],
+    "Lucknow Super Giants": [
+      "Abdul Samad",
+      "Aiden Markram",
+      "Akash Singh",
+      "Akshat Raghuwanshi",
+      "Arjun Tendulkar",
+      "Arshin Kulkarni",
+      "Ayush Badoni",
+      "Digvesh Rathi",
+      "Josh Inglis",
+      "Kuldeep Yadav",
+      "Mayank Yadav",
+      "Mitchell Marsh",
+      "Mohsin Khan",
+      "Mukul Choudhary",
+      "Nicholas Pooran",
+      "Prince Yadav",
+      "Sam Curran",
+      "Shahbaz Ahmed"
+    ],
+    "Royal Challengers Bengaluru": [
+      "Rajat Patidar",
+      "Virat Kohli",
+      "Jitesh Sharma",
+      "Bhuvneshwar Kumar",
+      "Krunal Pandya",
+      "Josh Hazlewood",
+      "Phil Salt",
+      "Tim David",
+      "Romario Shepherd",
+      "Devdutt Padikkal",
+      "Nuwan Thushara",
+      "Venkatesh Iyer",
+      "Jacob Duffy",
+      "Jordan Cox",
+      "Rasikh Dar",
+      "Suyash Sharma",
+      "Vicky Ostwal",
+      "Abhinandan Singh",
+      "Kanishk Chouhan",
+      "Yash Dayal"
+    ],
+    "Mumbai Indians": [
+      "Rohit Sharma",
+      "Suryakumar Yadav",
+      "Jasprit Bumrah",
+      "Tilak Varma",
+      "Naman Dhir",
+      "Arshdeep Singh",
+      "Corbin Bosch",
+      "Mitchell Santner",
+      "Sherfane Rutherford",
+      "Will Jacks",
+      "Ryan Rickelton",
+      "Quinton de Kock",
+      "Shardul Thakur",
+      "Ashwani Kumar",
+      "Raj Angad Bawa",
+      "Raghu Sharma"
+    ],
+    "Sunrisers Hyderabad": [
+      "Pat Cummins",
+      "Abhishek Sharma",
+      "Ishan Kishan",
+      "Heinrich Klaasen",
+      "Nitish Kumar Reddy",
+      "Brydon Carse",
+      "Salil Arora",
+      "Aniket Verma",
+      "Harsh Dubey",
+      "Smaran Ravichandran",
+      "Praful Hinge",
+      "Sakib Hussain",
+      "Shivang Kumar",
+      "Krains Fuletra",
+      "Eshan Malinga",
+      "T Natarajan",
+      "Nathan Ellis",
+      "Khaleel Ahmed"
+    ],
+    "Punjab Kings": [
+      "Shreyas Iyer",
+      "Marcus Stoinis",
+      "Hardik Pandya",
+      "Marco Jansen",
+      "Shashank Singh",
+      "Prabhsimran Singh",
+      "Priyansh Arya",
+      "Yuzvendra Chahal",
+      "Azmatullah Omarzai",
+      "Vishnu Vinod",
+      "Xavier Bartlett",
+      "Vijaykumar Vyshak",
+      "Yash Thakur",
+      "Cooper Connolly",
+      "Musheer Khan",
+      "Ben Dwarshuis",
+      "Harpreet Brar",
+      "Suryansh Shedge",
+      "Harnoor Singh"
+    ],
+    "Rajasthan Royals": [
+      "Aman Rao Perala",
+      "Brijesh Sharma",
+      "Dasun Shanaka",
+      "Dhruv Jurel",
+      "Donovan Ferreira",
+      "Jofra Archer",
+      "Lhuan-dre Pretorius",
+      "Manimaran Siddharth",
+      "Mohd. Shami",
+      "Nandre Burger",
+      "Ravi Bishnoi",
+      "Ravindra Jadeja",
+      "Riyan Parag",
+      "Sandeep Sharma",
+      "Shubham Dubey",
+      "Sushant Mishra",
+      "Vaibhav Sooryavanshi",
+      "Yash Raj Punja",
+      "Yashasvi Jaiswal"
+    ],
+    "Delhi Capitals": [
+      "Ashutosh Sharma",
+      "Madhav Tiwari",
+      "Vipraj Nigam",
+      "Auqib Nabi",
+      "Mukesh Kumar",
+      "Zeeshan Ansari",
+      "Axar Patel",
+      "Prithvi Shaw",
+      "David Miller",
+      "Rishabh Pant",
+      "KL Rahul",
+      "Sameer Rizvi",
+      "Kyle Jamieson",
+      "Tripurana Vijay",
+      "Lungi Ngidi",
+      "Tristan Stubbs"
+    ],
+    "Gujarat Titans": [
+      "Anuj Rawat",
+      "Kagiso Rabada",
+      "Rahul Tewatia",
+      "Ashok Sharma",
+      "Kumar Kushagra",
+      "Rashid Khan",
+      "Glenn Phillips",
+      "Manav Suthar",
+      "Sai Sudharsan",
+      "Gurnoor Brar",
+      "Mohammed Siraj",
+      "Shubman Gill",
+      "Harshal Patel",
+      "Arshad Khan",
+      "Tom Banton",
+      "Jason Holder",
+      "Nishant Sindhu",
+      "Washington Sundar",
+      "Jayant Yadav",
+      "Prasidh Krishna",
+      "Jos Buttler",
+      "R Sai Kishore"
+    ],
+    "Kolkata Knight Riders": [
+      "Anukul Roy",
+      "Angkrish Raghuvanshi",
+      "Cameron Green",
+      "Finn Allen",
+      "Harshit Rana",
+      "Kartik Tyagi",
+      "Manish Pandey",
+      "Prashant Solanki",
+      "Ramandeep Singh",
+      "Rinku Singh",
+      "Rovman Powell",
+      "Sarthak Ranjan",
+      "Saurabh Dubey",
+      "Sunil Narine",
+      "Tim Seifert",
+      "Vaibhav Arora",
+      "Varun Chakaravarthy"
+    ]
+  },
+  "released_dict": {
+    "Chennai Super Kings": [
+      "MS Dhoni",
+      "Prashant Veer",
+      "Spencer Johnson",
+      "Akash Madhwal",
+      "Aman Khan",
+      "Dian Forrester",
+      "Kuldip Yadav",
+      "Macneil Noronha",
+      "Matt Henry",
+      "Matt Short",
+      "Zak Foulkes"
+    ],
+    "Lucknow Super Giants": [
+      "Avesh Khan",
+      "Matthew Breetzke",
+      "Wanindu Hasaranga",
+      "George Linde",
+      "Anrich Nortje",
+      "Naman Tiwari",
+      "Himmat Singh"
+    ],
+    "Royal Challengers Bengaluru": [
+      "Jacob Bethell",
+      "Richard Gleeson",
+      "Mangesh Yadav",
+      "Vihaan Malhotra",
+      "Satvik Deswal",
+      "Swapnil Singh"
+    ],
+    "Mumbai Indians": [
+      "Trent Boult",
+      "Deepak Chahar",
+      "AM Ghazanfar",
+      "Atharva Ankolekar",
+      "Keshav Maharaj",
+      "Mohammed Izhar",
+      "Danish Malewar",
+      "Mayank Markande",
+      "Mayank Rawat",
+      "Krish Bhagat",
+      "Mahipal Lomror",
+      "Robin Minz",
+      "Ruchit Ahir"
+    ],
+    "Sunrisers Hyderabad": [
+      "Travis Head",
+      "Jaydev Unadkat",
+      "Gerald Coetzee",
+      "Dilshan Madushanka",
+      "David Payne",
+      "Amit Kumar",
+      "Kamindu Mendis",
+      "Onkar Tarmale",
+      "RS Ambrish",
+      "Shivam Mavi"
+    ],
+    "Punjab Kings": [
+      "Nehal Wadhera",
+      "Lockie Ferguson",
+      "Lockie Ferugson",
+      "Pyla Avinash",
+      "Mitchell Owen",
+      "Praveen Dube",
+      "Vishal Nishad"
+    ],
+    "Rajasthan Royals": [
+      "Adam Milne",
+      "Emanjot Chahal",
+      "Kuldeep Sen",
+      "Kwena Maphaka",
+      "Ravi Singh",
+      "Shimron Hetmyer",
+      "Tushar Deshpande",
+      "Vignesh Puthur",
+      "Yudhvir Singh Charak"
+    ],
+    "Delhi Capitals": [
+      "Mitchell Starc",
+      "Nitish Rana",
+      "Abishek Porel",
+      "Pathum Nissanka",
+      "Karun Nair",
+      "Sahil Parakh",
+      "Ajay Mandal",
+      "Rehan Ahmed",
+      "Dushmantha Chameera"
+    ],
+    "Gujarat Titans": [
+      "Shahrukh Khan",
+      "Ishant Sharma",
+      "Luke Wood",
+      "Kulwant Khejroliya",
+      "Connor Esterhuizen",
+      "Prithviraj Yarra"
+    ],
+    "Kolkata Knight Riders": [
+      "Ajinkya Rahane",
+      "Akash Deep",
+      "Blessing Muzarabani",
+      "Daksh Kamra",
+      "Luvnith Sisodia",
+      "Matheesha Pathirana",
+      "Mustafizur Rahman",
+      "Navdeep Saini",
+      "Rachin Ravindra",
+      "Rahul Tripathi",
+      "Tejasvi Singh",
+      "Umran Malik"
+    ]
+  },
+  "rr_war_room_2027": {
+    "purse_cr": 27.05,
+    "slots_total": 6,
+    "slots_overseas": 3,
+    "retained_players": [
+      "Aman Rao Perala",
+      "Brijesh Sharma",
+      "Dasun Shanaka",
+      "Dhruv Jurel",
+      "Donovan Ferreira",
+      "Jofra Archer",
+      "Lhuan-dre Pretorius",
+      "Manimaran Siddharth",
+      "Mohd. Shami",
+      "Nandre Burger",
+      "Ravi Bishnoi",
+      "Ravindra Jadeja",
+      "Riyan Parag",
+      "Sandeep Sharma",
+      "Shubham Dubey",
+      "Sushant Mishra",
+      "Vaibhav Sooryavanshi",
+      "Yash Raj Punja",
+      "Yashasvi Jaiswal"
+    ],
+    "released_players": [
+      "Adam Milne",
+      "Emanjot Chahal",
+      "Kuldeep Sen",
+      "Kwena Maphaka",
+      "Ravi Singh",
+      "Shimron Hetmyer",
+      "Tushar Deshpande",
+      "Vignesh Puthur",
+      "Yudhvir Singh Charak"
+    ]
+  },
   "batters": [
     {
       "rank": 1,
@@ -172,8 +590,6 @@
       "hp_dots": 94,
       "hp_sr": 184.4,
       "hp_avg": 64.0,
-      "base_sr": 110.0,
-      "base_avg": 18.9,
       "delta_sr": 74.5,
       "delta_avg": 45.1,
       "avg_balls_faced": 34.7,
@@ -185,7 +601,11 @@
       "bowling_econ": 8.84,
       "innings_bowled": 8,
       "is_ipl": true,
-      "ppi": 98.9
+      "ppi": 98.9,
+      "status_2027": "Retained",
+      "status_team": "Punjab Kings",
+      "status_label": "Retained by Punjab Kings",
+      "is_auction_eligible": false
     },
     {
       "rank": 2,
@@ -209,8 +629,6 @@
       "hp_dots": 57,
       "hp_sr": 200.9,
       "hp_avg": 29.1,
-      "base_sr": 144.0,
-      "base_avg": 27.8,
       "delta_sr": 56.9,
       "delta_avg": 1.3,
       "avg_balls_faced": 14.5,
@@ -222,7 +640,11 @@
       "bowling_econ": 9.8,
       "innings_bowled": 15,
       "is_ipl": true,
-      "ppi": 83.3
+      "ppi": 83.3,
+      "status_2027": "Retained",
+      "status_team": "Mumbai Indians",
+      "status_label": "Retained by Mumbai Indians",
+      "is_auction_eligible": false
     },
     {
       "rank": 3,
@@ -246,8 +668,6 @@
       "hp_dots": 37,
       "hp_sr": 187.8,
       "hp_avg": 37.3,
-      "base_sr": 133.6,
-      "base_avg": 34.4,
       "delta_sr": 54.2,
       "delta_avg": 2.9,
       "avg_balls_faced": 19.9,
@@ -259,7 +679,11 @@
       "bowling_econ": 9.0,
       "innings_bowled": 2,
       "is_ipl": false,
-      "ppi": 81.3
+      "ppi": 81.3,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 4,
@@ -283,8 +707,6 @@
       "hp_dots": 214,
       "hp_sr": 189.7,
       "hp_avg": 35.4,
-      "base_sr": 148.0,
-      "base_avg": 33.6,
       "delta_sr": 41.8,
       "delta_avg": 1.8,
       "avg_balls_faced": 18.6,
@@ -296,7 +718,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 1,
       "is_ipl": true,
-      "ppi": 79.9
+      "ppi": 79.9,
+      "status_2027": "Retained",
+      "status_team": "Royal Challengers Bengaluru",
+      "status_label": "Retained by Royal Challengers Bengaluru",
+      "is_auction_eligible": false
     },
     {
       "rank": 5,
@@ -320,8 +746,6 @@
       "hp_dots": 203,
       "hp_sr": 184.3,
       "hp_avg": 39.6,
-      "base_sr": 154.5,
-      "base_avg": 37.8,
       "delta_sr": 29.9,
       "delta_avg": 1.8,
       "avg_balls_faced": 21.5,
@@ -333,7 +757,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 1,
       "is_ipl": true,
-      "ppi": 79.6
+      "ppi": 79.6,
+      "status_2027": "Retained",
+      "status_team": "Mumbai Indians",
+      "status_label": "Retained by Mumbai Indians",
+      "is_auction_eligible": false
     },
     {
       "rank": 6,
@@ -357,8 +785,6 @@
       "hp_dots": 56,
       "hp_sr": 191.7,
       "hp_avg": 29.5,
-      "base_sr": 128.6,
-      "base_avg": 19.8,
       "delta_sr": 63.1,
       "delta_avg": 9.6,
       "avg_balls_faced": 15.4,
@@ -370,7 +796,11 @@
       "bowling_econ": 8.82,
       "innings_bowled": 9,
       "is_ipl": true,
-      "ppi": 79.5
+      "ppi": 79.5,
+      "status_2027": "Retained",
+      "status_team": "Rajasthan Royals",
+      "status_label": "Retained by Rajasthan Royals",
+      "is_auction_eligible": false
     },
     {
       "rank": 7,
@@ -394,8 +824,6 @@
       "hp_dots": 135,
       "hp_sr": 176.2,
       "hp_avg": 40.9,
-      "base_sr": 117.4,
-      "base_avg": 31.0,
       "delta_sr": 58.8,
       "delta_avg": 10.0,
       "avg_balls_faced": 23.2,
@@ -407,7 +835,11 @@
       "bowling_econ": 12.96,
       "innings_bowled": 7,
       "is_ipl": true,
-      "ppi": 78.1
+      "ppi": 78.1,
+      "status_2027": "Retained",
+      "status_team": "Delhi Capitals",
+      "status_label": "Retained by Delhi Capitals",
+      "is_auction_eligible": false
     },
     {
       "rank": 8,
@@ -431,8 +863,6 @@
       "hp_dots": 42,
       "hp_sr": 173.2,
       "hp_avg": 39.8,
-      "base_sr": 136.8,
-      "base_avg": 33.0,
       "delta_sr": 36.4,
       "delta_avg": 6.8,
       "avg_balls_faced": 23.0,
@@ -444,7 +874,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": true,
-      "ppi": 71.3
+      "ppi": 71.3,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 9,
@@ -468,8 +902,6 @@
       "hp_dots": 171,
       "hp_sr": 176.2,
       "hp_avg": 27.5,
-      "base_sr": 102.7,
-      "base_avg": 37.6,
       "delta_sr": 73.5,
       "delta_avg": -10.1,
       "avg_balls_faced": 15.6,
@@ -481,7 +913,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 1,
       "is_ipl": true,
-      "ppi": 70.2
+      "ppi": 70.2,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 10,
@@ -505,8 +941,6 @@
       "hp_dots": 72,
       "hp_sr": 151.1,
       "hp_avg": 55.2,
-      "base_sr": 115.0,
-      "base_avg": 21.8,
       "delta_sr": 36.2,
       "delta_avg": 33.4,
       "avg_balls_faced": 36.5,
@@ -518,7 +952,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": true,
-      "ppi": 69.4
+      "ppi": 69.4,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 11,
@@ -542,8 +980,6 @@
       "hp_dots": 27,
       "hp_sr": 200.9,
       "hp_avg": 20.1,
-      "base_sr": 161.1,
-      "base_avg": 38.8,
       "delta_sr": 39.8,
       "delta_avg": -18.7,
       "avg_balls_faced": 10.0,
@@ -555,7 +991,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": true,
-      "ppi": 69.4
+      "ppi": 69.4,
+      "status_2027": "Retained",
+      "status_team": "Royal Challengers Bengaluru",
+      "status_label": "Retained by Royal Challengers Bengaluru",
+      "is_auction_eligible": false
     },
     {
       "rank": 12,
@@ -579,8 +1019,6 @@
       "hp_dots": 37,
       "hp_sr": 188.1,
       "hp_avg": 23.7,
-      "base_sr": 135.7,
-      "base_avg": 36.4,
       "delta_sr": 52.4,
       "delta_avg": -12.7,
       "avg_balls_faced": 12.6,
@@ -592,7 +1030,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": true,
-      "ppi": 68.7
+      "ppi": 68.7,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 13,
@@ -616,8 +1058,6 @@
       "hp_dots": 88,
       "hp_sr": 178.9,
       "hp_avg": 25.9,
-      "base_sr": 145.4,
-      "base_avg": 23.0,
       "delta_sr": 33.5,
       "delta_avg": 2.9,
       "avg_balls_faced": 14.5,
@@ -629,7 +1069,11 @@
       "bowling_econ": 8.34,
       "innings_bowled": 52,
       "is_ipl": true,
-      "ppi": 68.4
+      "ppi": 68.4,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 14,
@@ -653,8 +1097,6 @@
       "hp_dots": 222,
       "hp_sr": 172.5,
       "hp_avg": 33.1,
-      "base_sr": 119.7,
-      "base_avg": 41.9,
       "delta_sr": 52.8,
       "delta_avg": -8.8,
       "avg_balls_faced": 19.2,
@@ -666,7 +1108,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 2,
       "is_ipl": true,
-      "ppi": 68.2
+      "ppi": 68.2,
+      "status_2027": "Retained",
+      "status_team": "Kolkata Knight Riders",
+      "status_label": "Retained by Kolkata Knight Riders",
+      "is_auction_eligible": false
     },
     {
       "rank": 15,
@@ -690,8 +1136,6 @@
       "hp_dots": 44,
       "hp_sr": 187.7,
       "hp_avg": 22.2,
-      "base_sr": 129.3,
-      "base_avg": 41.6,
       "delta_sr": 58.3,
       "delta_avg": -19.3,
       "avg_balls_faced": 11.8,
@@ -703,7 +1147,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": true,
-      "ppi": 67.4
+      "ppi": 67.4,
+      "status_2027": "Retained",
+      "status_team": "Chennai Super Kings",
+      "status_label": "Retained by Chennai Super Kings",
+      "is_auction_eligible": false
     },
     {
       "rank": 16,
@@ -727,8 +1175,6 @@
       "hp_dots": 188,
       "hp_sr": 169.1,
       "hp_avg": 33.4,
-      "base_sr": 130.1,
-      "base_avg": 27.8,
       "delta_sr": 39.0,
       "delta_avg": 5.6,
       "avg_balls_faced": 19.8,
@@ -740,7 +1186,11 @@
       "bowling_econ": 8.68,
       "innings_bowled": 55,
       "is_ipl": true,
-      "ppi": 66.9
+      "ppi": 66.9,
+      "status_2027": "Retained",
+      "status_team": "Punjab Kings",
+      "status_label": "Retained by Punjab Kings",
+      "is_auction_eligible": false
     },
     {
       "rank": 17,
@@ -764,8 +1214,6 @@
       "hp_dots": 89,
       "hp_sr": 169.9,
       "hp_avg": 31.0,
-      "base_sr": 130.9,
-      "base_avg": 25.3,
       "delta_sr": 39.0,
       "delta_avg": 5.7,
       "avg_balls_faced": 18.2,
@@ -777,7 +1225,11 @@
       "bowling_econ": 9.69,
       "innings_bowled": 11,
       "is_ipl": true,
-      "ppi": 66.7
+      "ppi": 66.7,
+      "status_2027": "Released",
+      "status_team": "Delhi Capitals",
+      "status_label": "Released by Delhi Capitals",
+      "is_auction_eligible": true
     },
     {
       "rank": 18,
@@ -801,8 +1253,6 @@
       "hp_dots": 44,
       "hp_sr": 168.8,
       "hp_avg": 30.7,
-      "base_sr": 110.1,
-      "base_avg": 26.7,
       "delta_sr": 58.7,
       "delta_avg": 4.0,
       "avg_balls_faced": 18.2,
@@ -814,7 +1264,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": false,
-      "ppi": 65.9
+      "ppi": 65.9,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 19,
@@ -838,8 +1292,6 @@
       "hp_dots": 106,
       "hp_sr": 174.4,
       "hp_avg": 29.7,
-      "base_sr": 145.7,
-      "base_avg": 31.7,
       "delta_sr": 28.7,
       "delta_avg": -2.0,
       "avg_balls_faced": 17.1,
@@ -851,7 +1303,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": true,
-      "ppi": 65.6
+      "ppi": 65.6,
+      "status_2027": "Retained",
+      "status_team": "Chennai Super Kings",
+      "status_label": "Retained by Chennai Super Kings",
+      "is_auction_eligible": false
     },
     {
       "rank": 20,
@@ -875,8 +1331,6 @@
       "hp_dots": 131,
       "hp_sr": 175.3,
       "hp_avg": 24.6,
-      "base_sr": 131.1,
-      "base_avg": 22.6,
       "delta_sr": 44.2,
       "delta_avg": 2.0,
       "avg_balls_faced": 14.0,
@@ -888,7 +1342,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": true,
-      "ppi": 65.2
+      "ppi": 65.2,
+      "status_2027": "Retained",
+      "status_team": "Royal Challengers Bengaluru",
+      "status_label": "Retained by Royal Challengers Bengaluru",
+      "is_auction_eligible": false
     },
     {
       "rank": 21,
@@ -912,8 +1370,6 @@
       "hp_dots": 39,
       "hp_sr": 180.4,
       "hp_avg": 22.4,
-      "base_sr": 135.2,
-      "base_avg": 28.0,
       "delta_sr": 45.1,
       "delta_avg": -5.5,
       "avg_balls_faced": 12.4,
@@ -925,7 +1381,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": true,
-      "ppi": 65.0
+      "ppi": 65.0,
+      "status_2027": "Retained",
+      "status_team": "Mumbai Indians",
+      "status_label": "Retained by Mumbai Indians",
+      "is_auction_eligible": false
     },
     {
       "rank": 22,
@@ -949,8 +1409,6 @@
       "hp_dots": 106,
       "hp_sr": 180.2,
       "hp_avg": 25.8,
-      "base_sr": 146.4,
-      "base_avg": 44.7,
       "delta_sr": 33.8,
       "delta_avg": -18.9,
       "avg_balls_faced": 14.3,
@@ -962,7 +1420,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": true,
-      "ppi": 63.8
+      "ppi": 63.8,
+      "status_2027": "Retained",
+      "status_team": "Gujarat Titans",
+      "status_label": "Retained by Gujarat Titans",
+      "is_auction_eligible": false
     },
     {
       "rank": 23,
@@ -986,8 +1448,6 @@
       "hp_dots": 109,
       "hp_sr": 167.9,
       "hp_avg": 25.4,
-      "base_sr": 104.5,
-      "base_avg": 23.3,
       "delta_sr": 63.4,
       "delta_avg": 2.0,
       "avg_balls_faced": 15.1,
@@ -999,7 +1459,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": true,
-      "ppi": 63.6
+      "ppi": 63.6,
+      "status_2027": "Retained",
+      "status_team": "Delhi Capitals",
+      "status_label": "Retained by Delhi Capitals",
+      "is_auction_eligible": false
     },
     {
       "rank": 24,
@@ -1023,8 +1487,6 @@
       "hp_dots": 252,
       "hp_sr": 166.3,
       "hp_avg": 35.0,
-      "base_sr": 123.7,
-      "base_avg": 44.5,
       "delta_sr": 42.6,
       "delta_avg": -9.5,
       "avg_balls_faced": 21.0,
@@ -1036,7 +1498,11 @@
       "bowling_econ": 7.09,
       "innings_bowled": 12,
       "is_ipl": true,
-      "ppi": 63.4
+      "ppi": 63.4,
+      "status_2027": "Retained",
+      "status_team": "Mumbai Indians",
+      "status_label": "Retained by Mumbai Indians",
+      "is_auction_eligible": false
     },
     {
       "rank": 25,
@@ -1060,8 +1526,6 @@
       "hp_dots": 228,
       "hp_sr": 171.8,
       "hp_avg": 28.6,
-      "base_sr": 138.5,
-      "base_avg": 34.5,
       "delta_sr": 33.3,
       "delta_avg": -5.8,
       "avg_balls_faced": 16.7,
@@ -1073,7 +1537,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": true,
-      "ppi": 63.3
+      "ppi": 63.3,
+      "status_2027": "Retained",
+      "status_team": "Lucknow Super Giants",
+      "status_label": "Retained by Lucknow Super Giants",
+      "is_auction_eligible": false
     },
     {
       "rank": 26,
@@ -1097,8 +1565,6 @@
       "hp_dots": 114,
       "hp_sr": 170.8,
       "hp_avg": 26.8,
-      "base_sr": 125.5,
-      "base_avg": 31.1,
       "delta_sr": 45.4,
       "delta_avg": -4.3,
       "avg_balls_faced": 15.7,
@@ -1110,7 +1576,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": true,
-      "ppi": 63.3
+      "ppi": 63.3,
+      "status_2027": "Retained",
+      "status_team": "Delhi Capitals",
+      "status_label": "Retained by Delhi Capitals",
+      "is_auction_eligible": false
     },
     {
       "rank": 27,
@@ -1134,8 +1604,6 @@
       "hp_dots": 68,
       "hp_sr": 175.9,
       "hp_avg": 32.1,
-      "base_sr": 136.8,
-      "base_avg": 56.5,
       "delta_sr": 39.1,
       "delta_avg": -24.3,
       "avg_balls_faced": 18.3,
@@ -1147,7 +1615,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": true,
-      "ppi": 63.3
+      "ppi": 63.3,
+      "status_2027": "Retained",
+      "status_team": "Gujarat Titans",
+      "status_label": "Retained by Gujarat Titans",
+      "is_auction_eligible": false
     },
     {
       "rank": 28,
@@ -1171,8 +1643,6 @@
       "hp_dots": 69,
       "hp_sr": 172.3,
       "hp_avg": 27.1,
-      "base_sr": 137.8,
-      "base_avg": 31.5,
       "delta_sr": 34.5,
       "delta_avg": -4.4,
       "avg_balls_faced": 15.7,
@@ -1184,7 +1654,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 1,
       "is_ipl": true,
-      "ppi": 62.7
+      "ppi": 62.7,
+      "status_2027": "Retained",
+      "status_team": "Sunrisers Hyderabad",
+      "status_label": "Retained by Sunrisers Hyderabad",
+      "is_auction_eligible": false
     },
     {
       "rank": 29,
@@ -1208,8 +1682,6 @@
       "hp_dots": 38,
       "hp_sr": 160.7,
       "hp_avg": 31.3,
-      "base_sr": 100.0,
-      "base_avg": 20.1,
       "delta_sr": 60.7,
       "delta_avg": 11.2,
       "avg_balls_faced": 19.5,
@@ -1221,7 +1693,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": true,
-      "ppi": 62.5
+      "ppi": 62.5,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 30,
@@ -1245,8 +1721,6 @@
       "hp_dots": 213,
       "hp_sr": 159.0,
       "hp_avg": 29.9,
-      "base_sr": 110.5,
-      "base_avg": 15.8,
       "delta_sr": 48.5,
       "delta_avg": 14.1,
       "avg_balls_faced": 18.8,
@@ -1258,7 +1732,11 @@
       "bowling_econ": 9.27,
       "innings_bowled": 92,
       "is_ipl": true,
-      "ppi": 62.4
+      "ppi": 62.4,
+      "status_2027": "Retained",
+      "status_team": "Royal Challengers Bengaluru",
+      "status_label": "Retained by Royal Challengers Bengaluru",
+      "is_auction_eligible": false
     },
     {
       "rank": 31,
@@ -1282,8 +1760,6 @@
       "hp_dots": 69,
       "hp_sr": 160.8,
       "hp_avg": 22.4,
-      "base_sr": 77.8,
-      "base_avg": 9.1,
       "delta_sr": 83.0,
       "delta_avg": 13.3,
       "avg_balls_faced": 13.9,
@@ -1295,7 +1771,11 @@
       "bowling_econ": 7.29,
       "innings_bowled": 35,
       "is_ipl": false,
-      "ppi": 61.7
+      "ppi": 61.7,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 32,
@@ -1319,8 +1799,6 @@
       "hp_dots": 69,
       "hp_sr": 179.2,
       "hp_avg": 26.5,
-      "base_sr": 153.3,
-      "base_avg": 39.0,
       "delta_sr": 25.9,
       "delta_avg": -12.5,
       "avg_balls_faced": 14.8,
@@ -1332,7 +1810,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": true,
-      "ppi": 61.3
+      "ppi": 61.3,
+      "status_2027": "Retained",
+      "status_team": "Royal Challengers Bengaluru",
+      "status_label": "Retained by Royal Challengers Bengaluru",
+      "is_auction_eligible": false
     },
     {
       "rank": 33,
@@ -1356,8 +1838,6 @@
       "hp_dots": 104,
       "hp_sr": 178.6,
       "hp_avg": 23.0,
-      "base_sr": 140.2,
-      "base_avg": 42.9,
       "delta_sr": 38.3,
       "delta_avg": -20.0,
       "avg_balls_faced": 12.9,
@@ -1369,7 +1849,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 2,
       "is_ipl": true,
-      "ppi": 61.2
+      "ppi": 61.2,
+      "status_2027": "Retained",
+      "status_team": "Punjab Kings",
+      "status_label": "Retained by Punjab Kings",
+      "is_auction_eligible": false
     },
     {
       "rank": 34,
@@ -1393,8 +1877,6 @@
       "hp_dots": 133,
       "hp_sr": 178.8,
       "hp_avg": 28.2,
-      "base_sr": 149.7,
-      "base_avg": 54.1,
       "delta_sr": 29.1,
       "delta_avg": -25.9,
       "avg_balls_faced": 15.8,
@@ -1406,7 +1888,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": true,
-      "ppi": 60.8
+      "ppi": 60.8,
+      "status_2027": "Retained",
+      "status_team": "Sunrisers Hyderabad",
+      "status_label": "Retained by Sunrisers Hyderabad",
+      "is_auction_eligible": false
     },
     {
       "rank": 35,
@@ -1430,8 +1916,6 @@
       "hp_dots": 58,
       "hp_sr": 152.1,
       "hp_avg": 36.1,
-      "base_sr": 108.8,
-      "base_avg": 26.9,
       "delta_sr": 43.3,
       "delta_avg": 9.2,
       "avg_balls_faced": 23.8,
@@ -1443,7 +1927,11 @@
       "bowling_econ": 5.95,
       "innings_bowled": 16,
       "is_ipl": false,
-      "ppi": 60.0
+      "ppi": 60.0,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 36,
@@ -1467,8 +1955,6 @@
       "hp_dots": 113,
       "hp_sr": 170.5,
       "hp_avg": 23.6,
-      "base_sr": 133.0,
-      "base_avg": 29.2,
       "delta_sr": 37.5,
       "delta_avg": -5.6,
       "avg_balls_faced": 13.8,
@@ -1480,7 +1966,11 @@
       "bowling_econ": 8.91,
       "innings_bowled": 49,
       "is_ipl": true,
-      "ppi": 59.5
+      "ppi": 59.5,
+      "status_2027": "Retained",
+      "status_team": "Chennai Super Kings",
+      "status_label": "Retained by Chennai Super Kings",
+      "is_auction_eligible": false
     },
     {
       "rank": 37,
@@ -1504,8 +1994,6 @@
       "hp_dots": 25,
       "hp_sr": 175.2,
       "hp_avg": 20.4,
-      "base_sr": 130.5,
-      "base_avg": 28.2,
       "delta_sr": 44.8,
       "delta_avg": -7.8,
       "avg_balls_faced": 11.7,
@@ -1517,7 +2005,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": true,
-      "ppi": 59.1
+      "ppi": 59.1,
+      "status_2027": "Released",
+      "status_team": "Kolkata Knight Riders",
+      "status_label": "Released by Kolkata Knight Riders",
+      "is_auction_eligible": true
     },
     {
       "rank": 38,
@@ -1541,8 +2033,6 @@
       "hp_dots": 113,
       "hp_sr": 164.7,
       "hp_avg": 30.3,
-      "base_sr": 131.8,
-      "base_avg": 28.6,
       "delta_sr": 32.9,
       "delta_avg": 1.7,
       "avg_balls_faced": 18.4,
@@ -1554,7 +2044,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": true,
-      "ppi": 58.4
+      "ppi": 58.4,
+      "status_2027": "Retained",
+      "status_team": "Rajasthan Royals",
+      "status_label": "Retained by Rajasthan Royals",
+      "is_auction_eligible": false
     },
     {
       "rank": 39,
@@ -1578,8 +2072,6 @@
       "hp_dots": 232,
       "hp_sr": 159.1,
       "hp_avg": 34.1,
-      "base_sr": 122.1,
-      "base_avg": 39.9,
       "delta_sr": 37.1,
       "delta_avg": -5.9,
       "avg_balls_faced": 21.4,
@@ -1591,7 +2083,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": true,
-      "ppi": 57.9
+      "ppi": 57.9,
+      "status_2027": "Retained",
+      "status_team": "Delhi Capitals",
+      "status_label": "Retained by Delhi Capitals",
+      "is_auction_eligible": false
     },
     {
       "rank": 40,
@@ -1615,8 +2111,6 @@
       "hp_dots": 191,
       "hp_sr": 168.2,
       "hp_avg": 25.2,
-      "base_sr": 149.3,
-      "base_avg": 32.8,
       "delta_sr": 18.9,
       "delta_avg": -7.6,
       "avg_balls_faced": 15.0,
@@ -1628,7 +2122,11 @@
       "bowling_econ": 10.08,
       "innings_bowled": 57,
       "is_ipl": true,
-      "ppi": 57.2
+      "ppi": 57.2,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 41,
@@ -1652,8 +2150,6 @@
       "hp_dots": 205,
       "hp_sr": 162.4,
       "hp_avg": 31.3,
-      "base_sr": 134.4,
-      "base_avg": 36.4,
       "delta_sr": 28.0,
       "delta_avg": -5.1,
       "avg_balls_faced": 19.3,
@@ -1665,7 +2161,11 @@
       "bowling_econ": 9.18,
       "innings_bowled": 40,
       "is_ipl": true,
-      "ppi": 56.9
+      "ppi": 56.9,
+      "status_2027": "Retained",
+      "status_team": "Chennai Super Kings",
+      "status_label": "Retained by Chennai Super Kings",
+      "is_auction_eligible": false
     },
     {
       "rank": 42,
@@ -1689,8 +2189,6 @@
       "hp_dots": 90,
       "hp_sr": 174.4,
       "hp_avg": 20.1,
-      "base_sr": 135.3,
-      "base_avg": 47.6,
       "delta_sr": 39.1,
       "delta_avg": -27.5,
       "avg_balls_faced": 11.5,
@@ -1702,7 +2200,11 @@
       "bowling_econ": 7.67,
       "innings_bowled": 13,
       "is_ipl": true,
-      "ppi": 56.7
+      "ppi": 56.7,
+      "status_2027": "Retained",
+      "status_team": "Gujarat Titans",
+      "status_label": "Retained by Gujarat Titans",
+      "is_auction_eligible": false
     },
     {
       "rank": 43,
@@ -1726,8 +2228,6 @@
       "hp_dots": 134,
       "hp_sr": 160.0,
       "hp_avg": 27.3,
-      "base_sr": 76.2,
-      "base_avg": 46.5,
       "delta_sr": 83.8,
       "delta_avg": -19.2,
       "avg_balls_faced": 17.0,
@@ -1739,7 +2239,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": true,
-      "ppi": 56.3
+      "ppi": 56.3,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 44,
@@ -1763,8 +2267,6 @@
       "hp_dots": 38,
       "hp_sr": 163.5,
       "hp_avg": 24.2,
-      "base_sr": 108.6,
-      "base_avg": 27.9,
       "delta_sr": 55.0,
       "delta_avg": -3.7,
       "avg_balls_faced": 14.8,
@@ -1776,7 +2278,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 2,
       "is_ipl": true,
-      "ppi": 56.3
+      "ppi": 56.3,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 45,
@@ -1800,8 +2306,6 @@
       "hp_dots": 86,
       "hp_sr": 165.3,
       "hp_avg": 16.7,
-      "base_sr": 105.2,
-      "base_avg": 30.8,
       "delta_sr": 60.1,
       "delta_avg": -14.1,
       "avg_balls_faced": 10.1,
@@ -1813,7 +2317,11 @@
       "bowling_econ": 8.09,
       "innings_bowled": 44,
       "is_ipl": true,
-      "ppi": 56.3
+      "ppi": 56.3,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 46,
@@ -1837,8 +2345,6 @@
       "hp_dots": 115,
       "hp_sr": 159.9,
       "hp_avg": 23.9,
-      "base_sr": 115.9,
-      "base_avg": 27.7,
       "delta_sr": 44.0,
       "delta_avg": -3.8,
       "avg_balls_faced": 15.0,
@@ -1850,7 +2356,11 @@
       "bowling_econ": 6.76,
       "innings_bowled": 52,
       "is_ipl": true,
-      "ppi": 55.2
+      "ppi": 55.2,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 47,
@@ -1874,8 +2384,6 @@
       "hp_dots": 185,
       "hp_sr": 158.9,
       "hp_avg": 23.6,
-      "base_sr": 120.0,
-      "base_avg": 28.9,
       "delta_sr": 38.9,
       "delta_avg": -5.4,
       "avg_balls_faced": 14.8,
@@ -1887,7 +2395,11 @@
       "bowling_econ": 11.43,
       "innings_bowled": 2,
       "is_ipl": true,
-      "ppi": 55.0
+      "ppi": 55.0,
+      "status_2027": "Retained",
+      "status_team": "Mumbai Indians",
+      "status_label": "Retained by Mumbai Indians",
+      "is_auction_eligible": false
     },
     {
       "rank": 48,
@@ -1911,8 +2423,6 @@
       "hp_dots": 41,
       "hp_sr": 165.6,
       "hp_avg": 29.6,
-      "base_sr": 161.5,
-      "base_avg": 34.1,
       "delta_sr": 4.1,
       "delta_avg": -4.6,
       "avg_balls_faced": 17.9,
@@ -1924,7 +2434,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": true,
-      "ppi": 55.0
+      "ppi": 55.0,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 49,
@@ -1948,8 +2462,6 @@
       "hp_dots": 56,
       "hp_sr": 169.1,
       "hp_avg": 25.5,
-      "base_sr": 137.9,
-      "base_avg": 48.0,
       "delta_sr": 31.1,
       "delta_avg": -22.5,
       "avg_balls_faced": 15.1,
@@ -1961,7 +2473,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 1,
       "is_ipl": true,
-      "ppi": 55.0
+      "ppi": 55.0,
+      "status_2027": "Retained",
+      "status_team": "Royal Challengers Bengaluru",
+      "status_label": "Retained by Royal Challengers Bengaluru",
+      "is_auction_eligible": false
     },
     {
       "rank": 50,
@@ -1985,8 +2501,6 @@
       "hp_dots": 85,
       "hp_sr": 164.6,
       "hp_avg": 18.0,
-      "base_sr": 116.8,
-      "base_avg": 24.4,
       "delta_sr": 47.9,
       "delta_avg": -6.4,
       "avg_balls_faced": 10.9,
@@ -1998,7 +2512,11 @@
       "bowling_econ": 8.03,
       "innings_bowled": 65,
       "is_ipl": true,
-      "ppi": 54.8
+      "ppi": 54.8,
+      "status_2027": "Retained",
+      "status_team": "Punjab Kings",
+      "status_label": "Retained by Punjab Kings",
+      "is_auction_eligible": false
     },
     {
       "rank": 51,
@@ -2022,8 +2540,6 @@
       "hp_dots": 53,
       "hp_sr": 160.3,
       "hp_avg": 17.5,
-      "base_sr": 106.7,
-      "base_avg": 23.2,
       "delta_sr": 53.6,
       "delta_avg": -5.7,
       "avg_balls_faced": 10.9,
@@ -2035,7 +2551,11 @@
       "bowling_econ": 8.19,
       "innings_bowled": 10,
       "is_ipl": false,
-      "ppi": 54.6
+      "ppi": 54.6,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 52,
@@ -2059,8 +2579,6 @@
       "hp_dots": 240,
       "hp_sr": 161.2,
       "hp_avg": 25.0,
-      "base_sr": 122.6,
-      "base_avg": 36.9,
       "delta_sr": 38.7,
       "delta_avg": -11.8,
       "avg_balls_faced": 15.5,
@@ -2072,7 +2590,11 @@
       "bowling_econ": 8.22,
       "innings_bowled": 111,
       "is_ipl": true,
-      "ppi": 53.8
+      "ppi": 53.8,
+      "status_2027": "Retained",
+      "status_team": "Punjab Kings",
+      "status_label": "Retained by Punjab Kings",
+      "is_auction_eligible": false
     },
     {
       "rank": 53,
@@ -2096,8 +2618,6 @@
       "hp_dots": 114,
       "hp_sr": 161.4,
       "hp_avg": 20.7,
-      "base_sr": 116.8,
-      "base_avg": 27.4,
       "delta_sr": 44.5,
       "delta_avg": -6.7,
       "avg_balls_faced": 12.8,
@@ -2109,7 +2629,11 @@
       "bowling_econ": 7.93,
       "innings_bowled": 58,
       "is_ipl": true,
-      "ppi": 53.6
+      "ppi": 53.6,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 54,
@@ -2133,8 +2657,6 @@
       "hp_dots": 39,
       "hp_sr": 155.7,
       "hp_avg": 31.7,
-      "base_sr": 143.3,
-      "base_avg": 34.0,
       "delta_sr": 12.4,
       "delta_avg": -2.4,
       "avg_balls_faced": 20.3,
@@ -2146,7 +2668,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": true,
-      "ppi": 53.2
+      "ppi": 53.2,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 55,
@@ -2170,8 +2696,6 @@
       "hp_dots": 266,
       "hp_sr": 157.0,
       "hp_avg": 25.1,
-      "base_sr": 124.9,
-      "base_avg": 28.9,
       "delta_sr": 32.0,
       "delta_avg": -3.7,
       "avg_balls_faced": 16.0,
@@ -2183,7 +2707,11 @@
       "bowling_econ": 9.88,
       "innings_bowled": 11,
       "is_ipl": true,
-      "ppi": 53.0
+      "ppi": 53.0,
+      "status_2027": "Retained",
+      "status_team": "Kolkata Knight Riders",
+      "status_label": "Retained by Kolkata Knight Riders",
+      "is_auction_eligible": false
     },
     {
       "rank": 56,
@@ -2207,8 +2735,6 @@
       "hp_dots": 43,
       "hp_sr": 168.6,
       "hp_avg": 19.1,
-      "base_sr": 155.1,
-      "base_avg": 32.2,
       "delta_sr": 13.5,
       "delta_avg": -13.1,
       "avg_balls_faced": 11.3,
@@ -2220,7 +2746,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": true,
-      "ppi": 52.8
+      "ppi": 52.8,
+      "status_2027": "Retained",
+      "status_team": "Punjab Kings",
+      "status_label": "Retained by Punjab Kings",
+      "is_auction_eligible": false
     },
     {
       "rank": 57,
@@ -2244,8 +2774,6 @@
       "hp_dots": 30,
       "hp_sr": 161.8,
       "hp_avg": 27.5,
-      "base_sr": 136.9,
-      "base_avg": 37.9,
       "delta_sr": 24.9,
       "delta_avg": -10.4,
       "avg_balls_faced": 17.0,
@@ -2257,7 +2785,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": true,
-      "ppi": 52.6
+      "ppi": 52.6,
+      "status_2027": "Retained",
+      "status_team": "Kolkata Knight Riders",
+      "status_label": "Retained by Kolkata Knight Riders",
+      "is_auction_eligible": false
     },
     {
       "rank": 58,
@@ -2281,8 +2813,6 @@
       "hp_dots": 90,
       "hp_sr": 166.5,
       "hp_avg": 26.0,
-      "base_sr": 142.0,
-      "base_avg": 43.2,
       "delta_sr": 24.6,
       "delta_avg": -17.2,
       "avg_balls_faced": 15.6,
@@ -2294,7 +2824,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": true,
-      "ppi": 52.6
+      "ppi": 52.6,
+      "status_2027": "Retained",
+      "status_team": "Gujarat Titans",
+      "status_label": "Retained by Gujarat Titans",
+      "is_auction_eligible": false
     },
     {
       "rank": 59,
@@ -2318,8 +2852,6 @@
       "hp_dots": 158,
       "hp_sr": 152.7,
       "hp_avg": 23.6,
-      "base_sr": 110.6,
-      "base_avg": 19.8,
       "delta_sr": 42.1,
       "delta_avg": 3.8,
       "avg_balls_faced": 15.4,
@@ -2331,7 +2863,11 @@
       "bowling_econ": 8.1,
       "innings_bowled": 43,
       "is_ipl": true,
-      "ppi": 52.4
+      "ppi": 52.4,
+      "status_2027": "Retained",
+      "status_team": "Rajasthan Royals",
+      "status_label": "Retained by Rajasthan Royals",
+      "is_auction_eligible": false
     },
     {
       "rank": 60,
@@ -2355,8 +2891,6 @@
       "hp_dots": 83,
       "hp_sr": 161.5,
       "hp_avg": 30.3,
-      "base_sr": 153.0,
-      "base_avg": 37.9,
       "delta_sr": 8.4,
       "delta_avg": -7.6,
       "avg_balls_faced": 18.8,
@@ -2368,7 +2902,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": true,
-      "ppi": 52.4
+      "ppi": 52.4,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 61,
@@ -2392,8 +2930,6 @@
       "hp_dots": 73,
       "hp_sr": 161.6,
       "hp_avg": 22.1,
-      "base_sr": 125.2,
-      "base_avg": 22.3,
       "delta_sr": 36.4,
       "delta_avg": -0.2,
       "avg_balls_faced": 13.7,
@@ -2405,7 +2941,11 @@
       "bowling_econ": 9.33,
       "innings_bowled": 3,
       "is_ipl": true,
-      "ppi": 52.0
+      "ppi": 52.0,
+      "status_2027": "Released",
+      "status_team": "Gujarat Titans",
+      "status_label": "Released by Gujarat Titans",
+      "is_auction_eligible": true
     },
     {
       "rank": 62,
@@ -2429,8 +2969,6 @@
       "hp_dots": 49,
       "hp_sr": 163.3,
       "hp_avg": 19.7,
-      "base_sr": 128.7,
-      "base_avg": 27.7,
       "delta_sr": 34.6,
       "delta_avg": -8.0,
       "avg_balls_faced": 12.1,
@@ -2442,7 +2980,11 @@
       "bowling_econ": 7.69,
       "innings_bowled": 13,
       "is_ipl": true,
-      "ppi": 52.0
+      "ppi": 52.0,
+      "status_2027": "Retained",
+      "status_team": "Kolkata Knight Riders",
+      "status_label": "Retained by Kolkata Knight Riders",
+      "is_auction_eligible": false
     },
     {
       "rank": 63,
@@ -2466,8 +3008,6 @@
       "hp_dots": 245,
       "hp_sr": 158.6,
       "hp_avg": 23.4,
-      "base_sr": 129.6,
-      "base_avg": 29.2,
       "delta_sr": 29.0,
       "delta_avg": -5.9,
       "avg_balls_faced": 14.7,
@@ -2479,7 +3019,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": true,
-      "ppi": 49.9
+      "ppi": 49.9,
+      "status_2027": "Released",
+      "status_team": "Rajasthan Royals",
+      "status_label": "Released by Rajasthan Royals",
+      "is_auction_eligible": true
     },
     {
       "rank": 64,
@@ -2503,8 +3047,6 @@
       "hp_dots": 77,
       "hp_sr": 154.2,
       "hp_avg": 21.7,
-      "base_sr": 103.9,
-      "base_avg": 29.0,
       "delta_sr": 50.3,
       "delta_avg": -7.3,
       "avg_balls_faced": 14.1,
@@ -2516,7 +3058,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": false,
-      "ppi": 49.5
+      "ppi": 49.5,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 65,
@@ -2540,8 +3086,6 @@
       "hp_dots": 103,
       "hp_sr": 151.2,
       "hp_avg": 28.1,
-      "base_sr": 133.2,
-      "base_avg": 31.2,
       "delta_sr": 18.0,
       "delta_avg": -3.1,
       "avg_balls_faced": 18.6,
@@ -2553,7 +3097,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 1,
       "is_ipl": false,
-      "ppi": 49.3
+      "ppi": 49.3,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 66,
@@ -2577,8 +3125,6 @@
       "hp_dots": 83,
       "hp_sr": 160.9,
       "hp_avg": 20.2,
-      "base_sr": 133.7,
-      "base_avg": 32.6,
       "delta_sr": 27.1,
       "delta_avg": -12.4,
       "avg_balls_faced": 12.6,
@@ -2590,7 +3136,11 @@
       "bowling_econ": 10.26,
       "innings_bowled": 10,
       "is_ipl": true,
-      "ppi": 47.8
+      "ppi": 47.8,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 67,
@@ -2614,8 +3164,6 @@
       "hp_dots": 88,
       "hp_sr": 157.6,
       "hp_avg": 22.7,
-      "base_sr": 138.0,
-      "base_avg": 34.9,
       "delta_sr": 19.5,
       "delta_avg": -12.2,
       "avg_balls_faced": 14.4,
@@ -2627,7 +3175,11 @@
       "bowling_econ": 12.37,
       "innings_bowled": 7,
       "is_ipl": true,
-      "ppi": 47.2
+      "ppi": 47.2,
+      "status_2027": "Retained",
+      "status_team": "Royal Challengers Bengaluru",
+      "status_label": "Retained by Royal Challengers Bengaluru",
+      "is_auction_eligible": false
     },
     {
       "rank": 68,
@@ -2651,8 +3203,6 @@
       "hp_dots": 40,
       "hp_sr": 138.7,
       "hp_avg": 29.4,
-      "base_sr": 99.4,
-      "base_avg": 19.9,
       "delta_sr": 39.2,
       "delta_avg": 9.5,
       "avg_balls_faced": 21.2,
@@ -2664,7 +3214,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": true,
-      "ppi": 46.4
+      "ppi": 46.4,
+      "status_2027": "Retained",
+      "status_team": "Gujarat Titans",
+      "status_label": "Retained by Gujarat Titans",
+      "is_auction_eligible": false
     },
     {
       "rank": 69,
@@ -2688,8 +3242,6 @@
       "hp_dots": 70,
       "hp_sr": 161.8,
       "hp_avg": 19.7,
-      "base_sr": 136.0,
-      "base_avg": 37.6,
       "delta_sr": 25.8,
       "delta_avg": -17.8,
       "avg_balls_faced": 12.2,
@@ -2701,7 +3253,11 @@
       "bowling_econ": 9.55,
       "innings_bowled": 39,
       "is_ipl": true,
-      "ppi": 46.3
+      "ppi": 46.3,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 70,
@@ -2725,8 +3281,6 @@
       "hp_dots": 47,
       "hp_sr": 148.3,
       "hp_avg": 32.2,
-      "base_sr": 142.9,
-      "base_avg": 29.9,
       "delta_sr": 5.4,
       "delta_avg": 2.3,
       "avg_balls_faced": 21.8,
@@ -2738,7 +3292,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": true,
-      "ppi": 46.1
+      "ppi": 46.1,
+      "status_2027": "Retained",
+      "status_team": "Mumbai Indians",
+      "status_label": "Retained by Mumbai Indians",
+      "is_auction_eligible": false
     },
     {
       "rank": 71,
@@ -2762,8 +3320,6 @@
       "hp_dots": 72,
       "hp_sr": 151.3,
       "hp_avg": 19.7,
-      "base_sr": 113.7,
-      "base_avg": 32.4,
       "delta_sr": 37.6,
       "delta_avg": -12.7,
       "avg_balls_faced": 13.0,
@@ -2775,7 +3331,11 @@
       "bowling_econ": 5.91,
       "innings_bowled": 15,
       "is_ipl": false,
-      "ppi": 45.9
+      "ppi": 45.9,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 72,
@@ -2799,8 +3359,6 @@
       "hp_dots": 35,
       "hp_sr": 136.8,
       "hp_avg": 39.0,
-      "base_sr": 132.7,
-      "base_avg": 37.0,
       "delta_sr": 4.1,
       "delta_avg": 2.0,
       "avg_balls_faced": 28.5,
@@ -2812,7 +3370,11 @@
       "bowling_econ": 6.56,
       "innings_bowled": 17,
       "is_ipl": true,
-      "ppi": 45.4
+      "ppi": 45.4,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 73,
@@ -2836,8 +3398,6 @@
       "hp_dots": 69,
       "hp_sr": 143.9,
       "hp_avg": 28.9,
-      "base_sr": 116.1,
-      "base_avg": 31.3,
       "delta_sr": 27.8,
       "delta_avg": -2.4,
       "avg_balls_faced": 20.1,
@@ -2849,7 +3409,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 1,
       "is_ipl": false,
-      "ppi": 45.4
+      "ppi": 45.4,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 74,
@@ -2873,8 +3437,6 @@
       "hp_dots": 107,
       "hp_sr": 153.7,
       "hp_avg": 23.4,
-      "base_sr": 135.8,
-      "base_avg": 33.0,
       "delta_sr": 17.9,
       "delta_avg": -9.6,
       "avg_balls_faced": 15.2,
@@ -2886,7 +3448,11 @@
       "bowling_econ": 9.66,
       "innings_bowled": 42,
       "is_ipl": true,
-      "ppi": 45.1
+      "ppi": 45.1,
+      "status_2027": "Retained",
+      "status_team": "Lucknow Super Giants",
+      "status_label": "Retained by Lucknow Super Giants",
+      "is_auction_eligible": false
     },
     {
       "rank": 75,
@@ -2910,8 +3476,6 @@
       "hp_dots": 121,
       "hp_sr": 148.8,
       "hp_avg": 15.8,
-      "base_sr": 107.4,
-      "base_avg": 11.2,
       "delta_sr": 41.4,
       "delta_avg": 4.7,
       "avg_balls_faced": 10.6,
@@ -2923,7 +3487,11 @@
       "bowling_econ": 8.21,
       "innings_bowled": 88,
       "is_ipl": true,
-      "ppi": 44.6
+      "ppi": 44.6,
+      "status_2027": "Retained",
+      "status_team": "Gujarat Titans",
+      "status_label": "Retained by Gujarat Titans",
+      "is_auction_eligible": false
     },
     {
       "rank": 76,
@@ -2947,8 +3515,6 @@
       "hp_dots": 166,
       "hp_sr": 144.2,
       "hp_avg": 29.7,
-      "base_sr": 110.3,
-      "base_avg": 32.7,
       "delta_sr": 33.8,
       "delta_avg": -3.0,
       "avg_balls_faced": 20.6,
@@ -2960,7 +3526,11 @@
       "bowling_econ": 7.61,
       "innings_bowled": 74,
       "is_ipl": true,
-      "ppi": 43.4
+      "ppi": 43.4,
+      "status_2027": "Retained",
+      "status_team": "Rajasthan Royals",
+      "status_label": "Retained by Rajasthan Royals",
+      "is_auction_eligible": false
     },
     {
       "rank": 77,
@@ -2984,8 +3554,6 @@
       "hp_dots": 135,
       "hp_sr": 162.5,
       "hp_avg": 15.5,
-      "base_sr": 137.1,
-      "base_avg": 45.9,
       "delta_sr": 25.4,
       "delta_avg": -30.4,
       "avg_balls_faced": 9.6,
@@ -2997,7 +3565,11 @@
       "bowling_econ": 7.98,
       "innings_bowled": 24,
       "is_ipl": true,
-      "ppi": 43.2
+      "ppi": 43.2,
+      "status_2027": "Retained",
+      "status_team": "Rajasthan Royals",
+      "status_label": "Retained by Rajasthan Royals",
+      "is_auction_eligible": false
     },
     {
       "rank": 78,
@@ -3021,8 +3593,6 @@
       "hp_dots": 77,
       "hp_sr": 152.4,
       "hp_avg": 27.6,
-      "base_sr": 134.3,
-      "base_avg": 49.2,
       "delta_sr": 18.1,
       "delta_avg": -21.6,
       "avg_balls_faced": 18.1,
@@ -3034,7 +3604,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": true,
-      "ppi": 43.0
+      "ppi": 43.0,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 79,
@@ -3058,8 +3632,6 @@
       "hp_dots": 91,
       "hp_sr": 137.2,
       "hp_avg": 27.2,
-      "base_sr": 93.6,
-      "base_avg": 18.9,
       "delta_sr": 43.6,
       "delta_avg": 8.3,
       "avg_balls_faced": 19.8,
@@ -3071,7 +3643,11 @@
       "bowling_econ": 9.9,
       "innings_bowled": 42,
       "is_ipl": true,
-      "ppi": 42.8
+      "ppi": 42.8,
+      "status_2027": "Retained",
+      "status_team": "Lucknow Super Giants",
+      "status_label": "Retained by Lucknow Super Giants",
+      "is_auction_eligible": false
     },
     {
       "rank": 80,
@@ -3095,8 +3671,6 @@
       "hp_dots": 94,
       "hp_sr": 142.6,
       "hp_avg": 18.2,
-      "base_sr": 109.3,
-      "base_avg": 19.7,
       "delta_sr": 33.3,
       "delta_avg": -1.4,
       "avg_balls_faced": 12.8,
@@ -3108,7 +3682,11 @@
       "bowling_econ": 7.7,
       "innings_bowled": 40,
       "is_ipl": false,
-      "ppi": 41.4
+      "ppi": 41.4,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 81,
@@ -3132,8 +3710,6 @@
       "hp_dots": 50,
       "hp_sr": 143.4,
       "hp_avg": 15.8,
-      "base_sr": 106.0,
-      "base_avg": 26.6,
       "delta_sr": 37.4,
       "delta_avg": -10.9,
       "avg_balls_faced": 11.0,
@@ -3145,7 +3721,11 @@
       "bowling_econ": 7.91,
       "innings_bowled": 29,
       "is_ipl": false,
-      "ppi": 41.0
+      "ppi": 41.0,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 82,
@@ -3169,8 +3749,6 @@
       "hp_dots": 46,
       "hp_sr": 153.1,
       "hp_avg": 14.4,
-      "base_sr": 156.7,
-      "base_avg": 34.1,
       "delta_sr": -3.6,
       "delta_avg": -19.7,
       "avg_balls_faced": 9.4,
@@ -3182,7 +3760,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": true,
-      "ppi": 40.5
+      "ppi": 40.5,
+      "status_2027": "Retained",
+      "status_team": "Lucknow Super Giants",
+      "status_label": "Retained by Lucknow Super Giants",
+      "is_auction_eligible": false
     },
     {
       "rank": 83,
@@ -3206,8 +3788,6 @@
       "hp_dots": 144,
       "hp_sr": 147.2,
       "hp_avg": 22.8,
-      "base_sr": 123.5,
-      "base_avg": 30.2,
       "delta_sr": 23.7,
       "delta_avg": -7.4,
       "avg_balls_faced": 15.5,
@@ -3219,7 +3799,11 @@
       "bowling_econ": 8.0,
       "innings_bowled": 10,
       "is_ipl": true,
-      "ppi": 40.4
+      "ppi": 40.4,
+      "status_2027": "Retained",
+      "status_team": "Lucknow Super Giants",
+      "status_label": "Retained by Lucknow Super Giants",
+      "is_auction_eligible": false
     },
     {
       "rank": 84,
@@ -3243,8 +3827,6 @@
       "hp_dots": 37,
       "hp_sr": 145.8,
       "hp_avg": 19.1,
-      "base_sr": 134.9,
-      "base_avg": 24.5,
       "delta_sr": 10.9,
       "delta_avg": -5.4,
       "avg_balls_faced": 13.1,
@@ -3256,7 +3838,11 @@
       "bowling_econ": 8.47,
       "innings_bowled": 12,
       "is_ipl": true,
-      "ppi": 39.3
+      "ppi": 39.3,
+      "status_2027": "Released",
+      "status_team": "Kolkata Knight Riders",
+      "status_label": "Released by Kolkata Knight Riders",
+      "is_auction_eligible": true
     },
     {
       "rank": 85,
@@ -3280,8 +3866,6 @@
       "hp_dots": 57,
       "hp_sr": 146.8,
       "hp_avg": 23.2,
-      "base_sr": 151.6,
-      "base_avg": 37.0,
       "delta_sr": -4.8,
       "delta_avg": -13.8,
       "avg_balls_faced": 15.8,
@@ -3293,7 +3877,11 @@
       "bowling_econ": 7.82,
       "innings_bowled": 19,
       "is_ipl": true,
-      "ppi": 38.7
+      "ppi": 38.7,
+      "status_2027": "Retained",
+      "status_team": "Lucknow Super Giants",
+      "status_label": "Retained by Lucknow Super Giants",
+      "is_auction_eligible": false
     },
     {
       "rank": 86,
@@ -3317,8 +3905,6 @@
       "hp_dots": 74,
       "hp_sr": 148.1,
       "hp_avg": 25.5,
-      "base_sr": 146.7,
-      "base_avg": 37.7,
       "delta_sr": 1.4,
       "delta_avg": -12.2,
       "avg_balls_faced": 17.2,
@@ -3330,7 +3916,11 @@
       "bowling_econ": 8.62,
       "innings_bowled": 51,
       "is_ipl": true,
-      "ppi": 38.5
+      "ppi": 38.5,
+      "status_2027": "Retained",
+      "status_team": "Kolkata Knight Riders",
+      "status_label": "Retained by Kolkata Knight Riders",
+      "is_auction_eligible": false
     },
     {
       "rank": 87,
@@ -3354,8 +3944,6 @@
       "hp_dots": 66,
       "hp_sr": 136.5,
       "hp_avg": 24.3,
-      "base_sr": 109.1,
-      "base_avg": 38.4,
       "delta_sr": 27.4,
       "delta_avg": -14.1,
       "avg_balls_faced": 17.8,
@@ -3367,7 +3955,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": false,
-      "ppi": 38.4
+      "ppi": 38.4,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 88,
@@ -3391,8 +3983,6 @@
       "hp_dots": 34,
       "hp_sr": 128.7,
       "hp_avg": 18.6,
-      "base_sr": 88.9,
-      "base_avg": 14.5,
       "delta_sr": 39.8,
       "delta_avg": 4.0,
       "avg_balls_faced": 14.4,
@@ -3404,7 +3994,11 @@
       "bowling_econ": 8.12,
       "innings_bowled": 9,
       "is_ipl": false,
-      "ppi": 37.6
+      "ppi": 37.6,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 89,
@@ -3428,8 +4022,6 @@
       "hp_dots": 227,
       "hp_sr": 144.5,
       "hp_avg": 18.3,
-      "base_sr": 116.0,
-      "base_avg": 30.2,
       "delta_sr": 28.5,
       "delta_avg": -11.9,
       "avg_balls_faced": 12.7,
@@ -3441,7 +4033,11 @@
       "bowling_econ": 7.67,
       "innings_bowled": 136,
       "is_ipl": true,
-      "ppi": 36.4
+      "ppi": 36.4,
+      "status_2027": "Retained",
+      "status_team": "Delhi Capitals",
+      "status_label": "Retained by Delhi Capitals",
+      "is_auction_eligible": false
     },
     {
       "rank": 90,
@@ -3465,8 +4061,6 @@
       "hp_dots": 34,
       "hp_sr": 137.2,
       "hp_avg": 17.2,
-      "base_sr": 109.0,
-      "base_avg": 21.9,
       "delta_sr": 28.1,
       "delta_avg": -4.6,
       "avg_balls_faced": 12.6,
@@ -3478,7 +4072,11 @@
       "bowling_econ": 7.35,
       "innings_bowled": 45,
       "is_ipl": false,
-      "ppi": 36.4
+      "ppi": 36.4,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 91,
@@ -3502,8 +4100,6 @@
       "hp_dots": 107,
       "hp_sr": 136.0,
       "hp_avg": 19.9,
-      "base_sr": 107.4,
-      "base_avg": 25.2,
       "delta_sr": 28.5,
       "delta_avg": -5.4,
       "avg_balls_faced": 14.6,
@@ -3515,7 +4111,11 @@
       "bowling_econ": 6.97,
       "innings_bowled": 83,
       "is_ipl": true,
-      "ppi": 36.3
+      "ppi": 36.3,
+      "status_2027": "Retained",
+      "status_team": "Mumbai Indians",
+      "status_label": "Retained by Mumbai Indians",
+      "is_auction_eligible": false
     },
     {
       "rank": 92,
@@ -3539,8 +4139,6 @@
       "hp_dots": 92,
       "hp_sr": 134.8,
       "hp_avg": 21.1,
-      "base_sr": 106.6,
-      "base_avg": 25.8,
       "delta_sr": 28.2,
       "delta_avg": -4.7,
       "avg_balls_faced": 15.6,
@@ -3552,7 +4150,11 @@
       "bowling_econ": 7.48,
       "innings_bowled": 22,
       "is_ipl": false,
-      "ppi": 36.1
+      "ppi": 36.1,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 93,
@@ -3576,8 +4178,6 @@
       "hp_dots": 88,
       "hp_sr": 134.0,
       "hp_avg": 15.2,
-      "base_sr": 90.5,
-      "base_avg": 16.8,
       "delta_sr": 43.4,
       "delta_avg": -1.6,
       "avg_balls_faced": 11.3,
@@ -3589,7 +4189,11 @@
       "bowling_econ": 8.65,
       "innings_bowled": 60,
       "is_ipl": true,
-      "ppi": 35.5
+      "ppi": 35.5,
+      "status_2027": "Retained",
+      "status_team": "Punjab Kings",
+      "status_label": "Retained by Punjab Kings",
+      "is_auction_eligible": false
     },
     {
       "rank": 94,
@@ -3613,8 +4217,6 @@
       "hp_dots": 211,
       "hp_sr": 147.9,
       "hp_avg": 15.7,
-      "base_sr": 138.6,
-      "base_avg": 38.3,
       "delta_sr": 9.4,
       "delta_avg": -22.6,
       "avg_balls_faced": 10.6,
@@ -3626,7 +4228,11 @@
       "bowling_econ": 7.25,
       "innings_bowled": 122,
       "is_ipl": true,
-      "ppi": 34.6
+      "ppi": 34.6,
+      "status_2027": "Retained",
+      "status_team": "Gujarat Titans",
+      "status_label": "Retained by Gujarat Titans",
+      "is_auction_eligible": false
     },
     {
       "rank": 95,
@@ -3650,8 +4256,6 @@
       "hp_dots": 50,
       "hp_sr": 138.0,
       "hp_avg": 11.9,
-      "base_sr": 118.5,
-      "base_avg": 23.4,
       "delta_sr": 19.5,
       "delta_avg": -11.5,
       "avg_balls_faced": 8.6,
@@ -3663,7 +4267,11 @@
       "bowling_econ": 7.57,
       "innings_bowled": 14,
       "is_ipl": true,
-      "ppi": 33.8
+      "ppi": 33.8,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 96,
@@ -3687,8 +4295,6 @@
       "hp_dots": 33,
       "hp_sr": 140.7,
       "hp_avg": 13.3,
-      "base_sr": 118.4,
-      "base_avg": 18.8,
       "delta_sr": 22.2,
       "delta_avg": -5.5,
       "avg_balls_faced": 9.5,
@@ -3700,7 +4306,11 @@
       "bowling_econ": 7.26,
       "innings_bowled": 61,
       "is_ipl": true,
-      "ppi": 33.7
+      "ppi": 33.7,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 97,
@@ -3724,8 +4334,6 @@
       "hp_dots": 41,
       "hp_sr": 137.7,
       "hp_avg": 16.2,
-      "base_sr": 141.0,
-      "base_avg": 26.0,
       "delta_sr": -3.2,
       "delta_avg": -9.7,
       "avg_balls_faced": 11.8,
@@ -3737,7 +4345,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": true,
-      "ppi": 33.2
+      "ppi": 33.2,
+      "status_2027": "Released",
+      "status_team": "Delhi Capitals",
+      "status_label": "Released by Delhi Capitals",
+      "is_auction_eligible": true
     },
     {
       "rank": 98,
@@ -3761,8 +4373,6 @@
       "hp_dots": 172,
       "hp_sr": 142.4,
       "hp_avg": 21.7,
-      "base_sr": 126.4,
-      "base_avg": 51.0,
       "delta_sr": 16.0,
       "delta_avg": -29.3,
       "avg_balls_faced": 15.2,
@@ -3774,7 +4384,11 @@
       "bowling_econ": 10.8,
       "innings_bowled": 7,
       "is_ipl": true,
-      "ppi": 33.1
+      "ppi": 33.1,
+      "status_2027": "Retained",
+      "status_team": "Gujarat Titans",
+      "status_label": "Retained by Gujarat Titans",
+      "is_auction_eligible": false
     },
     {
       "rank": 99,
@@ -3798,8 +4412,6 @@
       "hp_dots": 47,
       "hp_sr": 124.6,
       "hp_avg": 15.2,
-      "base_sr": 82.2,
-      "base_avg": 19.0,
       "delta_sr": 42.4,
       "delta_avg": -3.8,
       "avg_balls_faced": 12.2,
@@ -3811,7 +4423,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": false,
-      "ppi": 32.3
+      "ppi": 32.3,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 100,
@@ -3835,8 +4451,6 @@
       "hp_dots": 61,
       "hp_sr": 146.5,
       "hp_avg": 17.9,
-      "base_sr": 180.0,
-      "base_avg": 35.3,
       "delta_sr": -33.5,
       "delta_avg": -17.4,
       "avg_balls_faced": 12.2,
@@ -3848,7 +4462,11 @@
       "bowling_econ": 8.63,
       "innings_bowled": 46,
       "is_ipl": true,
-      "ppi": 31.9
+      "ppi": 31.9,
+      "status_2027": "Retained",
+      "status_team": "Sunrisers Hyderabad",
+      "status_label": "Retained by Sunrisers Hyderabad",
+      "is_auction_eligible": false
     },
     {
       "rank": 101,
@@ -3872,8 +4490,6 @@
       "hp_dots": 38,
       "hp_sr": 142.5,
       "hp_avg": 14.6,
-      "base_sr": 127.6,
-      "base_avg": 43.0,
       "delta_sr": 14.9,
       "delta_avg": -28.4,
       "avg_balls_faced": 10.3,
@@ -3885,7 +4501,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": true,
-      "ppi": 31.8
+      "ppi": 31.8,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 102,
@@ -3909,8 +4529,6 @@
       "hp_dots": 128,
       "hp_sr": 141.4,
       "hp_avg": 15.6,
-      "base_sr": 114.6,
-      "base_avg": 37.9,
       "delta_sr": 26.8,
       "delta_avg": -22.2,
       "avg_balls_faced": 11.1,
@@ -3922,7 +4540,11 @@
       "bowling_econ": 8.81,
       "innings_bowled": 73,
       "is_ipl": true,
-      "ppi": 31.6
+      "ppi": 31.6,
+      "status_2027": "Retained",
+      "status_team": "Lucknow Super Giants",
+      "status_label": "Retained by Lucknow Super Giants",
+      "is_auction_eligible": false
     },
     {
       "rank": 103,
@@ -3946,8 +4568,6 @@
       "hp_dots": 95,
       "hp_sr": 132.5,
       "hp_avg": 18.7,
-      "base_sr": 126.3,
-      "base_avg": 28.3,
       "delta_sr": 6.2,
       "delta_avg": -9.6,
       "avg_balls_faced": 14.1,
@@ -3959,7 +4579,11 @@
       "bowling_econ": 6.21,
       "innings_bowled": 4,
       "is_ipl": true,
-      "ppi": 30.6
+      "ppi": 30.6,
+      "status_2027": "Released",
+      "status_team": "Punjab Kings",
+      "status_label": "Released by Punjab Kings",
+      "is_auction_eligible": true
     },
     {
       "rank": 104,
@@ -3983,8 +4607,6 @@
       "hp_dots": 65,
       "hp_sr": 138.6,
       "hp_avg": 14.4,
-      "base_sr": 124.8,
-      "base_avg": 27.1,
       "delta_sr": 13.8,
       "delta_avg": -12.7,
       "avg_balls_faced": 10.4,
@@ -3996,7 +4618,11 @@
       "bowling_econ": 6.23,
       "innings_bowled": 13,
       "is_ipl": true,
-      "ppi": 30.4
+      "ppi": 30.4,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 105,
@@ -4020,8 +4646,6 @@
       "hp_dots": 73,
       "hp_sr": 132.6,
       "hp_avg": 16.0,
-      "base_sr": 121.6,
-      "base_avg": 27.8,
       "delta_sr": 11.0,
       "delta_avg": -11.8,
       "avg_balls_faced": 12.1,
@@ -4033,7 +4657,11 @@
       "bowling_econ": 8.18,
       "innings_bowled": 14,
       "is_ipl": true,
-      "ppi": 29.0
+      "ppi": 29.0,
+      "status_2027": "Released",
+      "status_team": "Sunrisers Hyderabad",
+      "status_label": "Released by Sunrisers Hyderabad",
+      "is_auction_eligible": true
     },
     {
       "rank": 106,
@@ -4057,8 +4685,6 @@
       "hp_dots": 58,
       "hp_sr": 127.5,
       "hp_avg": 11.1,
-      "base_sr": 95.6,
-      "base_avg": 28.1,
       "delta_sr": 31.8,
       "delta_avg": -17.0,
       "avg_balls_faced": 8.7,
@@ -4070,7 +4696,11 @@
       "bowling_econ": 8.95,
       "innings_bowled": 17,
       "is_ipl": true,
-      "ppi": 28.9
+      "ppi": 28.9,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 107,
@@ -4094,8 +4724,6 @@
       "hp_dots": 36,
       "hp_sr": 129.1,
       "hp_avg": 17.8,
-      "base_sr": 133.9,
-      "base_avg": 24.9,
       "delta_sr": -4.8,
       "delta_avg": -7.1,
       "avg_balls_faced": 13.8,
@@ -4107,7 +4735,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": true,
-      "ppi": 28.4
+      "ppi": 28.4,
+      "status_2027": "Retained",
+      "status_team": "Royal Challengers Bengaluru",
+      "status_label": "Retained by Royal Challengers Bengaluru",
+      "is_auction_eligible": false
     },
     {
       "rank": 108,
@@ -4131,8 +4763,6 @@
       "hp_dots": 97,
       "hp_sr": 132.1,
       "hp_avg": 18.3,
-      "base_sr": 115.6,
-      "base_avg": 26.3,
       "delta_sr": 16.5,
       "delta_avg": -8.0,
       "avg_balls_faced": 13.8,
@@ -4144,7 +4774,11 @@
       "bowling_econ": 7.46,
       "innings_bowled": 66,
       "is_ipl": true,
-      "ppi": 28.3
+      "ppi": 28.3,
+      "status_2027": "Retained",
+      "status_team": "Royal Challengers Bengaluru",
+      "status_label": "Retained by Royal Challengers Bengaluru",
+      "is_auction_eligible": false
     },
     {
       "rank": 109,
@@ -4168,8 +4802,6 @@
       "hp_dots": 81,
       "hp_sr": 131.9,
       "hp_avg": 15.8,
-      "base_sr": 125.8,
-      "base_avg": 28.3,
       "delta_sr": 6.2,
       "delta_avg": -12.5,
       "avg_balls_faced": 12.0,
@@ -4181,7 +4813,11 @@
       "bowling_econ": 8.43,
       "innings_bowled": 37,
       "is_ipl": true,
-      "ppi": 28.0
+      "ppi": 28.0,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 110,
@@ -4205,8 +4841,6 @@
       "hp_dots": 129,
       "hp_sr": 138.5,
       "hp_avg": 17.0,
-      "base_sr": 126.8,
-      "base_avg": 59.4,
       "delta_sr": 11.7,
       "delta_avg": -42.5,
       "avg_balls_faced": 12.2,
@@ -4218,7 +4852,11 @@
       "bowling_econ": 7.79,
       "innings_bowled": 51,
       "is_ipl": true,
-      "ppi": 27.7
+      "ppi": 27.7,
+      "status_2027": "Retained",
+      "status_team": "Gujarat Titans",
+      "status_label": "Retained by Gujarat Titans",
+      "is_auction_eligible": false
     },
     {
       "rank": 111,
@@ -4242,8 +4880,6 @@
       "hp_dots": 76,
       "hp_sr": 147.8,
       "hp_avg": 15.2,
-      "base_sr": 179.2,
-      "base_avg": 86.0,
       "delta_sr": -31.4,
       "delta_avg": -70.8,
       "avg_balls_faced": 10.2,
@@ -4255,7 +4891,11 @@
       "bowling_econ": 8.53,
       "innings_bowled": 54,
       "is_ipl": true,
-      "ppi": 25.7
+      "ppi": 25.7,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 112,
@@ -4279,8 +4919,6 @@
       "hp_dots": 68,
       "hp_sr": 129.1,
       "hp_avg": 24.4,
-      "base_sr": 141.3,
-      "base_avg": 47.3,
       "delta_sr": -12.2,
       "delta_avg": -22.9,
       "avg_balls_faced": 18.9,
@@ -4292,7 +4930,11 @@
       "bowling_econ": 0.0,
       "innings_bowled": 0,
       "is_ipl": true,
-      "ppi": 25.7
+      "ppi": 25.7,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 113,
@@ -4316,8 +4958,6 @@
       "hp_dots": 52,
       "hp_sr": 110.2,
       "hp_avg": 17.5,
-      "base_sr": 91.2,
-      "base_avg": 12.5,
       "delta_sr": 19.0,
       "delta_avg": 5.0,
       "avg_balls_faced": 15.9,
@@ -4329,7 +4969,11 @@
       "bowling_econ": 6.74,
       "innings_bowled": 41,
       "is_ipl": false,
-      "ppi": 25.6
+      "ppi": 25.6,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 114,
@@ -4353,8 +4997,6 @@
       "hp_dots": 43,
       "hp_sr": 116.1,
       "hp_avg": 21.7,
-      "base_sr": 112.3,
-      "base_avg": 30.5,
       "delta_sr": 3.8,
       "delta_avg": -8.8,
       "avg_balls_faced": 18.7,
@@ -4366,7 +5008,11 @@
       "bowling_econ": 7.9,
       "innings_bowled": 5,
       "is_ipl": false,
-      "ppi": 25.4
+      "ppi": 25.4,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 115,
@@ -4390,8 +5036,6 @@
       "hp_dots": 64,
       "hp_sr": 130.4,
       "hp_avg": 12.1,
-      "base_sr": 126.2,
-      "base_avg": 55.8,
       "delta_sr": 4.2,
       "delta_avg": -43.7,
       "avg_balls_faced": 9.2,
@@ -4403,7 +5047,11 @@
       "bowling_econ": 7.41,
       "innings_bowled": 41,
       "is_ipl": true,
-      "ppi": 22.5
+      "ppi": 22.5,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 116,
@@ -4427,8 +5075,6 @@
       "hp_dots": 89,
       "hp_sr": 114.0,
       "hp_avg": 7.2,
-      "base_sr": 127.2,
-      "base_avg": 22.1,
       "delta_sr": -13.2,
       "delta_avg": -14.9,
       "avg_balls_faced": 6.3,
@@ -4440,7 +5086,11 @@
       "bowling_econ": 7.79,
       "innings_bowled": 91,
       "is_ipl": true,
-      "ppi": 10.5
+      "ppi": 10.5,
+      "status_2027": "Released",
+      "status_team": "Lucknow Super Giants",
+      "status_label": "Released by Lucknow Super Giants",
+      "is_auction_eligible": true
     }
   ],
   "bowlers": [
@@ -4467,8 +5117,6 @@
       "hp_econ": 6.78,
       "hp_sr": 8.8,
       "hp_avg": 10.0,
-      "base_econ": 8.22,
-      "base_sr": 31.2,
       "delta_econ": 1.44,
       "delta_sr": 22.4,
       "hp_dot_pct": 50.4,
@@ -4479,7 +5127,11 @@
       "batting_sr": 106.4,
       "innings_batted": 7,
       "is_ipl": false,
-      "ppi": 90.1
+      "ppi": 90.1,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 2,
@@ -4504,8 +5156,6 @@
       "hp_econ": 7.2,
       "hp_sr": 12.4,
       "hp_avg": 14.9,
-      "base_econ": 7.3,
-      "base_sr": 31.1,
       "delta_econ": 0.1,
       "delta_sr": 18.7,
       "hp_dot_pct": 40.5,
@@ -4516,7 +5166,11 @@
       "batting_sr": 69.7,
       "innings_batted": 13,
       "is_ipl": true,
-      "ppi": 82.7
+      "ppi": 82.7,
+      "status_2027": "Retained",
+      "status_team": "Mumbai Indians",
+      "status_label": "Retained by Mumbai Indians",
+      "is_auction_eligible": false
     },
     {
       "rank": 3,
@@ -4541,8 +5195,6 @@
       "hp_econ": 6.82,
       "hp_sr": 15.7,
       "hp_avg": 17.9,
-      "base_econ": 6.88,
-      "base_sr": 26.5,
       "delta_econ": 0.05,
       "delta_sr": 10.8,
       "hp_dot_pct": 41.0,
@@ -4553,7 +5205,11 @@
       "batting_sr": 156.3,
       "innings_batted": 49,
       "is_ipl": true,
-      "ppi": 81.6
+      "ppi": 81.6,
+      "status_2027": "Retained",
+      "status_team": "Kolkata Knight Riders",
+      "status_label": "Retained by Kolkata Knight Riders",
+      "is_auction_eligible": false
     },
     {
       "rank": 4,
@@ -4578,8 +5234,6 @@
       "hp_econ": 8.08,
       "hp_sr": 12.5,
       "hp_avg": 16.8,
-      "base_econ": 11.3,
-      "base_sr": 34.3,
       "delta_econ": 3.22,
       "delta_sr": 21.8,
       "hp_dot_pct": 42.0,
@@ -4590,7 +5244,11 @@
       "batting_sr": 71.4,
       "innings_batted": 1,
       "is_ipl": true,
-      "ppi": 81.0
+      "ppi": 81.0,
+      "status_2027": "Retained",
+      "status_team": "Sunrisers Hyderabad",
+      "status_label": "Retained by Sunrisers Hyderabad",
+      "is_auction_eligible": false
     },
     {
       "rank": 5,
@@ -4615,8 +5273,6 @@
       "hp_econ": 7.46,
       "hp_sr": 14.0,
       "hp_avg": 17.4,
-      "base_econ": 7.44,
-      "base_sr": 22.8,
       "delta_econ": -0.02,
       "delta_sr": 8.8,
       "hp_dot_pct": 40.8,
@@ -4627,7 +5283,11 @@
       "batting_sr": 121.6,
       "innings_batted": 57,
       "is_ipl": true,
-      "ppi": 76.2
+      "ppi": 76.2,
+      "status_2027": "Retained",
+      "status_team": "Mumbai Indians",
+      "status_label": "Retained by Mumbai Indians",
+      "is_auction_eligible": false
     },
     {
       "rank": 6,
@@ -4652,8 +5312,6 @@
       "hp_econ": 9.04,
       "hp_sr": 10.4,
       "hp_avg": 15.7,
-      "base_econ": 8.6,
-      "base_sr": 20.1,
       "delta_econ": -0.44,
       "delta_sr": 9.6,
       "hp_dot_pct": 45.7,
@@ -4664,7 +5322,11 @@
       "batting_sr": 59.4,
       "innings_batted": 9,
       "is_ipl": true,
-      "ppi": 76.1
+      "ppi": 76.1,
+      "status_2027": "Released",
+      "status_team": "Kolkata Knight Riders",
+      "status_label": "Released by Kolkata Knight Riders",
+      "is_auction_eligible": true
     },
     {
       "rank": 7,
@@ -4689,8 +5351,6 @@
       "hp_econ": 8.82,
       "hp_sr": 9.6,
       "hp_avg": 14.1,
-      "base_econ": 10.35,
-      "base_sr": 19.6,
       "delta_econ": 1.53,
       "delta_sr": 10.0,
       "hp_dot_pct": 45.0,
@@ -4701,7 +5361,11 @@
       "batting_sr": 128.8,
       "innings_batted": 12,
       "is_ipl": true,
-      "ppi": 73.9
+      "ppi": 73.9,
+      "status_2027": "Retained",
+      "status_team": "Chennai Super Kings",
+      "status_label": "Retained by Chennai Super Kings",
+      "is_auction_eligible": false
     },
     {
       "rank": 8,
@@ -4726,8 +5390,6 @@
       "hp_econ": 9.19,
       "hp_sr": 9.2,
       "hp_avg": 14.1,
-      "base_econ": 9.88,
-      "base_sr": 25.2,
       "delta_econ": 0.69,
       "delta_sr": 16.1,
       "hp_dot_pct": 39.5,
@@ -4738,7 +5400,11 @@
       "batting_sr": 110.0,
       "innings_batted": 7,
       "is_ipl": true,
-      "ppi": 69.1
+      "ppi": 69.1,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 9,
@@ -4763,8 +5429,6 @@
       "hp_econ": 8.67,
       "hp_sr": 14.0,
       "hp_avg": 20.2,
-      "base_econ": 9.28,
-      "base_sr": 19.1,
       "delta_econ": 0.6,
       "delta_sr": 5.1,
       "hp_dot_pct": 40.6,
@@ -4775,7 +5439,11 @@
       "batting_sr": 65.0,
       "innings_batted": 11,
       "is_ipl": true,
-      "ppi": 68.3
+      "ppi": 68.3,
+      "status_2027": "Retained",
+      "status_team": "Sunrisers Hyderabad",
+      "status_label": "Retained by Sunrisers Hyderabad",
+      "is_auction_eligible": false
     },
     {
       "rank": 10,
@@ -4800,8 +5468,6 @@
       "hp_econ": 8.76,
       "hp_sr": 9.3,
       "hp_avg": 13.5,
-      "base_econ": 8.57,
-      "base_sr": 18.9,
       "delta_econ": -0.19,
       "delta_sr": 9.7,
       "hp_dot_pct": 41.6,
@@ -4812,7 +5478,11 @@
       "batting_sr": 135.3,
       "innings_batted": 18,
       "is_ipl": true,
-      "ppi": 68.2
+      "ppi": 68.2,
+      "status_2027": "Retained",
+      "status_team": "Chennai Super Kings",
+      "status_label": "Retained by Chennai Super Kings",
+      "is_auction_eligible": false
     },
     {
       "rank": 11,
@@ -4837,8 +5507,6 @@
       "hp_econ": 9.17,
       "hp_sr": 9.8,
       "hp_avg": 14.9,
-      "base_econ": 9.57,
-      "base_sr": 28.3,
       "delta_econ": 0.4,
       "delta_sr": 18.5,
       "hp_dot_pct": 45.3,
@@ -4849,7 +5517,11 @@
       "batting_sr": 61.5,
       "innings_batted": 7,
       "is_ipl": true,
-      "ppi": 67.0
+      "ppi": 67.0,
+      "status_2027": "Released",
+      "status_team": "Chennai Super Kings",
+      "status_label": "Released by Chennai Super Kings",
+      "is_auction_eligible": true
     },
     {
       "rank": 12,
@@ -4874,8 +5546,6 @@
       "hp_econ": 7.96,
       "hp_sr": 12.5,
       "hp_avg": 16.5,
-      "base_econ": 7.73,
-      "base_sr": 23.2,
       "delta_econ": -0.23,
       "delta_sr": 10.7,
       "hp_dot_pct": 36.5,
@@ -4886,7 +5556,11 @@
       "batting_sr": 124.3,
       "innings_batted": 32,
       "is_ipl": true,
-      "ppi": 66.8
+      "ppi": 66.8,
+      "status_2027": "Retained",
+      "status_team": "Chennai Super Kings",
+      "status_label": "Retained by Chennai Super Kings",
+      "is_auction_eligible": false
     },
     {
       "rank": 13,
@@ -4911,8 +5585,6 @@
       "hp_econ": 9.0,
       "hp_sr": 11.1,
       "hp_avg": 16.7,
-      "base_econ": 9.85,
-      "base_sr": 21.9,
       "delta_econ": 0.85,
       "delta_sr": 10.8,
       "hp_dot_pct": 38.6,
@@ -4923,7 +5595,11 @@
       "batting_sr": 122.6,
       "innings_batted": 18,
       "is_ipl": true,
-      "ppi": 66.5
+      "ppi": 66.5,
+      "status_2027": "Released",
+      "status_team": "Sunrisers Hyderabad",
+      "status_label": "Released by Sunrisers Hyderabad",
+      "is_auction_eligible": true
     },
     {
       "rank": 14,
@@ -4948,8 +5624,6 @@
       "hp_econ": 9.16,
       "hp_sr": 13.5,
       "hp_avg": 20.5,
-      "base_econ": 10.04,
-      "base_sr": 20.9,
       "delta_econ": 0.88,
       "delta_sr": 7.5,
       "hp_dot_pct": 41.6,
@@ -4960,7 +5634,11 @@
       "batting_sr": 95.7,
       "innings_batted": 14,
       "is_ipl": true,
-      "ppi": 65.7
+      "ppi": 65.7,
+      "status_2027": "Retained",
+      "status_team": "Delhi Capitals",
+      "status_label": "Retained by Delhi Capitals",
+      "is_auction_eligible": false
     },
     {
       "rank": 15,
@@ -4985,8 +5663,6 @@
       "hp_econ": 8.65,
       "hp_sr": 9.4,
       "hp_avg": 13.6,
-      "base_econ": 8.45,
-      "base_sr": 20.2,
       "delta_econ": -0.2,
       "delta_sr": 10.8,
       "hp_dot_pct": 40.9,
@@ -4997,7 +5673,11 @@
       "batting_sr": 106.8,
       "innings_batted": 29,
       "is_ipl": false,
-      "ppi": 64.8
+      "ppi": 64.8,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 16,
@@ -5022,8 +5702,6 @@
       "hp_econ": 7.95,
       "hp_sr": 16.8,
       "hp_avg": 22.3,
-      "base_econ": 7.71,
-      "base_sr": 28.1,
       "delta_econ": -0.23,
       "delta_sr": 11.3,
       "hp_dot_pct": 36.0,
@@ -5034,7 +5712,11 @@
       "batting_sr": 62.4,
       "innings_batted": 37,
       "is_ipl": true,
-      "ppi": 64.8
+      "ppi": 64.8,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 17,
@@ -5059,8 +5741,6 @@
       "hp_econ": 8.08,
       "hp_sr": 14.4,
       "hp_avg": 19.4,
-      "base_econ": 7.89,
-      "base_sr": 18.4,
       "delta_econ": -0.2,
       "delta_sr": 4.0,
       "hp_dot_pct": 39.7,
@@ -5071,7 +5751,11 @@
       "batting_sr": 127.9,
       "innings_batted": 33,
       "is_ipl": true,
-      "ppi": 64.1
+      "ppi": 64.1,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 18,
@@ -5096,8 +5780,6 @@
       "hp_econ": 9.07,
       "hp_sr": 11.0,
       "hp_avg": 16.6,
-      "base_econ": 9.54,
-      "base_sr": 27.1,
       "delta_econ": 0.47,
       "delta_sr": 16.1,
       "hp_dot_pct": 43.1,
@@ -5108,7 +5790,11 @@
       "batting_sr": 135.6,
       "innings_batted": 12,
       "is_ipl": true,
-      "ppi": 63.7
+      "ppi": 63.7,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 19,
@@ -5133,8 +5819,6 @@
       "hp_econ": 8.99,
       "hp_sr": 9.6,
       "hp_avg": 14.4,
-      "base_econ": 8.0,
-      "base_sr": 20.3,
       "delta_econ": -0.99,
       "delta_sr": 10.7,
       "hp_dot_pct": 38.6,
@@ -5145,7 +5829,11 @@
       "batting_sr": 98.1,
       "innings_batted": 16,
       "is_ipl": true,
-      "ppi": 63.5
+      "ppi": 63.5,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 20,
@@ -5170,8 +5858,6 @@
       "hp_econ": 8.27,
       "hp_sr": 11.5,
       "hp_avg": 15.9,
-      "base_econ": 6.81,
-      "base_sr": 18.7,
       "delta_econ": -1.46,
       "delta_sr": 7.2,
       "hp_dot_pct": 44.3,
@@ -5182,7 +5868,11 @@
       "batting_sr": 118.9,
       "innings_batted": 14,
       "is_ipl": true,
-      "ppi": 63.5
+      "ppi": 63.5,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 21,
@@ -5207,8 +5897,6 @@
       "hp_econ": 8.6,
       "hp_sr": 15.6,
       "hp_avg": 22.4,
-      "base_econ": 7.78,
-      "base_sr": 18.0,
       "delta_econ": -0.82,
       "delta_sr": 2.4,
       "hp_dot_pct": 41.2,
@@ -5219,7 +5907,11 @@
       "batting_sr": 80.0,
       "innings_batted": 26,
       "is_ipl": true,
-      "ppi": 62.9
+      "ppi": 62.9,
+      "status_2027": "Retained",
+      "status_team": "Chennai Super Kings",
+      "status_label": "Retained by Chennai Super Kings",
+      "is_auction_eligible": false
     },
     {
       "rank": 22,
@@ -5244,8 +5936,6 @@
       "hp_econ": 8.55,
       "hp_sr": 9.9,
       "hp_avg": 14.1,
-      "base_econ": 8.3,
-      "base_sr": 22.0,
       "delta_econ": -0.24,
       "delta_sr": 12.1,
       "hp_dot_pct": 34.6,
@@ -5256,7 +5946,11 @@
       "batting_sr": 60.4,
       "innings_batted": 15,
       "is_ipl": true,
-      "ppi": 62.8
+      "ppi": 62.8,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 23,
@@ -5281,8 +5975,6 @@
       "hp_econ": 8.93,
       "hp_sr": 12.3,
       "hp_avg": 18.3,
-      "base_econ": 7.75,
-      "base_sr": 19.9,
       "delta_econ": -1.18,
       "delta_sr": 7.6,
       "hp_dot_pct": 42.3,
@@ -5293,7 +5985,11 @@
       "batting_sr": 55.2,
       "innings_batted": 11,
       "is_ipl": true,
-      "ppi": 61.8
+      "ppi": 61.8,
+      "status_2027": "Retained",
+      "status_team": "Sunrisers Hyderabad",
+      "status_label": "Retained by Sunrisers Hyderabad",
+      "is_auction_eligible": false
     },
     {
       "rank": 24,
@@ -5318,8 +6014,6 @@
       "hp_econ": 9.1,
       "hp_sr": 9.7,
       "hp_avg": 14.8,
-      "base_econ": 7.53,
-      "base_sr": 20.2,
       "delta_econ": -1.57,
       "delta_sr": 10.5,
       "hp_dot_pct": 40.6,
@@ -5330,7 +6024,11 @@
       "batting_sr": 114.6,
       "innings_batted": 17,
       "is_ipl": false,
-      "ppi": 60.8
+      "ppi": 60.8,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 25,
@@ -5355,8 +6053,6 @@
       "hp_econ": 8.94,
       "hp_sr": 11.3,
       "hp_avg": 16.9,
-      "base_econ": 8.78,
-      "base_sr": 15.5,
       "delta_econ": -0.17,
       "delta_sr": 4.1,
       "hp_dot_pct": 31.5,
@@ -5367,7 +6063,11 @@
       "batting_sr": 112.5,
       "innings_batted": 4,
       "is_ipl": true,
-      "ppi": 60.7
+      "ppi": 60.7,
+      "status_2027": "Retained",
+      "status_team": "Gujarat Titans",
+      "status_label": "Retained by Gujarat Titans",
+      "is_auction_eligible": false
     },
     {
       "rank": 26,
@@ -5392,8 +6092,6 @@
       "hp_econ": 9.9,
       "hp_sr": 12.0,
       "hp_avg": 19.8,
-      "base_econ": 9.73,
-      "base_sr": 26.8,
       "delta_econ": -0.17,
       "delta_sr": 14.8,
       "hp_dot_pct": 47.3,
@@ -5404,7 +6102,11 @@
       "batting_sr": 80.0,
       "innings_batted": 6,
       "is_ipl": true,
-      "ppi": 60.6
+      "ppi": 60.6,
+      "status_2027": "Retained",
+      "status_team": "Rajasthan Royals",
+      "status_label": "Retained by Rajasthan Royals",
+      "is_auction_eligible": false
     },
     {
       "rank": 27,
@@ -5429,8 +6131,6 @@
       "hp_econ": 8.59,
       "hp_sr": 11.4,
       "hp_avg": 16.2,
-      "base_econ": 7.01,
-      "base_sr": 22.8,
       "delta_econ": -1.58,
       "delta_sr": 11.5,
       "hp_dot_pct": 36.1,
@@ -5441,7 +6141,11 @@
       "batting_sr": 146.5,
       "innings_batted": 71,
       "is_ipl": true,
-      "ppi": 60.2
+      "ppi": 60.2,
+      "status_2027": "Retained",
+      "status_team": "Gujarat Titans",
+      "status_label": "Retained by Gujarat Titans",
+      "is_auction_eligible": false
     },
     {
       "rank": 28,
@@ -5466,8 +6170,6 @@
       "hp_econ": 8.39,
       "hp_sr": 14.7,
       "hp_avg": 20.6,
-      "base_econ": 7.74,
-      "base_sr": 26.2,
       "delta_econ": -0.64,
       "delta_sr": 11.5,
       "hp_dot_pct": 37.6,
@@ -5478,7 +6180,11 @@
       "batting_sr": 115.0,
       "innings_batted": 36,
       "is_ipl": false,
-      "ppi": 60.2
+      "ppi": 60.2,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 29,
@@ -5503,8 +6209,6 @@
       "hp_econ": 9.12,
       "hp_sr": 14.4,
       "hp_avg": 21.9,
-      "base_econ": 8.16,
-      "base_sr": 18.5,
       "delta_econ": -0.96,
       "delta_sr": 4.1,
       "hp_dot_pct": 41.5,
@@ -5515,7 +6219,11 @@
       "batting_sr": 80.6,
       "innings_batted": 7,
       "is_ipl": true,
-      "ppi": 60.0
+      "ppi": 60.0,
+      "status_2027": "Retained",
+      "status_team": "Lucknow Super Giants",
+      "status_label": "Retained by Lucknow Super Giants",
+      "is_auction_eligible": false
     },
     {
       "rank": 30,
@@ -5540,8 +6248,6 @@
       "hp_econ": 8.89,
       "hp_sr": 12.8,
       "hp_avg": 19.0,
-      "base_econ": 7.73,
-      "base_sr": 17.8,
       "delta_econ": -1.17,
       "delta_sr": 4.9,
       "hp_dot_pct": 37.6,
@@ -5552,7 +6258,11 @@
       "batting_sr": 74.8,
       "innings_batted": 37,
       "is_ipl": true,
-      "ppi": 59.8
+      "ppi": 59.8,
+      "status_2027": "Retained",
+      "status_team": "Lucknow Super Giants",
+      "status_label": "Retained by Lucknow Super Giants",
+      "is_auction_eligible": false
     },
     {
       "rank": 31,
@@ -5577,8 +6287,6 @@
       "hp_econ": 8.95,
       "hp_sr": 12.1,
       "hp_avg": 18.1,
-      "base_econ": 8.47,
-      "base_sr": 21.3,
       "delta_econ": -0.49,
       "delta_sr": 9.2,
       "hp_dot_pct": 33.4,
@@ -5589,7 +6297,11 @@
       "batting_sr": 60.0,
       "innings_batted": 3,
       "is_ipl": true,
-      "ppi": 59.7
+      "ppi": 59.7,
+      "status_2027": "Retained",
+      "status_team": "Punjab Kings",
+      "status_label": "Retained by Punjab Kings",
+      "is_auction_eligible": false
     },
     {
       "rank": 32,
@@ -5614,8 +6326,6 @@
       "hp_econ": 9.91,
       "hp_sr": 9.3,
       "hp_avg": 15.4,
-      "base_econ": 8.85,
-      "base_sr": 49.5,
       "delta_econ": -1.06,
       "delta_sr": 40.2,
       "hp_dot_pct": 41.9,
@@ -5626,7 +6336,11 @@
       "batting_sr": 0.0,
       "innings_batted": 2,
       "is_ipl": true,
-      "ppi": 59.2
+      "ppi": 59.2,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 33,
@@ -5651,8 +6365,6 @@
       "hp_econ": 8.73,
       "hp_sr": 11.5,
       "hp_avg": 16.8,
-      "base_econ": 7.72,
-      "base_sr": 16.8,
       "delta_econ": -1.0,
       "delta_sr": 5.3,
       "hp_dot_pct": 35.4,
@@ -5663,7 +6375,11 @@
       "batting_sr": 121.2,
       "innings_batted": 62,
       "is_ipl": true,
-      "ppi": 58.4
+      "ppi": 58.4,
+      "status_2027": "Released",
+      "status_team": "Lucknow Super Giants",
+      "status_label": "Released by Lucknow Super Giants",
+      "is_auction_eligible": true
     },
     {
       "rank": 34,
@@ -5688,8 +6404,6 @@
       "hp_econ": 9.27,
       "hp_sr": 10.7,
       "hp_avg": 16.5,
-      "base_econ": 8.66,
-      "base_sr": 23.1,
       "delta_econ": -0.6,
       "delta_sr": 12.4,
       "hp_dot_pct": 38.6,
@@ -5700,7 +6414,11 @@
       "batting_sr": 82.5,
       "innings_batted": 15,
       "is_ipl": true,
-      "ppi": 58.0
+      "ppi": 58.0,
+      "status_2027": "Retained",
+      "status_team": "Delhi Capitals",
+      "status_label": "Retained by Delhi Capitals",
+      "is_auction_eligible": false
     },
     {
       "rank": 35,
@@ -5725,8 +6443,6 @@
       "hp_econ": 9.47,
       "hp_sr": 12.3,
       "hp_avg": 19.4,
-      "base_econ": 8.91,
-      "base_sr": 21.1,
       "delta_econ": -0.57,
       "delta_sr": 8.8,
       "hp_dot_pct": 38.6,
@@ -5737,7 +6453,11 @@
       "batting_sr": 91.5,
       "innings_batted": 39,
       "is_ipl": true,
-      "ppi": 57.8
+      "ppi": 57.8,
+      "status_2027": "Retained",
+      "status_team": "Mumbai Indians",
+      "status_label": "Retained by Mumbai Indians",
+      "is_auction_eligible": false
     },
     {
       "rank": 36,
@@ -5762,8 +6482,6 @@
       "hp_econ": 9.42,
       "hp_sr": 13.7,
       "hp_avg": 21.5,
-      "base_econ": 8.1,
-      "base_sr": 10.0,
       "delta_econ": -1.31,
       "delta_sr": -3.7,
       "hp_dot_pct": 49.0,
@@ -5774,7 +6492,11 @@
       "batting_sr": 118.8,
       "innings_batted": 15,
       "is_ipl": true,
-      "ppi": 57.8
+      "ppi": 57.8,
+      "status_2027": "Retained",
+      "status_team": "Mumbai Indians",
+      "status_label": "Retained by Mumbai Indians",
+      "is_auction_eligible": false
     },
     {
       "rank": 37,
@@ -5799,8 +6521,6 @@
       "hp_econ": 10.04,
       "hp_sr": 8.0,
       "hp_avg": 13.4,
-      "base_econ": 9.77,
-      "base_sr": 24.0,
       "delta_econ": -0.27,
       "delta_sr": 16.0,
       "hp_dot_pct": 40.7,
@@ -5811,7 +6531,11 @@
       "batting_sr": 71.0,
       "innings_batted": 13,
       "is_ipl": true,
-      "ppi": 57.7
+      "ppi": 57.7,
+      "status_2027": "Released",
+      "status_team": "Delhi Capitals",
+      "status_label": "Released by Delhi Capitals",
+      "is_auction_eligible": true
     },
     {
       "rank": 38,
@@ -5836,8 +6560,6 @@
       "hp_econ": 10.15,
       "hp_sr": 10.0,
       "hp_avg": 16.9,
-      "base_econ": 9.59,
-      "base_sr": 18.5,
       "delta_econ": -0.56,
       "delta_sr": 8.5,
       "hp_dot_pct": 44.4,
@@ -5848,7 +6570,11 @@
       "batting_sr": 105.3,
       "innings_batted": 11,
       "is_ipl": true,
-      "ppi": 57.3
+      "ppi": 57.3,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 39,
@@ -5873,8 +6599,6 @@
       "hp_econ": 10.08,
       "hp_sr": 10.9,
       "hp_avg": 18.4,
-      "base_econ": 10.04,
-      "base_sr": 18.9,
       "delta_econ": -0.03,
       "delta_sr": 8.0,
       "hp_dot_pct": 41.4,
@@ -5885,7 +6609,11 @@
       "batting_sr": 143.3,
       "innings_batted": 7,
       "is_ipl": true,
-      "ppi": 57.2
+      "ppi": 57.2,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 40,
@@ -5910,8 +6638,6 @@
       "hp_econ": 8.05,
       "hp_sr": 24.0,
       "hp_avg": 32.2,
-      "base_econ": 7.8,
-      "base_sr": 32.4,
       "delta_econ": -0.25,
       "delta_sr": 8.4,
       "hp_dot_pct": 34.7,
@@ -5922,7 +6648,11 @@
       "batting_sr": 126.7,
       "innings_batted": 37,
       "is_ipl": true,
-      "ppi": 57.0
+      "ppi": 57.0,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 41,
@@ -5947,8 +6677,6 @@
       "hp_econ": 9.26,
       "hp_sr": 11.5,
       "hp_avg": 17.8,
-      "base_econ": 8.15,
-      "base_sr": 12.8,
       "delta_econ": -1.11,
       "delta_sr": 1.2,
       "hp_dot_pct": 35.8,
@@ -5959,7 +6687,11 @@
       "batting_sr": 77.5,
       "innings_batted": 10,
       "is_ipl": false,
-      "ppi": 56.8
+      "ppi": 56.8,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 42,
@@ -5984,8 +6716,6 @@
       "hp_econ": 9.54,
       "hp_sr": 10.6,
       "hp_avg": 16.9,
-      "base_econ": 9.06,
-      "base_sr": 17.2,
       "delta_econ": -0.48,
       "delta_sr": 6.5,
       "hp_dot_pct": 39.7,
@@ -5996,7 +6726,11 @@
       "batting_sr": 38.9,
       "innings_batted": 6,
       "is_ipl": false,
-      "ppi": 56.8
+      "ppi": 56.8,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 43,
@@ -6021,8 +6755,6 @@
       "hp_econ": 8.84,
       "hp_sr": 16.3,
       "hp_avg": 24.0,
-      "base_econ": 7.13,
-      "base_sr": 23.3,
       "delta_econ": -1.71,
       "delta_sr": 7.1,
       "hp_dot_pct": 39.7,
@@ -6033,7 +6765,11 @@
       "batting_sr": 82.3,
       "innings_batted": 13,
       "is_ipl": true,
-      "ppi": 56.6
+      "ppi": 56.6,
+      "status_2027": "Released",
+      "status_team": "Kolkata Knight Riders",
+      "status_label": "Released by Kolkata Knight Riders",
+      "is_auction_eligible": true
     },
     {
       "rank": 44,
@@ -6058,8 +6794,6 @@
       "hp_econ": 8.94,
       "hp_sr": 10.4,
       "hp_avg": 15.4,
-      "base_econ": 8.05,
-      "base_sr": 29.6,
       "delta_econ": -0.88,
       "delta_sr": 19.3,
       "hp_dot_pct": 36.5,
@@ -6070,7 +6804,11 @@
       "batting_sr": 130.5,
       "innings_batted": 21,
       "is_ipl": false,
-      "ppi": 56.6
+      "ppi": 56.6,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 45,
@@ -6095,8 +6833,6 @@
       "hp_econ": 9.27,
       "hp_sr": 13.0,
       "hp_avg": 20.1,
-      "base_econ": 7.78,
-      "base_sr": 16.3,
       "delta_econ": -1.49,
       "delta_sr": 3.3,
       "hp_dot_pct": 42.1,
@@ -6107,7 +6843,11 @@
       "batting_sr": 57.5,
       "innings_batted": 12,
       "is_ipl": true,
-      "ppi": 56.1
+      "ppi": 56.1,
+      "status_2027": "Retained",
+      "status_team": "Royal Challengers Bengaluru",
+      "status_label": "Retained by Royal Challengers Bengaluru",
+      "is_auction_eligible": false
     },
     {
       "rank": 46,
@@ -6132,8 +6872,6 @@
       "hp_econ": 8.66,
       "hp_sr": 12.4,
       "hp_avg": 17.9,
-      "base_econ": 7.91,
-      "base_sr": 16.4,
       "delta_econ": -0.75,
       "delta_sr": 4.0,
       "hp_dot_pct": 36.2,
@@ -6144,7 +6882,11 @@
       "batting_sr": 62.2,
       "innings_batted": 8,
       "is_ipl": false,
-      "ppi": 56.1
+      "ppi": 56.1,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 47,
@@ -6169,8 +6911,6 @@
       "hp_econ": 9.0,
       "hp_sr": 9.8,
       "hp_avg": 14.7,
-      "base_econ": 6.2,
-      "base_sr": 26.9,
       "delta_econ": -2.8,
       "delta_sr": 17.1,
       "hp_dot_pct": 34.8,
@@ -6181,7 +6921,11 @@
       "batting_sr": 127.3,
       "innings_batted": 8,
       "is_ipl": false,
-      "ppi": 55.9
+      "ppi": 55.9,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 48,
@@ -6206,8 +6950,6 @@
       "hp_econ": 9.26,
       "hp_sr": 16.3,
       "hp_avg": 25.1,
-      "base_econ": 9.94,
-      "base_sr": 23.3,
       "delta_econ": 0.68,
       "delta_sr": 7.0,
       "hp_dot_pct": 35.0,
@@ -6218,7 +6960,11 @@
       "batting_sr": 50.0,
       "innings_batted": 2,
       "is_ipl": true,
-      "ppi": 55.9
+      "ppi": 55.9,
+      "status_2027": "Retained",
+      "status_team": "Rajasthan Royals",
+      "status_label": "Retained by Rajasthan Royals",
+      "is_auction_eligible": false
     },
     {
       "rank": 49,
@@ -6243,8 +6989,6 @@
       "hp_econ": 9.47,
       "hp_sr": 11.6,
       "hp_avg": 18.3,
-      "base_econ": 8.48,
-      "base_sr": 26.2,
       "delta_econ": -0.98,
       "delta_sr": 14.6,
       "hp_dot_pct": 41.8,
@@ -6255,7 +6999,11 @@
       "batting_sr": 50.0,
       "innings_batted": 4,
       "is_ipl": false,
-      "ppi": 55.6
+      "ppi": 55.6,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 50,
@@ -6280,8 +7028,6 @@
       "hp_econ": 10.05,
       "hp_sr": 12.5,
       "hp_avg": 21.0,
-      "base_econ": 9.98,
-      "base_sr": 19.0,
       "delta_econ": -0.07,
       "delta_sr": 6.5,
       "hp_dot_pct": 38.5,
@@ -6292,7 +7038,11 @@
       "batting_sr": 57.1,
       "innings_batted": 2,
       "is_ipl": true,
-      "ppi": 55.5
+      "ppi": 55.5,
+      "status_2027": "Released",
+      "status_team": "Chennai Super Kings",
+      "status_label": "Released by Chennai Super Kings",
+      "is_auction_eligible": true
     },
     {
       "rank": 51,
@@ -6317,8 +7067,6 @@
       "hp_econ": 8.65,
       "hp_sr": 16.5,
       "hp_avg": 23.7,
-      "base_econ": 7.61,
-      "base_sr": 24.6,
       "delta_econ": -1.04,
       "delta_sr": 8.2,
       "hp_dot_pct": 37.2,
@@ -6329,7 +7077,11 @@
       "batting_sr": 122.3,
       "innings_batted": 54,
       "is_ipl": true,
-      "ppi": 55.4
+      "ppi": 55.4,
+      "status_2027": "Retained",
+      "status_team": "Royal Challengers Bengaluru",
+      "status_label": "Retained by Royal Challengers Bengaluru",
+      "is_auction_eligible": false
     },
     {
       "rank": 52,
@@ -6354,8 +7106,6 @@
       "hp_econ": 9.55,
       "hp_sr": 14.5,
       "hp_avg": 23.0,
-      "base_econ": 8.65,
-      "base_sr": 18.9,
       "delta_econ": -0.9,
       "delta_sr": 4.4,
       "hp_dot_pct": 36.7,
@@ -6366,7 +7116,11 @@
       "batting_sr": 131.7,
       "innings_batted": 12,
       "is_ipl": false,
-      "ppi": 55.0
+      "ppi": 55.0,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 53,
@@ -6391,8 +7145,6 @@
       "hp_econ": 9.87,
       "hp_sr": 9.9,
       "hp_avg": 16.4,
-      "base_econ": 9.3,
-      "base_sr": 20.9,
       "delta_econ": -0.57,
       "delta_sr": 10.9,
       "hp_dot_pct": 41.3,
@@ -6403,7 +7155,11 @@
       "batting_sr": 89.8,
       "innings_batted": 13,
       "is_ipl": true,
-      "ppi": 54.8
+      "ppi": 54.8,
+      "status_2027": "Released",
+      "status_team": "Rajasthan Royals",
+      "status_label": "Released by Rajasthan Royals",
+      "is_auction_eligible": true
     },
     {
       "rank": 54,
@@ -6428,8 +7184,6 @@
       "hp_econ": 9.79,
       "hp_sr": 8.6,
       "hp_avg": 14.0,
-      "base_econ": 9.08,
-      "base_sr": 20.2,
       "delta_econ": -0.71,
       "delta_sr": 11.6,
       "hp_dot_pct": 34.3,
@@ -6440,7 +7194,11 @@
       "batting_sr": 77.0,
       "innings_batted": 9,
       "is_ipl": true,
-      "ppi": 53.6
+      "ppi": 53.6,
+      "status_2027": "Retained",
+      "status_team": "Punjab Kings",
+      "status_label": "Retained by Punjab Kings",
+      "is_auction_eligible": false
     },
     {
       "rank": 55,
@@ -6465,8 +7223,6 @@
       "hp_econ": 9.23,
       "hp_sr": 12.7,
       "hp_avg": 19.6,
-      "base_econ": 7.52,
-      "base_sr": 17.4,
       "delta_econ": -1.71,
       "delta_sr": 4.7,
       "hp_dot_pct": 40.0,
@@ -6477,7 +7233,11 @@
       "batting_sr": 51.0,
       "innings_batted": 14,
       "is_ipl": true,
-      "ppi": 53.5
+      "ppi": 53.5,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 56,
@@ -6502,8 +7262,6 @@
       "hp_econ": 9.13,
       "hp_sr": 14.7,
       "hp_avg": 22.4,
-      "base_econ": 7.9,
-      "base_sr": 22.1,
       "delta_econ": -1.23,
       "delta_sr": 7.4,
       "hp_dot_pct": 40.9,
@@ -6514,7 +7272,11 @@
       "batting_sr": 94.4,
       "innings_batted": 28,
       "is_ipl": true,
-      "ppi": 53.4
+      "ppi": 53.4,
+      "status_2027": "Retained",
+      "status_team": "Rajasthan Royals",
+      "status_label": "Retained by Rajasthan Royals",
+      "is_auction_eligible": false
     },
     {
       "rank": 57,
@@ -6539,8 +7301,6 @@
       "hp_econ": 9.4,
       "hp_sr": 14.4,
       "hp_avg": 22.5,
-      "base_econ": 8.45,
-      "base_sr": 15.7,
       "delta_econ": -0.95,
       "delta_sr": 1.3,
       "hp_dot_pct": 36.7,
@@ -6551,7 +7311,11 @@
       "batting_sr": 70.0,
       "innings_batted": 11,
       "is_ipl": true,
-      "ppi": 53.3
+      "ppi": 53.3,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 58,
@@ -6576,8 +7340,6 @@
       "hp_econ": 10.14,
       "hp_sr": 11.0,
       "hp_avg": 18.6,
-      "base_econ": 8.22,
-      "base_sr": 16.1,
       "delta_econ": -1.91,
       "delta_sr": 5.1,
       "hp_dot_pct": 47.2,
@@ -6588,7 +7350,11 @@
       "batting_sr": 106.2,
       "innings_batted": 10,
       "is_ipl": true,
-      "ppi": 53.2
+      "ppi": 53.2,
+      "status_2027": "Retained",
+      "status_team": "Royal Challengers Bengaluru",
+      "status_label": "Retained by Royal Challengers Bengaluru",
+      "is_auction_eligible": false
     },
     {
       "rank": 59,
@@ -6613,8 +7379,6 @@
       "hp_econ": 9.54,
       "hp_sr": 15.0,
       "hp_avg": 23.8,
-      "base_econ": 9.51,
-      "base_sr": 26.7,
       "delta_econ": -0.03,
       "delta_sr": 11.7,
       "hp_dot_pct": 39.0,
@@ -6625,7 +7389,11 @@
       "batting_sr": 147.0,
       "innings_batted": 63,
       "is_ipl": true,
-      "ppi": 53.0
+      "ppi": 53.0,
+      "status_2027": "Retained",
+      "status_team": "Kolkata Knight Riders",
+      "status_label": "Retained by Kolkata Knight Riders",
+      "is_auction_eligible": false
     },
     {
       "rank": 60,
@@ -6650,8 +7418,6 @@
       "hp_econ": 8.48,
       "hp_sr": 17.4,
       "hp_avg": 24.7,
-      "base_econ": 7.72,
-      "base_sr": 27.1,
       "delta_econ": -0.76,
       "delta_sr": 9.6,
       "hp_dot_pct": 33.8,
@@ -6662,7 +7428,11 @@
       "batting_sr": 129.1,
       "innings_batted": 65,
       "is_ipl": true,
-      "ppi": 52.7
+      "ppi": 52.7,
+      "status_2027": "Retained",
+      "status_team": "Rajasthan Royals",
+      "status_label": "Retained by Rajasthan Royals",
+      "is_auction_eligible": false
     },
     {
       "rank": 61,
@@ -6687,8 +7457,6 @@
       "hp_econ": 9.17,
       "hp_sr": 12.1,
       "hp_avg": 18.5,
-      "base_econ": 7.49,
-      "base_sr": 22.9,
       "delta_econ": -1.69,
       "delta_sr": 10.8,
       "hp_dot_pct": 39.1,
@@ -6699,7 +7467,11 @@
       "batting_sr": 96.8,
       "innings_batted": 21,
       "is_ipl": true,
-      "ppi": 52.5
+      "ppi": 52.5,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 62,
@@ -6724,8 +7496,6 @@
       "hp_econ": 9.81,
       "hp_sr": 13.0,
       "hp_avg": 21.3,
-      "base_econ": 8.71,
-      "base_sr": 23.1,
       "delta_econ": -1.1,
       "delta_sr": 10.1,
       "hp_dot_pct": 36.8,
@@ -6736,7 +7506,11 @@
       "batting_sr": 100.7,
       "innings_batted": 29,
       "is_ipl": true,
-      "ppi": 51.9
+      "ppi": 51.9,
+      "status_2027": "Retained",
+      "status_team": "Gujarat Titans",
+      "status_label": "Retained by Gujarat Titans",
+      "is_auction_eligible": false
     },
     {
       "rank": 63,
@@ -6761,8 +7535,6 @@
       "hp_econ": 9.82,
       "hp_sr": 10.9,
       "hp_avg": 17.9,
-      "base_econ": 9.33,
-      "base_sr": 30.1,
       "delta_econ": -0.49,
       "delta_sr": 19.2,
       "hp_dot_pct": 31.9,
@@ -6773,7 +7545,11 @@
       "batting_sr": 15.0,
       "innings_batted": 5,
       "is_ipl": true,
-      "ppi": 51.8
+      "ppi": 51.8,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 64,
@@ -6798,8 +7574,6 @@
       "hp_econ": 9.8,
       "hp_sr": 12.3,
       "hp_avg": 20.1,
-      "base_econ": 8.49,
-      "base_sr": 24.0,
       "delta_econ": -1.32,
       "delta_sr": 11.7,
       "hp_dot_pct": 35.0,
@@ -6810,7 +7584,11 @@
       "batting_sr": 134.0,
       "innings_batted": 61,
       "is_ipl": true,
-      "ppi": 51.3
+      "ppi": 51.3,
+      "status_2027": "Retained",
+      "status_team": "Rajasthan Royals",
+      "status_label": "Retained by Rajasthan Royals",
+      "is_auction_eligible": false
     },
     {
       "rank": 65,
@@ -6835,8 +7613,6 @@
       "hp_econ": 9.9,
       "hp_sr": 12.8,
       "hp_avg": 21.2,
-      "base_econ": 10.61,
-      "base_sr": 37.3,
       "delta_econ": 0.71,
       "delta_sr": 24.5,
       "hp_dot_pct": 33.2,
@@ -6847,7 +7623,11 @@
       "batting_sr": 143.6,
       "innings_batted": 45,
       "is_ipl": true,
-      "ppi": 51.3
+      "ppi": 51.3,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 66,
@@ -6872,8 +7652,6 @@
       "hp_econ": 9.11,
       "hp_sr": 14.6,
       "hp_avg": 22.1,
-      "base_econ": 7.37,
-      "base_sr": 17.8,
       "delta_econ": -1.74,
       "delta_sr": 3.2,
       "hp_dot_pct": 39.7,
@@ -6884,7 +7662,11 @@
       "batting_sr": 110.2,
       "innings_batted": 4,
       "is_ipl": false,
-      "ppi": 50.7
+      "ppi": 50.7,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 67,
@@ -6909,8 +7691,6 @@
       "hp_econ": 8.79,
       "hp_sr": 18.7,
       "hp_avg": 27.3,
-      "base_econ": 6.97,
-      "base_sr": 26.5,
       "delta_econ": -1.82,
       "delta_sr": 7.8,
       "hp_dot_pct": 33.9,
@@ -6921,7 +7701,11 @@
       "batting_sr": 129.7,
       "innings_batted": 57,
       "is_ipl": true,
-      "ppi": 49.8
+      "ppi": 49.8,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 68,
@@ -6946,8 +7730,6 @@
       "hp_econ": 10.4,
       "hp_sr": 13.6,
       "hp_avg": 23.5,
-      "base_econ": 10.12,
-      "base_sr": 20.8,
       "delta_econ": -0.28,
       "delta_sr": 7.2,
       "hp_dot_pct": 39.1,
@@ -6958,7 +7740,11 @@
       "batting_sr": 50.0,
       "innings_batted": 1,
       "is_ipl": true,
-      "ppi": 49.2
+      "ppi": 49.2,
+      "status_2027": "Retained",
+      "status_team": "Punjab Kings",
+      "status_label": "Retained by Punjab Kings",
+      "is_auction_eligible": false
     },
     {
       "rank": 69,
@@ -6983,8 +7769,6 @@
       "hp_econ": 9.56,
       "hp_sr": 12.1,
       "hp_avg": 19.3,
-      "base_econ": 6.89,
-      "base_sr": 20.9,
       "delta_econ": -2.67,
       "delta_sr": 8.8,
       "hp_dot_pct": 38.2,
@@ -6995,7 +7779,11 @@
       "batting_sr": 75.0,
       "innings_batted": 15,
       "is_ipl": true,
-      "ppi": 49.1
+      "ppi": 49.1,
+      "status_2027": "Released",
+      "status_team": "Kolkata Knight Riders",
+      "status_label": "Released by Kolkata Knight Riders",
+      "is_auction_eligible": true
     },
     {
       "rank": 70,
@@ -7020,8 +7808,6 @@
       "hp_econ": 10.09,
       "hp_sr": 10.0,
       "hp_avg": 16.8,
-      "base_econ": 8.56,
-      "base_sr": 20.3,
       "delta_econ": -1.53,
       "delta_sr": 10.3,
       "hp_dot_pct": 40.2,
@@ -7032,7 +7818,11 @@
       "batting_sr": 128.8,
       "innings_batted": 39,
       "is_ipl": true,
-      "ppi": 48.8
+      "ppi": 48.8,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 71,
@@ -7057,8 +7847,6 @@
       "hp_econ": 10.53,
       "hp_sr": 12.7,
       "hp_avg": 22.3,
-      "base_econ": 10.26,
-      "base_sr": 22.9,
       "delta_econ": -0.28,
       "delta_sr": 10.1,
       "hp_dot_pct": 36.2,
@@ -7069,7 +7857,11 @@
       "batting_sr": 129.8,
       "innings_batted": 30,
       "is_ipl": true,
-      "ppi": 48.5
+      "ppi": 48.5,
+      "status_2027": "Retained",
+      "status_team": "Mumbai Indians",
+      "status_label": "Retained by Mumbai Indians",
+      "is_auction_eligible": false
     },
     {
       "rank": 72,
@@ -7094,8 +7886,6 @@
       "hp_econ": 9.42,
       "hp_sr": 12.2,
       "hp_avg": 19.2,
-      "base_econ": 8.27,
-      "base_sr": 22.9,
       "delta_econ": -1.15,
       "delta_sr": 10.7,
       "hp_dot_pct": 37.0,
@@ -7106,7 +7896,11 @@
       "batting_sr": 108.8,
       "innings_batted": 27,
       "is_ipl": false,
-      "ppi": 48.3
+      "ppi": 48.3,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 73,
@@ -7131,8 +7925,6 @@
       "hp_econ": 9.3,
       "hp_sr": 14.1,
       "hp_avg": 21.9,
-      "base_econ": 7.7,
-      "base_sr": 21.9,
       "delta_econ": -1.6,
       "delta_sr": 7.8,
       "hp_dot_pct": 33.0,
@@ -7143,7 +7935,11 @@
       "batting_sr": 132.8,
       "innings_batted": 48,
       "is_ipl": true,
-      "ppi": 47.9
+      "ppi": 47.9,
+      "status_2027": "Retained",
+      "status_team": "Gujarat Titans",
+      "status_label": "Retained by Gujarat Titans",
+      "is_auction_eligible": false
     },
     {
       "rank": 74,
@@ -7168,8 +7964,6 @@
       "hp_econ": 10.17,
       "hp_sr": 13.9,
       "hp_avg": 23.6,
-      "base_econ": 8.06,
-      "base_sr": 32.4,
       "delta_econ": -2.11,
       "delta_sr": 18.5,
       "hp_dot_pct": 40.8,
@@ -7180,7 +7974,11 @@
       "batting_sr": 118.1,
       "innings_batted": 15,
       "is_ipl": false,
-      "ppi": 47.3
+      "ppi": 47.3,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 75,
@@ -7205,8 +8003,6 @@
       "hp_econ": 9.42,
       "hp_sr": 14.4,
       "hp_avg": 22.6,
-      "base_econ": 7.69,
-      "base_sr": 23.9,
       "delta_econ": -1.73,
       "delta_sr": 9.4,
       "hp_dot_pct": 35.5,
@@ -7217,7 +8013,11 @@
       "batting_sr": 89.4,
       "innings_batted": 19,
       "is_ipl": false,
-      "ppi": 47.0
+      "ppi": 47.0,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 76,
@@ -7242,8 +8042,6 @@
       "hp_econ": 10.1,
       "hp_sr": 14.3,
       "hp_avg": 24.1,
-      "base_econ": 8.35,
-      "base_sr": 22.6,
       "delta_econ": -1.74,
       "delta_sr": 8.3,
       "hp_dot_pct": 38.6,
@@ -7254,7 +8052,11 @@
       "batting_sr": 87.6,
       "innings_batted": 29,
       "is_ipl": true,
-      "ppi": 46.5
+      "ppi": 46.5,
+      "status_2027": "Released",
+      "status_team": "Delhi Capitals",
+      "status_label": "Released by Delhi Capitals",
+      "is_auction_eligible": true
     },
     {
       "rank": 77,
@@ -7279,8 +8081,6 @@
       "hp_econ": 8.71,
       "hp_sr": 19.7,
       "hp_avg": 28.6,
-      "base_econ": 7.66,
-      "base_sr": 23.1,
       "delta_econ": -1.05,
       "delta_sr": 3.4,
       "hp_dot_pct": 35.1,
@@ -7291,7 +8091,11 @@
       "batting_sr": 130.7,
       "innings_batted": 105,
       "is_ipl": true,
-      "ppi": 46.4
+      "ppi": 46.4,
+      "status_2027": "Retained",
+      "status_team": "Delhi Capitals",
+      "status_label": "Retained by Delhi Capitals",
+      "is_auction_eligible": false
     },
     {
       "rank": 78,
@@ -7316,8 +8120,6 @@
       "hp_econ": 9.71,
       "hp_sr": 17.9,
       "hp_avg": 28.9,
-      "base_econ": 8.34,
-      "base_sr": 18.7,
       "delta_econ": -1.37,
       "delta_sr": 0.8,
       "hp_dot_pct": 40.4,
@@ -7328,7 +8130,11 @@
       "batting_sr": 83.3,
       "innings_batted": 13,
       "is_ipl": true,
-      "ppi": 46.1
+      "ppi": 46.1,
+      "status_2027": "Released",
+      "status_team": "Punjab Kings",
+      "status_label": "Released by Punjab Kings",
+      "is_auction_eligible": true
     },
     {
       "rank": 79,
@@ -7353,8 +8159,6 @@
       "hp_econ": 10.15,
       "hp_sr": 14.8,
       "hp_avg": 25.0,
-      "base_econ": 9.3,
-      "base_sr": 16.7,
       "delta_econ": -0.85,
       "delta_sr": 2.0,
       "hp_dot_pct": 38.2,
@@ -7365,7 +8169,11 @@
       "batting_sr": 103.9,
       "innings_batted": 18,
       "is_ipl": true,
-      "ppi": 46.1
+      "ppi": 46.1,
+      "status_2027": "Retained",
+      "status_team": "Kolkata Knight Riders",
+      "status_label": "Retained by Kolkata Knight Riders",
+      "is_auction_eligible": false
     },
     {
       "rank": 80,
@@ -7390,8 +8198,6 @@
       "hp_econ": 8.97,
       "hp_sr": 19.0,
       "hp_avg": 28.4,
-      "base_econ": 8.81,
-      "base_sr": 66.8,
       "delta_econ": -0.16,
       "delta_sr": 47.8,
       "hp_dot_pct": 31.8,
@@ -7402,7 +8208,11 @@
       "batting_sr": 177.8,
       "innings_batted": 134,
       "is_ipl": true,
-      "ppi": 45.8
+      "ppi": 45.8,
+      "status_2027": "Retained",
+      "status_team": "Sunrisers Hyderabad",
+      "status_label": "Retained by Sunrisers Hyderabad",
+      "is_auction_eligible": false
     },
     {
       "rank": 81,
@@ -7427,8 +8237,6 @@
       "hp_econ": 8.73,
       "hp_sr": 22.4,
       "hp_avg": 32.6,
-      "base_econ": 8.3,
-      "base_sr": 23.7,
       "delta_econ": -0.43,
       "delta_sr": 1.3,
       "hp_dot_pct": 31.6,
@@ -7439,7 +8247,11 @@
       "batting_sr": 126.6,
       "innings_batted": 50,
       "is_ipl": true,
-      "ppi": 45.2
+      "ppi": 45.2,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 82,
@@ -7464,8 +8276,6 @@
       "hp_econ": 11.05,
       "hp_sr": 9.5,
       "hp_avg": 17.5,
-      "base_econ": 9.34,
-      "base_sr": 18.0,
       "delta_econ": -1.71,
       "delta_sr": 8.5,
       "hp_dot_pct": 44.6,
@@ -7476,7 +8286,11 @@
       "batting_sr": 155.6,
       "innings_batted": 7,
       "is_ipl": true,
-      "ppi": 45.1
+      "ppi": 45.1,
+      "status_2027": "Released",
+      "status_team": "Kolkata Knight Riders",
+      "status_label": "Released by Kolkata Knight Riders",
+      "is_auction_eligible": true
     },
     {
       "rank": 83,
@@ -7501,8 +8315,6 @@
       "hp_econ": 9.69,
       "hp_sr": 15.6,
       "hp_avg": 25.1,
-      "base_econ": 7.57,
-      "base_sr": 22.0,
       "delta_econ": -2.12,
       "delta_sr": 6.5,
       "hp_dot_pct": 34.9,
@@ -7513,7 +8325,11 @@
       "batting_sr": 84.2,
       "innings_batted": 33,
       "is_ipl": true,
-      "ppi": 45.1
+      "ppi": 45.1,
+      "status_2027": "Retained",
+      "status_team": "Royal Challengers Bengaluru",
+      "status_label": "Retained by Royal Challengers Bengaluru",
+      "is_auction_eligible": false
     },
     {
       "rank": 84,
@@ -7538,8 +8354,6 @@
       "hp_econ": 9.19,
       "hp_sr": 19.2,
       "hp_avg": 29.5,
-      "base_econ": 7.79,
-      "base_sr": 24.0,
       "delta_econ": -1.41,
       "delta_sr": 4.7,
       "hp_dot_pct": 34.1,
@@ -7550,7 +8364,11 @@
       "batting_sr": 33.3,
       "innings_batted": 12,
       "is_ipl": true,
-      "ppi": 44.5
+      "ppi": 44.5,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 85,
@@ -7575,8 +8393,6 @@
       "hp_econ": 10.21,
       "hp_sr": 11.9,
       "hp_avg": 20.3,
-      "base_econ": 8.29,
-      "base_sr": 25.5,
       "delta_econ": -1.92,
       "delta_sr": 13.6,
       "hp_dot_pct": 32.1,
@@ -7587,7 +8403,11 @@
       "batting_sr": 121.9,
       "innings_batted": 17,
       "is_ipl": false,
-      "ppi": 44.1
+      "ppi": 44.1,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 86,
@@ -7612,8 +8432,6 @@
       "hp_econ": 10.4,
       "hp_sr": 15.6,
       "hp_avg": 27.1,
-      "base_econ": 8.19,
-      "base_sr": 24.3,
       "delta_econ": -2.21,
       "delta_sr": 8.6,
       "hp_dot_pct": 42.4,
@@ -7624,7 +8442,11 @@
       "batting_sr": 77.3,
       "innings_batted": 13,
       "is_ipl": true,
-      "ppi": 44.0
+      "ppi": 44.0,
+      "status_2027": "Retained",
+      "status_team": "Gujarat Titans",
+      "status_label": "Retained by Gujarat Titans",
+      "is_auction_eligible": false
     },
     {
       "rank": 87,
@@ -7649,8 +8471,6 @@
       "hp_econ": 9.97,
       "hp_sr": 18.0,
       "hp_avg": 29.9,
-      "base_econ": 8.96,
-      "base_sr": 19.7,
       "delta_econ": -1.01,
       "delta_sr": 1.7,
       "hp_dot_pct": 42.1,
@@ -7661,7 +8481,11 @@
       "batting_sr": 69.2,
       "innings_batted": 5,
       "is_ipl": true,
-      "ppi": 43.9
+      "ppi": 43.9,
+      "status_2027": "Retained",
+      "status_team": "Lucknow Super Giants",
+      "status_label": "Retained by Lucknow Super Giants",
+      "is_auction_eligible": false
     },
     {
       "rank": 88,
@@ -7686,8 +8510,6 @@
       "hp_econ": 10.63,
       "hp_sr": 11.8,
       "hp_avg": 21.0,
-      "base_econ": 8.42,
-      "base_sr": 22.0,
       "delta_econ": -2.21,
       "delta_sr": 10.2,
       "hp_dot_pct": 37.9,
@@ -7698,7 +8520,11 @@
       "batting_sr": 86.4,
       "innings_batted": 8,
       "is_ipl": true,
-      "ppi": 43.9
+      "ppi": 43.9,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 89,
@@ -7723,8 +8549,6 @@
       "hp_econ": 10.39,
       "hp_sr": 13.4,
       "hp_avg": 23.2,
-      "base_econ": 8.34,
-      "base_sr": 20.3,
       "delta_econ": -2.04,
       "delta_sr": 6.9,
       "hp_dot_pct": 41.2,
@@ -7735,7 +8559,11 @@
       "batting_sr": 63.6,
       "innings_batted": 5,
       "is_ipl": true,
-      "ppi": 43.6
+      "ppi": 43.6,
+      "status_2027": "Retained",
+      "status_team": "Gujarat Titans",
+      "status_label": "Retained by Gujarat Titans",
+      "is_auction_eligible": false
     },
     {
       "rank": 90,
@@ -7760,8 +8588,6 @@
       "hp_econ": 10.35,
       "hp_sr": 11.8,
       "hp_avg": 20.4,
-      "base_econ": 9.77,
-      "base_sr": 18.4,
       "delta_econ": -0.58,
       "delta_sr": 6.6,
       "hp_dot_pct": 34.2,
@@ -7772,7 +8598,11 @@
       "batting_sr": 159.1,
       "innings_batted": 6,
       "is_ipl": true,
-      "ppi": 43.5
+      "ppi": 43.5,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 91,
@@ -7797,8 +8627,6 @@
       "hp_econ": 9.82,
       "hp_sr": 14.6,
       "hp_avg": 23.9,
-      "base_econ": 8.03,
-      "base_sr": 24.7,
       "delta_econ": -1.79,
       "delta_sr": 10.1,
       "hp_dot_pct": 32.5,
@@ -7809,7 +8637,11 @@
       "batting_sr": 116.7,
       "innings_batted": 21,
       "is_ipl": true,
-      "ppi": 43.3
+      "ppi": 43.3,
+      "status_2027": "Released",
+      "status_team": "Mumbai Indians",
+      "status_label": "Released by Mumbai Indians",
+      "is_auction_eligible": true
     },
     {
       "rank": 92,
@@ -7834,8 +8666,6 @@
       "hp_econ": 10.58,
       "hp_sr": 16.2,
       "hp_avg": 28.5,
-      "base_econ": 10.32,
-      "base_sr": 24.5,
       "delta_econ": -0.27,
       "delta_sr": 8.3,
       "hp_dot_pct": 35.6,
@@ -7846,7 +8676,11 @@
       "batting_sr": 94.1,
       "innings_batted": 6,
       "is_ipl": true,
-      "ppi": 43.1
+      "ppi": 43.1,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 93,
@@ -7871,8 +8705,6 @@
       "hp_econ": 10.23,
       "hp_sr": 13.3,
       "hp_avg": 22.8,
-      "base_econ": 9.24,
-      "base_sr": 29.8,
       "delta_econ": -0.99,
       "delta_sr": 16.4,
       "hp_dot_pct": 31.9,
@@ -7883,7 +8715,11 @@
       "batting_sr": 50.0,
       "innings_batted": 1,
       "is_ipl": true,
-      "ppi": 43.1
+      "ppi": 43.1,
+      "status_2027": "Retained",
+      "status_team": "Sunrisers Hyderabad",
+      "status_label": "Retained by Sunrisers Hyderabad",
+      "is_auction_eligible": false
     },
     {
       "rank": 94,
@@ -7908,8 +8744,6 @@
       "hp_econ": 10.71,
       "hp_sr": 13.2,
       "hp_avg": 23.5,
-      "base_econ": 8.84,
-      "base_sr": 19.9,
       "delta_econ": -1.86,
       "delta_sr": 6.7,
       "hp_dot_pct": 41.5,
@@ -7920,7 +8754,11 @@
       "batting_sr": 109.8,
       "innings_batted": 25,
       "is_ipl": true,
-      "ppi": 43.1
+      "ppi": 43.1,
+      "status_2027": "Retained",
+      "status_team": "Gujarat Titans",
+      "status_label": "Retained by Gujarat Titans",
+      "is_auction_eligible": false
     },
     {
       "rank": 95,
@@ -7945,8 +8783,6 @@
       "hp_econ": 10.67,
       "hp_sr": 15.0,
       "hp_avg": 26.7,
-      "base_econ": 9.94,
-      "base_sr": 26.0,
       "delta_econ": -0.72,
       "delta_sr": 11.0,
       "hp_dot_pct": 38.3,
@@ -7957,7 +8793,11 @@
       "batting_sr": 112.5,
       "innings_batted": 5,
       "is_ipl": true,
-      "ppi": 42.5
+      "ppi": 42.5,
+      "status_2027": "Retained",
+      "status_team": "Kolkata Knight Riders",
+      "status_label": "Retained by Kolkata Knight Riders",
+      "is_auction_eligible": false
     },
     {
       "rank": 96,
@@ -7982,8 +8822,6 @@
       "hp_econ": 10.94,
       "hp_sr": 14.4,
       "hp_avg": 26.2,
-      "base_econ": 9.26,
-      "base_sr": 21.0,
       "delta_econ": -1.68,
       "delta_sr": 6.7,
       "hp_dot_pct": 41.0,
@@ -7994,7 +8832,11 @@
       "batting_sr": 35.7,
       "innings_batted": 11,
       "is_ipl": true,
-      "ppi": 42.4
+      "ppi": 42.4,
+      "status_2027": "Retained",
+      "status_team": "Kolkata Knight Riders",
+      "status_label": "Retained by Kolkata Knight Riders",
+      "is_auction_eligible": false
     },
     {
       "rank": 97,
@@ -8019,8 +8861,6 @@
       "hp_econ": 10.01,
       "hp_sr": 12.9,
       "hp_avg": 21.5,
-      "base_econ": 8.6,
-      "base_sr": 21.1,
       "delta_econ": -1.41,
       "delta_sr": 8.2,
       "hp_dot_pct": 35.4,
@@ -8031,7 +8871,11 @@
       "batting_sr": 123.8,
       "innings_batted": 29,
       "is_ipl": true,
-      "ppi": 42.4
+      "ppi": 42.4,
+      "status_2027": "Retained",
+      "status_team": "Rajasthan Royals",
+      "status_label": "Retained by Rajasthan Royals",
+      "is_auction_eligible": false
     },
     {
       "rank": 98,
@@ -8056,8 +8900,6 @@
       "hp_econ": 10.47,
       "hp_sr": 15.3,
       "hp_avg": 26.6,
-      "base_econ": 9.44,
-      "base_sr": 22.2,
       "delta_econ": -1.03,
       "delta_sr": 6.9,
       "hp_dot_pct": 35.9,
@@ -8068,7 +8910,11 @@
       "batting_sr": 91.9,
       "innings_batted": 20,
       "is_ipl": true,
-      "ppi": 41.7
+      "ppi": 41.7,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 99,
@@ -8093,8 +8939,6 @@
       "hp_econ": 9.96,
       "hp_sr": 12.9,
       "hp_avg": 21.5,
-      "base_econ": 7.56,
-      "base_sr": 19.5,
       "delta_econ": -2.4,
       "delta_sr": 6.6,
       "hp_dot_pct": 31.1,
@@ -8105,7 +8949,11 @@
       "batting_sr": 85.0,
       "innings_batted": 5,
       "is_ipl": true,
-      "ppi": 41.4
+      "ppi": 41.4,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 100,
@@ -8130,8 +8978,6 @@
       "hp_econ": 9.53,
       "hp_sr": 19.4,
       "hp_avg": 30.8,
-      "base_econ": 7.92,
-      "base_sr": 30.6,
       "delta_econ": -1.61,
       "delta_sr": 11.2,
       "hp_dot_pct": 34.0,
@@ -8142,7 +8988,11 @@
       "batting_sr": 104.1,
       "innings_batted": 13,
       "is_ipl": true,
-      "ppi": 41.2
+      "ppi": 41.2,
+      "status_2027": "Retained",
+      "status_team": "Chennai Super Kings",
+      "status_label": "Retained by Chennai Super Kings",
+      "is_auction_eligible": false
     },
     {
       "rank": 101,
@@ -8167,8 +9017,6 @@
       "hp_econ": 9.14,
       "hp_sr": 26.3,
       "hp_avg": 40.1,
-      "base_econ": 8.49,
-      "base_sr": 28.8,
       "delta_econ": -0.65,
       "delta_sr": 2.5,
       "hp_dot_pct": 37.1,
@@ -8179,7 +9027,11 @@
       "batting_sr": 0.0,
       "innings_batted": 1,
       "is_ipl": true,
-      "ppi": 40.9
+      "ppi": 40.9,
+      "status_2027": "Retained",
+      "status_team": "Royal Challengers Bengaluru",
+      "status_label": "Retained by Royal Challengers Bengaluru",
+      "is_auction_eligible": false
     },
     {
       "rank": 102,
@@ -8204,8 +9056,6 @@
       "hp_econ": 10.2,
       "hp_sr": 16.0,
       "hp_avg": 27.2,
-      "base_econ": 9.19,
-      "base_sr": 23.1,
       "delta_econ": -1.01,
       "delta_sr": 7.1,
       "hp_dot_pct": 34.3,
@@ -8216,7 +9066,11 @@
       "batting_sr": 143.3,
       "innings_batted": 19,
       "is_ipl": true,
-      "ppi": 40.5
+      "ppi": 40.5,
+      "status_2027": "Released",
+      "status_team": "Lucknow Super Giants",
+      "status_label": "Released by Lucknow Super Giants",
+      "is_auction_eligible": true
     },
     {
       "rank": 103,
@@ -8241,8 +9095,6 @@
       "hp_econ": 10.53,
       "hp_sr": 12.3,
       "hp_avg": 21.6,
-      "base_econ": 8.23,
-      "base_sr": 22.6,
       "delta_econ": -2.29,
       "delta_sr": 10.3,
       "hp_dot_pct": 35.0,
@@ -8253,7 +9105,11 @@
       "batting_sr": 136.8,
       "innings_batted": 59,
       "is_ipl": true,
-      "ppi": 40.1
+      "ppi": 40.1,
+      "status_2027": "Retained",
+      "status_team": "Gujarat Titans",
+      "status_label": "Retained by Gujarat Titans",
+      "is_auction_eligible": false
     },
     {
       "rank": 104,
@@ -8278,8 +9134,6 @@
       "hp_econ": 10.51,
       "hp_sr": 16.5,
       "hp_avg": 28.9,
-      "base_econ": 9.11,
-      "base_sr": 25.0,
       "delta_econ": -1.4,
       "delta_sr": 8.5,
       "hp_dot_pct": 34.3,
@@ -8290,7 +9144,11 @@
       "batting_sr": 44.4,
       "innings_batted": 4,
       "is_ipl": true,
-      "ppi": 39.8
+      "ppi": 39.8,
+      "status_2027": "Retained",
+      "status_team": "Royal Challengers Bengaluru",
+      "status_label": "Retained by Royal Challengers Bengaluru",
+      "is_auction_eligible": false
     },
     {
       "rank": 105,
@@ -8315,8 +9173,6 @@
       "hp_econ": 10.46,
       "hp_sr": 13.1,
       "hp_avg": 22.8,
-      "base_econ": 8.21,
-      "base_sr": 22.7,
       "delta_econ": -2.25,
       "delta_sr": 9.6,
       "hp_dot_pct": 36.6,
@@ -8327,7 +9183,11 @@
       "batting_sr": 132.7,
       "innings_batted": 53,
       "is_ipl": true,
-      "ppi": 39.5
+      "ppi": 39.5,
+      "status_2027": "Retained",
+      "status_team": "Punjab Kings",
+      "status_label": "Retained by Punjab Kings",
+      "is_auction_eligible": false
     },
     {
       "rank": 106,
@@ -8352,8 +9212,6 @@
       "hp_econ": 9.98,
       "hp_sr": 14.5,
       "hp_avg": 24.2,
-      "base_econ": 8.07,
-      "base_sr": 26.3,
       "delta_econ": -1.91,
       "delta_sr": 11.8,
       "hp_dot_pct": 33.9,
@@ -8364,7 +9222,11 @@
       "batting_sr": 76.2,
       "innings_batted": 6,
       "is_ipl": true,
-      "ppi": 39.1
+      "ppi": 39.1,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 107,
@@ -8389,8 +9251,6 @@
       "hp_econ": 10.36,
       "hp_sr": 15.3,
       "hp_avg": 26.5,
-      "base_econ": 8.6,
-      "base_sr": 25.3,
       "delta_econ": -1.76,
       "delta_sr": 10.0,
       "hp_dot_pct": 37.3,
@@ -8401,7 +9261,11 @@
       "batting_sr": 136.7,
       "innings_batted": 118,
       "is_ipl": true,
-      "ppi": 39.0
+      "ppi": 39.0,
+      "status_2027": "Retained",
+      "status_team": "Punjab Kings",
+      "status_label": "Retained by Punjab Kings",
+      "is_auction_eligible": false
     },
     {
       "rank": 108,
@@ -8426,8 +9290,6 @@
       "hp_econ": 10.36,
       "hp_sr": 16.5,
       "hp_avg": 28.5,
-      "base_econ": 8.88,
-      "base_sr": 23.5,
       "delta_econ": -1.49,
       "delta_sr": 7.0,
       "hp_dot_pct": 34.5,
@@ -8438,7 +9300,11 @@
       "batting_sr": 115.2,
       "innings_batted": 14,
       "is_ipl": true,
-      "ppi": 38.4
+      "ppi": 38.4,
+      "status_2027": "Retained",
+      "status_team": "Punjab Kings",
+      "status_label": "Retained by Punjab Kings",
+      "is_auction_eligible": false
     },
     {
       "rank": 109,
@@ -8463,8 +9329,6 @@
       "hp_econ": 10.42,
       "hp_sr": 15.6,
       "hp_avg": 27.1,
-      "base_econ": 8.45,
-      "base_sr": 19.8,
       "delta_econ": -1.97,
       "delta_sr": 4.2,
       "hp_dot_pct": 37.1,
@@ -8475,7 +9339,11 @@
       "batting_sr": 72.2,
       "innings_batted": 7,
       "is_ipl": true,
-      "ppi": 37.8
+      "ppi": 37.8,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 110,
@@ -8500,8 +9368,6 @@
       "hp_econ": 11.45,
       "hp_sr": 11.3,
       "hp_avg": 21.5,
-      "base_econ": 10.06,
-      "base_sr": 24.2,
       "delta_econ": -1.4,
       "delta_sr": 12.9,
       "hp_dot_pct": 36.2,
@@ -8512,7 +9378,11 @@
       "batting_sr": 145.7,
       "innings_batted": 68,
       "is_ipl": true,
-      "ppi": 37.6
+      "ppi": 37.6,
+      "status_2027": "Retained",
+      "status_team": "Royal Challengers Bengaluru",
+      "status_label": "Retained by Royal Challengers Bengaluru",
+      "is_auction_eligible": false
     },
     {
       "rank": 111,
@@ -8537,8 +9407,6 @@
       "hp_econ": 10.45,
       "hp_sr": 18.9,
       "hp_avg": 32.9,
-      "base_econ": 8.8,
-      "base_sr": 20.8,
       "delta_econ": -1.65,
       "delta_sr": 1.9,
       "hp_dot_pct": 33.7,
@@ -8549,7 +9417,11 @@
       "batting_sr": 144.6,
       "innings_batted": 11,
       "is_ipl": true,
-      "ppi": 37.5
+      "ppi": 37.5,
+      "status_2027": "Released",
+      "status_team": "Mumbai Indians",
+      "status_label": "Released by Mumbai Indians",
+      "is_auction_eligible": true
     },
     {
       "rank": 112,
@@ -8574,8 +9446,6 @@
       "hp_econ": 9.95,
       "hp_sr": 16.1,
       "hp_avg": 26.7,
-      "base_econ": 7.63,
-      "base_sr": 18.6,
       "delta_econ": -2.31,
       "delta_sr": 2.5,
       "hp_dot_pct": 32.7,
@@ -8586,7 +9456,11 @@
       "batting_sr": 134.0,
       "innings_batted": 53,
       "is_ipl": true,
-      "ppi": 36.5
+      "ppi": 36.5,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 113,
@@ -8611,8 +9485,6 @@
       "hp_econ": 10.53,
       "hp_sr": 14.6,
       "hp_avg": 25.6,
-      "base_econ": 8.34,
-      "base_sr": 12.8,
       "delta_econ": -2.19,
       "delta_sr": -1.7,
       "hp_dot_pct": 38.0,
@@ -8623,7 +9495,11 @@
       "batting_sr": 124.3,
       "innings_batted": 8,
       "is_ipl": true,
-      "ppi": 35.5
+      "ppi": 35.5,
+      "status_2027": "Retained",
+      "status_team": "Sunrisers Hyderabad",
+      "status_label": "Retained by Sunrisers Hyderabad",
+      "is_auction_eligible": false
     },
     {
       "rank": 114,
@@ -8648,8 +9524,6 @@
       "hp_econ": 11.59,
       "hp_sr": 10.2,
       "hp_avg": 19.8,
-      "base_econ": 10.51,
-      "base_sr": 14.0,
       "delta_econ": -1.08,
       "delta_sr": 3.7,
       "hp_dot_pct": 35.2,
@@ -8660,7 +9534,11 @@
       "batting_sr": 159.7,
       "innings_batted": 57,
       "is_ipl": true,
-      "ppi": 35.1
+      "ppi": 35.1,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 115,
@@ -8685,8 +9563,6 @@
       "hp_econ": 10.52,
       "hp_sr": 15.9,
       "hp_avg": 27.9,
-      "base_econ": 8.66,
-      "base_sr": 22.5,
       "delta_econ": -1.86,
       "delta_sr": 6.6,
       "hp_dot_pct": 32.7,
@@ -8697,7 +9573,11 @@
       "batting_sr": 153.8,
       "innings_batted": 35,
       "is_ipl": true,
-      "ppi": 35.0
+      "ppi": 35.0,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 116,
@@ -8722,8 +9602,6 @@
       "hp_econ": 10.56,
       "hp_sr": 12.9,
       "hp_avg": 22.7,
-      "base_econ": 8.12,
-      "base_sr": 21.4,
       "delta_econ": -2.44,
       "delta_sr": 8.5,
       "hp_dot_pct": 32.0,
@@ -8734,7 +9612,11 @@
       "batting_sr": 103.9,
       "innings_batted": 15,
       "is_ipl": true,
-      "ppi": 34.6
+      "ppi": 34.6,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 117,
@@ -8759,8 +9641,6 @@
       "hp_econ": 11.09,
       "hp_sr": 10.6,
       "hp_avg": 19.5,
-      "base_econ": 7.6,
-      "base_sr": 18.8,
       "delta_econ": -3.5,
       "delta_sr": 8.2,
       "hp_dot_pct": 35.2,
@@ -8771,7 +9651,11 @@
       "batting_sr": 136.3,
       "innings_batted": 27,
       "is_ipl": false,
-      "ppi": 34.5
+      "ppi": 34.5,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 118,
@@ -8796,8 +9680,6 @@
       "hp_econ": 11.67,
       "hp_sr": 11.5,
       "hp_avg": 22.4,
-      "base_econ": 8.98,
-      "base_sr": 30.5,
       "delta_econ": -2.7,
       "delta_sr": 19.0,
       "hp_dot_pct": 38.1,
@@ -8808,7 +9690,11 @@
       "batting_sr": 126.9,
       "innings_batted": 8,
       "is_ipl": true,
-      "ppi": 34.3
+      "ppi": 34.3,
+      "status_2027": "Released",
+      "status_team": "Rajasthan Royals",
+      "status_label": "Released by Rajasthan Royals",
+      "is_auction_eligible": true
     },
     {
       "rank": 119,
@@ -8833,8 +9719,6 @@
       "hp_econ": 10.42,
       "hp_sr": 22.1,
       "hp_avg": 38.4,
-      "base_econ": 9.35,
-      "base_sr": 23.0,
       "delta_econ": -1.07,
       "delta_sr": 0.9,
       "hp_dot_pct": 36.8,
@@ -8845,7 +9729,11 @@
       "batting_sr": 122.8,
       "innings_batted": 34,
       "is_ipl": true,
-      "ppi": 34.2
+      "ppi": 34.2,
+      "status_2027": "Retained",
+      "status_team": "Punjab Kings",
+      "status_label": "Retained by Punjab Kings",
+      "is_auction_eligible": false
     },
     {
       "rank": 120,
@@ -8870,8 +9758,6 @@
       "hp_econ": 11.32,
       "hp_sr": 11.7,
       "hp_avg": 22.1,
-      "base_econ": 8.05,
-      "base_sr": 25.3,
       "delta_econ": -3.27,
       "delta_sr": 13.6,
       "hp_dot_pct": 39.6,
@@ -8882,7 +9768,11 @@
       "batting_sr": 20.0,
       "innings_batted": 4,
       "is_ipl": true,
-      "ppi": 34.2
+      "ppi": 34.2,
+      "status_2027": "Retained",
+      "status_team": "Sunrisers Hyderabad",
+      "status_label": "Retained by Sunrisers Hyderabad",
+      "is_auction_eligible": false
     },
     {
       "rank": 121,
@@ -8907,8 +9797,6 @@
       "hp_econ": 11.48,
       "hp_sr": 11.0,
       "hp_avg": 21.0,
-      "base_econ": 8.74,
-      "base_sr": 23.5,
       "delta_econ": -2.73,
       "delta_sr": 12.5,
       "hp_dot_pct": 40.1,
@@ -8919,7 +9807,11 @@
       "batting_sr": 147.3,
       "innings_batted": 89,
       "is_ipl": true,
-      "ppi": 34.1
+      "ppi": 34.1,
+      "status_2027": "Retained",
+      "status_team": "Punjab Kings",
+      "status_label": "Retained by Punjab Kings",
+      "is_auction_eligible": false
     },
     {
       "rank": 122,
@@ -8944,8 +9836,6 @@
       "hp_econ": 10.72,
       "hp_sr": 15.4,
       "hp_avg": 27.6,
-      "base_econ": 9.19,
-      "base_sr": 23.2,
       "delta_econ": -1.53,
       "delta_sr": 7.8,
       "hp_dot_pct": 28.1,
@@ -8956,7 +9846,11 @@
       "batting_sr": 150.0,
       "innings_batted": 3,
       "is_ipl": true,
-      "ppi": 33.9
+      "ppi": 33.9,
+      "status_2027": "Released",
+      "status_team": "Mumbai Indians",
+      "status_label": "Released by Mumbai Indians",
+      "is_auction_eligible": true
     },
     {
       "rank": 123,
@@ -8981,8 +9875,6 @@
       "hp_econ": 11.4,
       "hp_sr": 9.3,
       "hp_avg": 17.6,
-      "base_econ": 8.02,
-      "base_sr": 18.2,
       "delta_econ": -3.38,
       "delta_sr": 8.9,
       "hp_dot_pct": 39.3,
@@ -8993,7 +9885,11 @@
       "batting_sr": 113.3,
       "innings_batted": 17,
       "is_ipl": false,
-      "ppi": 33.7
+      "ppi": 33.7,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 124,
@@ -9018,8 +9914,6 @@
       "hp_econ": 10.73,
       "hp_sr": 13.0,
       "hp_avg": 23.2,
-      "base_econ": 7.69,
-      "base_sr": 21.9,
       "delta_econ": -3.04,
       "delta_sr": 8.9,
       "hp_dot_pct": 33.1,
@@ -9030,7 +9924,11 @@
       "batting_sr": 111.2,
       "innings_batted": 16,
       "is_ipl": false,
-      "ppi": 33.4
+      "ppi": 33.4,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 125,
@@ -9055,8 +9953,6 @@
       "hp_econ": 9.92,
       "hp_sr": 24.8,
       "hp_avg": 40.9,
-      "base_econ": 9.6,
-      "base_sr": 36.4,
       "delta_econ": -0.32,
       "delta_sr": 11.7,
       "hp_dot_pct": 33.8,
@@ -9067,7 +9963,11 @@
       "batting_sr": 117.9,
       "innings_batted": 19,
       "is_ipl": true,
-      "ppi": 32.9
+      "ppi": 32.9,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 126,
@@ -9092,8 +9992,6 @@
       "hp_econ": 9.89,
       "hp_sr": 22.8,
       "hp_avg": 37.6,
-      "base_econ": 8.49,
-      "base_sr": 17.9,
       "delta_econ": -1.4,
       "delta_sr": -4.9,
       "hp_dot_pct": 31.1,
@@ -9104,7 +10002,11 @@
       "batting_sr": 89.0,
       "innings_batted": 12,
       "is_ipl": true,
-      "ppi": 31.8
+      "ppi": 31.8,
+      "status_2027": "Released",
+      "status_team": "Mumbai Indians",
+      "status_label": "Released by Mumbai Indians",
+      "is_auction_eligible": true
     },
     {
       "rank": 127,
@@ -9129,8 +10031,6 @@
       "hp_econ": 11.19,
       "hp_sr": 15.5,
       "hp_avg": 28.8,
-      "base_econ": 7.35,
-      "base_sr": 23.0,
       "delta_econ": -3.84,
       "delta_sr": 7.5,
       "hp_dot_pct": 37.8,
@@ -9141,7 +10041,11 @@
       "batting_sr": 157.0,
       "innings_batted": 11,
       "is_ipl": true,
-      "ppi": 31.8
+      "ppi": 31.8,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 128,
@@ -9166,8 +10070,6 @@
       "hp_econ": 10.08,
       "hp_sr": 21.6,
       "hp_avg": 36.2,
-      "base_econ": 8.86,
-      "base_sr": 23.5,
       "delta_econ": -1.22,
       "delta_sr": 1.9,
       "hp_dot_pct": 27.6,
@@ -9178,7 +10080,11 @@
       "batting_sr": 107.3,
       "innings_batted": 9,
       "is_ipl": true,
-      "ppi": 31.5
+      "ppi": 31.5,
+      "status_2027": "Retained",
+      "status_team": "Lucknow Super Giants",
+      "status_label": "Retained by Lucknow Super Giants",
+      "is_auction_eligible": false
     },
     {
       "rank": 129,
@@ -9203,8 +10109,6 @@
       "hp_econ": 10.97,
       "hp_sr": 14.7,
       "hp_avg": 26.9,
-      "base_econ": 8.94,
-      "base_sr": 28.5,
       "delta_econ": -2.03,
       "delta_sr": 13.8,
       "hp_dot_pct": 31.6,
@@ -9215,7 +10119,11 @@
       "batting_sr": 125.5,
       "innings_batted": 59,
       "is_ipl": true,
-      "ppi": 30.3
+      "ppi": 30.3,
+      "status_2027": "Retained",
+      "status_team": "Lucknow Super Giants",
+      "status_label": "Retained by Lucknow Super Giants",
+      "is_auction_eligible": false
     },
     {
       "rank": 130,
@@ -9240,8 +10148,6 @@
       "hp_econ": 11.05,
       "hp_sr": 13.8,
       "hp_avg": 25.5,
-      "base_econ": 8.62,
-      "base_sr": 29.4,
       "delta_econ": -2.44,
       "delta_sr": 15.6,
       "hp_dot_pct": 35.7,
@@ -9252,7 +10158,11 @@
       "batting_sr": 75.9,
       "innings_batted": 10,
       "is_ipl": true,
-      "ppi": 29.9
+      "ppi": 29.9,
+      "status_2027": "Released",
+      "status_team": "Chennai Super Kings",
+      "status_label": "Released by Chennai Super Kings",
+      "is_auction_eligible": true
     },
     {
       "rank": 131,
@@ -9277,8 +10187,6 @@
       "hp_econ": 11.35,
       "hp_sr": 14.2,
       "hp_avg": 26.9,
-      "base_econ": 9.39,
-      "base_sr": 22.4,
       "delta_econ": -1.95,
       "delta_sr": 8.2,
       "hp_dot_pct": 33.3,
@@ -9289,7 +10197,11 @@
       "batting_sr": 60.0,
       "innings_batted": 8,
       "is_ipl": true,
-      "ppi": 29.6
+      "ppi": 29.6,
+      "status_2027": "Retained",
+      "status_team": "Delhi Capitals",
+      "status_label": "Retained by Delhi Capitals",
+      "is_auction_eligible": false
     },
     {
       "rank": 132,
@@ -9314,8 +10226,6 @@
       "hp_econ": 10.8,
       "hp_sr": 17.2,
       "hp_avg": 31.0,
-      "base_econ": 8.18,
-      "base_sr": 19.4,
       "delta_econ": -2.62,
       "delta_sr": 2.2,
       "hp_dot_pct": 31.7,
@@ -9326,7 +10236,11 @@
       "batting_sr": 110.2,
       "innings_batted": 17,
       "is_ipl": false,
-      "ppi": 29.4
+      "ppi": 29.4,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 133,
@@ -9351,8 +10265,6 @@
       "hp_econ": 11.48,
       "hp_sr": 11.5,
       "hp_avg": 22.1,
-      "base_econ": 8.56,
-      "base_sr": 31.6,
       "delta_econ": -2.91,
       "delta_sr": 20.1,
       "hp_dot_pct": 32.7,
@@ -9363,7 +10275,11 @@
       "batting_sr": 129.7,
       "innings_batted": 12,
       "is_ipl": true,
-      "ppi": 29.0
+      "ppi": 29.0,
+      "status_2027": "Released",
+      "status_team": "Sunrisers Hyderabad",
+      "status_label": "Released by Sunrisers Hyderabad",
+      "is_auction_eligible": true
     },
     {
       "rank": 134,
@@ -9388,8 +10304,6 @@
       "hp_econ": 10.63,
       "hp_sr": 22.8,
       "hp_avg": 40.4,
-      "base_econ": 8.63,
-      "base_sr": 30.9,
       "delta_econ": -2.0,
       "delta_sr": 8.1,
       "hp_dot_pct": 31.4,
@@ -9400,7 +10314,11 @@
       "batting_sr": 33.3,
       "innings_batted": 3,
       "is_ipl": true,
-      "ppi": 28.5
+      "ppi": 28.5,
+      "status_2027": "Retained",
+      "status_team": "Lucknow Super Giants",
+      "status_label": "Retained by Lucknow Super Giants",
+      "is_auction_eligible": false
     },
     {
       "rank": 135,
@@ -9425,8 +10343,6 @@
       "hp_econ": 11.01,
       "hp_sr": 15.7,
       "hp_avg": 28.8,
-      "base_econ": 7.82,
-      "base_sr": 39.3,
       "delta_econ": -3.19,
       "delta_sr": 23.6,
       "hp_dot_pct": 29.9,
@@ -9437,7 +10353,11 @@
       "batting_sr": 61.5,
       "innings_batted": 3,
       "is_ipl": true,
-      "ppi": 28.4
+      "ppi": 28.4,
+      "status_2027": "Retained",
+      "status_team": "Rajasthan Royals",
+      "status_label": "Retained by Rajasthan Royals",
+      "is_auction_eligible": false
     },
     {
       "rank": 136,
@@ -9462,8 +10382,6 @@
       "hp_econ": 10.76,
       "hp_sr": 20.3,
       "hp_avg": 36.4,
-      "base_econ": 8.14,
-      "base_sr": 22.2,
       "delta_econ": -2.62,
       "delta_sr": 1.9,
       "hp_dot_pct": 31.4,
@@ -9474,7 +10392,11 @@
       "batting_sr": 20.0,
       "innings_batted": 7,
       "is_ipl": true,
-      "ppi": 28.2
+      "ppi": 28.2,
+      "status_2027": "Retained",
+      "status_team": "Royal Challengers Bengaluru",
+      "status_label": "Retained by Royal Challengers Bengaluru",
+      "is_auction_eligible": false
     },
     {
       "rank": 137,
@@ -9499,8 +10421,6 @@
       "hp_econ": 11.52,
       "hp_sr": 10.0,
       "hp_avg": 19.2,
-      "base_econ": 8.76,
-      "base_sr": 25.1,
       "delta_econ": -2.76,
       "delta_sr": 15.1,
       "hp_dot_pct": 34.7,
@@ -9511,7 +10431,11 @@
       "batting_sr": 144.4,
       "innings_batted": 3,
       "is_ipl": true,
-      "ppi": 26.7
+      "ppi": 26.7,
+      "status_2027": "Released",
+      "status_team": "Gujarat Titans",
+      "status_label": "Released by Gujarat Titans",
+      "is_auction_eligible": true
     },
     {
       "rank": 138,
@@ -9536,8 +10460,6 @@
       "hp_econ": 11.2,
       "hp_sr": 16.0,
       "hp_avg": 29.9,
-      "base_econ": 9.24,
-      "base_sr": 19.4,
       "delta_econ": -1.96,
       "delta_sr": 3.4,
       "hp_dot_pct": 29.1,
@@ -9548,7 +10470,11 @@
       "batting_sr": 144.7,
       "innings_batted": 68,
       "is_ipl": true,
-      "ppi": 26.0
+      "ppi": 26.0,
+      "status_2027": "Retained",
+      "status_team": "Chennai Super Kings",
+      "status_label": "Retained by Chennai Super Kings",
+      "is_auction_eligible": false
     },
     {
       "rank": 139,
@@ -9573,8 +10499,6 @@
       "hp_econ": 11.95,
       "hp_sr": 11.7,
       "hp_avg": 23.3,
-      "base_econ": 7.66,
-      "base_sr": 21.4,
       "delta_econ": -4.29,
       "delta_sr": 9.7,
       "hp_dot_pct": 32.3,
@@ -9585,7 +10509,11 @@
       "batting_sr": 72.7,
       "innings_batted": 3,
       "is_ipl": true,
-      "ppi": 23.9
+      "ppi": 23.9,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 140,
@@ -9610,8 +10538,6 @@
       "hp_econ": 10.88,
       "hp_sr": 25.5,
       "hp_avg": 46.2,
-      "base_econ": 7.65,
-      "base_sr": 24.0,
       "delta_econ": -3.23,
       "delta_sr": -1.5,
       "hp_dot_pct": 36.4,
@@ -9622,7 +10548,11 @@
       "batting_sr": 55.6,
       "innings_batted": 7,
       "is_ipl": false,
-      "ppi": 23.4
+      "ppi": 23.4,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 141,
@@ -9647,8 +10577,6 @@
       "hp_econ": 11.3,
       "hp_sr": 14.2,
       "hp_avg": 26.8,
-      "base_econ": 8.69,
-      "base_sr": 12.9,
       "delta_econ": -2.61,
       "delta_sr": -1.3,
       "hp_dot_pct": 29.0,
@@ -9659,7 +10587,11 @@
       "batting_sr": 33.3,
       "innings_batted": 3,
       "is_ipl": false,
-      "ppi": 22.1
+      "ppi": 22.1,
+      "status_2027": "Auction Pool",
+      "status_team": "Auction Pool",
+      "status_label": "Available in Auction",
+      "is_auction_eligible": true
     },
     {
       "rank": 142,
@@ -9684,8 +10616,6 @@
       "hp_econ": 11.73,
       "hp_sr": 20.5,
       "hp_avg": 40.2,
-      "base_econ": 9.52,
-      "base_sr": 25.0,
       "delta_econ": -2.21,
       "delta_sr": 4.4,
       "hp_dot_pct": 33.7,
@@ -9696,7 +10626,11 @@
       "batting_sr": 82.9,
       "innings_batted": 17,
       "is_ipl": true,
-      "ppi": 18.5
+      "ppi": 18.5,
+      "status_2027": "Released",
+      "status_team": "Lucknow Super Giants",
+      "status_label": "Released by Lucknow Super Giants",
+      "is_auction_eligible": true
     },
     {
       "rank": 143,
@@ -9721,8 +10655,6 @@
       "hp_econ": 11.65,
       "hp_sr": 25.8,
       "hp_avg": 50.2,
-      "base_econ": 9.94,
-      "base_sr": 31.8,
       "delta_econ": -1.71,
       "delta_sr": 5.9,
       "hp_dot_pct": 33.5,
@@ -9733,7 +10665,11 @@
       "batting_sr": 118.0,
       "innings_batted": 32,
       "is_ipl": true,
-      "ppi": 16.3
+      "ppi": 16.3,
+      "status_2027": "Retained",
+      "status_team": "Lucknow Super Giants",
+      "status_label": "Retained by Lucknow Super Giants",
+      "is_auction_eligible": false
     },
     {
       "rank": 144,
@@ -9758,8 +10694,6 @@
       "hp_econ": 12.28,
       "hp_sr": 19.1,
       "hp_avg": 39.1,
-      "base_econ": 8.33,
-      "base_sr": 14.6,
       "delta_econ": -3.95,
       "delta_sr": -4.5,
       "hp_dot_pct": 26.9,
@@ -9770,7 +10704,11 @@
       "batting_sr": 145.3,
       "innings_batted": 98,
       "is_ipl": true,
-      "ppi": 10.0
+      "ppi": 10.0,
+      "status_2027": "Retained",
+      "status_team": "Chennai Super Kings",
+      "status_label": "Retained by Chennai Super Kings",
+      "is_auction_eligible": false
     }
   ]
 }

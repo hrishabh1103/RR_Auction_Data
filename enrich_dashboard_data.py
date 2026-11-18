@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import json
 
-print("Enriching dashboard data from raw ball-by-ball, matches, and pressure datasets...")
+print("Enriching dashboard data with official IPL 2027 Retentions & Releases...")
 
 # Load raw and processed files
 df_bbb = pd.read_csv('ball_by_ball.csv')
@@ -19,39 +19,70 @@ bowl = pd.read_csv('bowlers_pressure_ranked.csv')
 bat = bat[~bat['striker_name'].isin(pak_players)].reset_index(drop=True)
 bowl = bowl[~bowl['bowler_name'].isin(pak_players)].reset_index(drop=True)
 
+# Official IPL 2027 Retentions and Releases
+retained_dict = {
+    'Chennai Super Kings': ['Ruturaj Gaikwad', 'Sanju Samson', 'Ayush Mhatre', 'Urvil Patel', 'Dewald Brevis', 'Liam Livingstone', 'Jack Edwards', 'Akeal Hosein', 'Noor Ahmad', 'Kartik Sharma', 'Shivam Dube', 'Gurjapneet Singh', 'Anshul Kamboj', 'Sarfaraz Khan', 'Jamie Overton', 'Mukesh Choudhary', 'Rahul Chahar', 'Ramakrishna Ghosh', 'Shreyas Gopal'],
+    'Lucknow Super Giants': ['Abdul Samad', 'Aiden Markram', 'Akash Singh', 'Akshat Raghuwanshi', 'Arjun Tendulkar', 'Arshin Kulkarni', 'Ayush Badoni', 'Digvesh Rathi', 'Josh Inglis', 'Kuldeep Yadav', 'Mayank Yadav', 'Mitchell Marsh', 'Mohsin Khan', 'Mukul Choudhary', 'Nicholas Pooran', 'Prince Yadav', 'Sam Curran', 'Shahbaz Ahmed'],
+    'Royal Challengers Bengaluru': ['Rajat Patidar', 'Virat Kohli', 'Jitesh Sharma', 'Bhuvneshwar Kumar', 'Krunal Pandya', 'Josh Hazlewood', 'Phil Salt', 'Tim David', 'Romario Shepherd', 'Devdutt Padikkal', 'Nuwan Thushara', 'Venkatesh Iyer', 'Jacob Duffy', 'Jordan Cox', 'Rasikh Dar', 'Suyash Sharma', 'Vicky Ostwal', 'Abhinandan Singh', 'Kanishk Chouhan', 'Yash Dayal'],
+    'Mumbai Indians': ['Rohit Sharma', 'Suryakumar Yadav', 'Jasprit Bumrah', 'Tilak Varma', 'Naman Dhir', 'Arshdeep Singh', 'Corbin Bosch', 'Mitchell Santner', 'Sherfane Rutherford', 'Will Jacks', 'Ryan Rickelton', 'Quinton de Kock', 'Shardul Thakur', 'Ashwani Kumar', 'Raj Angad Bawa', 'Raghu Sharma'],
+    'Sunrisers Hyderabad': ['Pat Cummins', 'Abhishek Sharma', 'Ishan Kishan', 'Heinrich Klaasen', 'Nitish Kumar Reddy', 'Brydon Carse', 'Salil Arora', 'Aniket Verma', 'Harsh Dubey', 'Smaran Ravichandran', 'Praful Hinge', 'Sakib Hussain', 'Shivang Kumar', 'Krains Fuletra', 'Eshan Malinga', 'T Natarajan', 'Nathan Ellis', 'Khaleel Ahmed'],
+    'Punjab Kings': ['Shreyas Iyer', 'Marcus Stoinis', 'Hardik Pandya', 'Marco Jansen', 'Shashank Singh', 'Prabhsimran Singh', 'Priyansh Arya', 'Yuzvendra Chahal', 'Azmatullah Omarzai', 'Vishnu Vinod', 'Xavier Bartlett', 'Vijaykumar Vyshak', 'Yash Thakur', 'Cooper Connolly', 'Musheer Khan', 'Ben Dwarshuis', 'Harpreet Brar', 'Suryansh Shedge', 'Harnoor Singh'],
+    'Rajasthan Royals': ['Aman Rao Perala', 'Brijesh Sharma', 'Dasun Shanaka', 'Dhruv Jurel', 'Donovan Ferreira', 'Jofra Archer', 'Lhuan-dre Pretorius', 'Manimaran Siddharth', 'Mohd. Shami', 'Nandre Burger', 'Ravi Bishnoi', 'Ravindra Jadeja', 'Riyan Parag', 'Sandeep Sharma', 'Shubham Dubey', 'Sushant Mishra', 'Vaibhav Sooryavanshi', 'Yash Raj Punja', 'Yashasvi Jaiswal'],
+    'Delhi Capitals': ['Ashutosh Sharma', 'Madhav Tiwari', 'Vipraj Nigam', 'Auqib Nabi', 'Mukesh Kumar', 'Zeeshan Ansari', 'Axar Patel', 'Prithvi Shaw', 'David Miller', 'Rishabh Pant', 'KL Rahul', 'Sameer Rizvi', 'Kyle Jamieson', 'Tripurana Vijay', 'Lungi Ngidi', 'Tristan Stubbs'],
+    'Gujarat Titans': ['Anuj Rawat', 'Kagiso Rabada', 'Rahul Tewatia', 'Ashok Sharma', 'Kumar Kushagra', 'Rashid Khan', 'Glenn Phillips', 'Manav Suthar', 'Sai Sudharsan', 'Gurnoor Brar', 'Mohammed Siraj', 'Shubman Gill', 'Harshal Patel', 'Arshad Khan', 'Tom Banton', 'Jason Holder', 'Nishant Sindhu', 'Washington Sundar', 'Jayant Yadav', 'Prasidh Krishna', 'Jos Buttler', 'R Sai Kishore'],
+    'Kolkata Knight Riders': ['Anukul Roy', 'Angkrish Raghuvanshi', 'Cameron Green', 'Finn Allen', 'Harshit Rana', 'Kartik Tyagi', 'Manish Pandey', 'Prashant Solanki', 'Ramandeep Singh', 'Rinku Singh', 'Rovman Powell', 'Sarthak Ranjan', 'Saurabh Dubey', 'Sunil Narine', 'Tim Seifert', 'Vaibhav Arora', 'Varun Chakaravarthy']
+}
+
+released_dict = {
+    'Chennai Super Kings': ['MS Dhoni', 'Prashant Veer', 'Spencer Johnson', 'Akash Madhwal', 'Aman Khan', 'Dian Forrester', 'Kuldip Yadav', 'Macneil Noronha', 'Matt Henry', 'Matt Short', 'Zak Foulkes'],
+    'Lucknow Super Giants': ['Avesh Khan', 'Matthew Breetzke', 'Wanindu Hasaranga', 'George Linde', 'Anrich Nortje', 'Naman Tiwari', 'Himmat Singh'],
+    'Royal Challengers Bengaluru': ['Jacob Bethell', 'Richard Gleeson', 'Mangesh Yadav', 'Vihaan Malhotra', 'Satvik Deswal', 'Swapnil Singh'],
+    'Mumbai Indians': ['Trent Boult', 'Deepak Chahar', 'AM Ghazanfar', 'Atharva Ankolekar', 'Keshav Maharaj', 'Mohammed Izhar', 'Danish Malewar', 'Mayank Markande', 'Mayank Rawat', 'Krish Bhagat', 'Mahipal Lomror', 'Robin Minz', 'Ruchit Ahir'],
+    'Sunrisers Hyderabad': ['Travis Head', 'Jaydev Unadkat', 'Gerald Coetzee', 'Dilshan Madushanka', 'David Payne', 'Amit Kumar', 'Kamindu Mendis', 'Onkar Tarmale', 'RS Ambrish', 'Shivam Mavi'],
+    'Punjab Kings': ['Nehal Wadhera', 'Lockie Ferguson', 'Lockie Ferugson', 'Pyla Avinash', 'Mitchell Owen', 'Praveen Dube', 'Vishal Nishad'],
+    'Rajasthan Royals': ['Adam Milne', 'Emanjot Chahal', 'Kuldeep Sen', 'Kwena Maphaka', 'Ravi Singh', 'Shimron Hetmyer', 'Tushar Deshpande', 'Vignesh Puthur', 'Yudhvir Singh Charak'],
+    'Delhi Capitals': ['Mitchell Starc', 'Nitish Rana', 'Abishek Porel', 'Pathum Nissanka', 'Karun Nair', 'Sahil Parakh', 'Ajay Mandal', 'Rehan Ahmed', 'Dushmantha Chameera'],
+    'Gujarat Titans': ['Shahrukh Khan', 'Ishant Sharma', 'Luke Wood', 'Kulwant Khejroliya', 'Connor Esterhuizen', 'Prithviraj Yarra'],
+    'Kolkata Knight Riders': ['Ajinkya Rahane', 'Akash Deep', 'Blessing Muzarabani', 'Daksh Kamra', 'Luvnith Sisodia', 'Matheesha Pathirana', 'Mustafizur Rahman', 'Navdeep Saini', 'Rachin Ravindra', 'Rahul Tripathi', 'Tejasvi Singh', 'Umran Malik']
+}
+
+purse_and_slots = [
+    {"team": "Lucknow Super Giants", "purse_cr": 47.45, "slots": 7, "overseas": 3},
+    {"team": "Kolkata Knight Riders", "purse_cr": 41.65, "slots": 8, "overseas": 3},
+    {"team": "Sunrisers Hyderabad", "purse_cr": 40.15, "slots": 7, "overseas": 3},
+    {"team": "Delhi Capitals", "purse_cr": 39.50, "slots": 9, "overseas": 4},
+    {"team": "Mumbai Indians", "purse_cr": 32.60, "slots": 9, "overseas": 2},
+    {"team": "Chennai Super Kings", "purse_cr": 28.05, "slots": 6, "overseas": 2},
+    {"team": "Rajasthan Royals", "purse_cr": 27.05, "slots": 6, "overseas": 3},
+    {"team": "Punjab Kings", "purse_cr": 18.60, "slots": 6, "overseas": 2},
+    {"team": "Royal Challengers Bengaluru", "purse_cr": 14.15, "slots": 5, "overseas": 1},
+    {"team": "Gujarat Titans", "purse_cr": 8.75, "slots": 3, "overseas": 2}
+]
+
+# Build lookup maps
+ret_map = {}
+for team, plist in retained_dict.items():
+    for p in plist:
+        ret_map[p.lower().strip()] = team
+
+rel_map = {}
+for team, plist in released_dict.items():
+    for p in plist:
+        rel_map[p.lower().strip()] = team
+
+def get_2027_status(player_name):
+    nl = player_name.lower().strip()
+    for k, v in ret_map.items():
+        if k == nl or (len(k) > 4 and k in nl) or (len(nl) > 4 and nl in k):
+            return "Retained", v, f"Retained by {v}"
+    for k, v in rel_map.items():
+        if k == nl or (len(k) > 4 and k in nl) or (len(nl) > 4 and nl in k):
+            return "Released", v, f"Released by {v}"
+    return "Auction Pool", "Auction Pool", "Available in Auction"
+
 # Build player styles
 striker_styles = df_bbb.dropna(subset=['batting_type']).groupby('striker_name')['batting_type'].first().to_dict()
 bowler_styles = df_bbb.dropna(subset=['bowling_type']).groupby('bowler_name')['bowling_type'].first().to_dict()
-
-# Team mappings
-ipl_franchises = [
-    'Rajasthan Royals', 'Mumbai Indians', 'Chennai Super Kings', 'Kolkata Knight Riders',
-    'Royal Challengers Bangalore', 'Royal Challengers Bengaluru', 'Sunrisers Hyderabad',
-    'Punjab Kings', 'Delhi Capitals', 'Gujarat Titans', 'Lucknow Super Giants', 'Kings XI Punjab'
-]
-
-# Prefer IPL team if played, else national team
-player_teams = {}
-for _, row in df_ctpm.iterrows():
-    pname = row['player_name']
-    tname = row['team_name']
-    if pname not in player_teams:
-        player_teams[pname] = tname
-    elif tname in ipl_franchises:
-        player_teams[pname] = tname
-
-# Determine roles
-# Openers: avg batting_order <= 2.2
-# Middle Order: avg batting_order between 2.3 and 4.5
-# Finisher: avg batting_order >= 4.6 and hp_balls >= 40
-# All Rounder: significant balls faced AND significant balls bowled
-# Specialist Fast Bowlers: primarily pace bowling
-# Spin Enforcers: primarily spin bowling
-
-avg_bat_order = df_bbb.groupby('striker_name')['batting_order'].mean().to_dict()
-balls_batted_total = df_bbb.groupby('striker_name').size().to_dict()
-balls_bowled_total = df_bbb.groupby('bowler_name').size().to_dict()
-pace_or_spin_dict = df_bbb.dropna(subset=['pace_or_spin']).groupby('bowler_name')['pace_or_spin'].first().to_dict()
 
 # Batting overall stats
 bat_overall = df_bbb.groupby('striker_name').agg(
@@ -76,7 +107,21 @@ bowl_overall = df_bbb.groupby('bowler_name').agg(
 ).reset_index()
 bowl_overall_dict = bowl_overall.set_index('bowler_name').to_dict('index')
 
-# Build Batter List
+avg_bat_order = df_bbb.groupby('striker_name')['batting_order'].mean().to_dict()
+balls_batted_total = df_bbb.groupby('striker_name').size().to_dict()
+balls_bowled_total = df_bbb.groupby('bowler_name').size().to_dict()
+pace_or_spin_dict = df_bbb.dropna(subset=['pace_or_spin']).groupby('bowler_name')['pace_or_spin'].first().to_dict()
+
+player_teams = {}
+for _, row in df_ctpm.iterrows():
+    pname = row['player_name']
+    tname = row['team_name']
+    if pname not in player_teams:
+        player_teams[pname] = tname
+    elif tname in retained_dict:
+        player_teams[pname] = tname
+
+# Batters
 batters_list = []
 for idx, r in bat.iterrows():
     name = r['striker_name']
@@ -84,7 +129,6 @@ for idx, r in bat.iterrows():
     batted = balls_batted_total.get(name, 0)
     bowled = balls_bowled_total.get(name, 0)
     
-    # Determine role
     if bowled > 180 and batted > 180:
         role = "All Rounder"
     elif order <= 2.3:
@@ -99,23 +143,21 @@ for idx, r in bat.iterrows():
     elif b_style == "LHB": b_style = "Left hand Bat"
     
     bw_style = bowler_styles.get(name, "Right-arm Medium")
-    team = player_teams.get(name, "India" if r['is_ipl_player'] else "International")
-    if team == "Royal Challengers Bangalore": team = "Royal Challengers Bengaluru"
-    if team == "Kings XI Punjab": team = "Punjab Kings"
+    team = player_teams.get(name, "International")
+    
+    status_type, status_team, status_label = get_2027_status(name)
+    is_available_in_auction = (status_type != "Retained")
     
     ov = bat_overall_dict.get(name, {})
     ov_runs = int(ov.get('total_runs', r['hp_runs'] + r['base_runs']))
     ov_balls = int(ov.get('total_balls', r['total_balls']))
     ov_4s = int(ov.get('total_4s', r['hp_fours']))
     ov_6s = int(ov.get('total_6s', r['hp_sixes']))
-    ov_dismissals = int(ov.get('total_dismissals', r['hp_dismissals'] + r['base_dismissals']))
     ov_inns = int(ov.get('innings', r['hp_matches']))
-    
     ov_sr = round((ov_runs / ov_balls * 100), 1) if ov_balls > 0 else 0.0
-    ov_avg = round((ov_runs / ov_dismissals), 1) if ov_dismissals > 0 else float(ov_runs)
+    ov_avg = round((ov_runs / max(1, r['hp_dismissals'] + r['base_dismissals'])), 1)
     avg_balls_faced = round(r['hp_balls'] / max(1, r['hp_dismissals']), 1)
     
-    # Bowling if any
     bw_ov = bowl_overall_dict.get(name, {})
     bw_wkts = int(bw_ov.get('total_wickets', 0))
     bw_balls = int(bw_ov.get('total_balls', 0))
@@ -146,8 +188,6 @@ for idx, r in bat.iterrows():
         "hp_dots": int(r['hp_dots']),
         "hp_sr": round(r['hp_sr'], 1),
         "hp_avg": round(r['hp_avg'], 1),
-        "base_sr": round(r['base_sr'], 1),
-        "base_avg": round(r['base_avg'], 1),
         "delta_sr": round(r['delta_sr'], 1),
         "delta_avg": round(r['delta_avg'], 1),
         "avg_balls_faced": avg_balls_faced,
@@ -159,10 +199,14 @@ for idx, r in bat.iterrows():
         "bowling_econ": bw_econ,
         "innings_bowled": bw_inns,
         "is_ipl": bool(r['is_ipl_player']),
-        "ppi": round(r['ppi_scaled'], 1)
+        "ppi": round(r['ppi_scaled'], 1),
+        "status_2027": status_type,
+        "status_team": status_team,
+        "status_label": status_label,
+        "is_auction_eligible": is_available_in_auction
     })
 
-# Build Bowlers List
+# Bowlers
 bowlers_list = []
 for idx, r in bowl.iterrows():
     name = r['bowler_name']
@@ -182,9 +226,10 @@ for idx, r in bowl.iterrows():
     elif b_style == "LHB": b_style = "Left hand Bat"
     
     bw_style = bowler_styles.get(name, "Right-arm Fast")
-    team = player_teams.get(name, "India" if r['is_ipl_player'] else "International")
-    if team == "Royal Challengers Bangalore": team = "Royal Challengers Bengaluru"
-    if team == "Kings XI Punjab": team = "Punjab Kings"
+    team = player_teams.get(name, "International")
+    
+    status_type, status_team, status_label = get_2027_status(name)
+    is_available_in_auction = (status_type != "Retained")
     
     bw_ov = bowl_overall_dict.get(name, {})
     ov_balls = int(bw_ov.get('total_balls', r['total_balls']))
@@ -192,12 +237,10 @@ for idx, r in bowl.iterrows():
     ov_wkts = int(bw_ov.get('total_wickets', r['hp_wickets'] + r['base_wickets']))
     ov_inns = int(bw_ov.get('innings', r['hp_matches']))
     ov_dots = int(bw_ov.get('total_dots', r['hp_dots'] + r['base_dots']))
-    
     ov_econ = round(ov_runs / (ov_balls / 6.0), 2) if ov_balls > 0 else 0.0
     ov_sr = round(ov_balls / ov_wkts, 1) if ov_wkts > 0 else 0.0
     ov_avg = round(ov_runs / ov_wkts, 1) if ov_wkts > 0 else 0.0
     
-    # Batting if any
     bt_ov = bat_overall_dict.get(name, {})
     bt_runs = int(bt_ov.get('total_runs', 0))
     bt_balls = int(bt_ov.get('total_balls', 0))
@@ -227,8 +270,6 @@ for idx, r in bowl.iterrows():
         "hp_econ": round(r['hp_econ'], 2),
         "hp_sr": round(r['hp_sr'], 1),
         "hp_avg": round(r['hp_avg'], 1),
-        "base_econ": round(r['base_econ'], 2),
-        "base_sr": round(r['base_sr'], 1),
         "delta_econ": round(r['delta_econ'], 2),
         "delta_sr": round(r['delta_sr'], 1),
         "hp_dot_pct": round(r['hp_dot_pct'], 1),
@@ -239,92 +280,34 @@ for idx, r in bowl.iterrows():
         "batting_sr": bt_sr,
         "innings_batted": bt_inns,
         "is_ipl": bool(r['is_ipl_player']),
-        "ppi": round(r['ppi_scaled'], 1)
+        "ppi": round(r['ppi_scaled'], 1),
+        "status_2027": status_type,
+        "status_team": status_team,
+        "status_label": status_label,
+        "is_auction_eligible": is_available_in_auction
     })
 
-# Compute tournament analytics for the Screenshot 1 & 3 charts
-ipl_comp_ids = set(df_c[df_c['comp_name'].str.contains('IPL', case=False, na=False)]['comp_id'])
-ipl_matches = df_m[df_m['comp_id'].isin(ipl_comp_ids)].copy()
+# Add other datasets from previous configuration
+with open('dashboard_data.json') as f:
+    prev = json.load(f)
 
-# Win by category
-def categorize_result(r):
-    if pd.isna(r): return 'NoResults'
-    r_lower = str(r).lower()
-    if 'wickets' in r_lower or 'wicket' in r_lower: return 'Wickets'
-    elif 'runs' in r_lower or 'run' in r_lower: return 'Runs'
-    elif 'super over' in r_lower or 'tie' in r_lower: return 'SuperOver'
-    else: return 'NoResults'
-
-ipl_matches['win_by'] = ipl_matches['result'].apply(categorize_result)
-win_by_counts = ipl_matches['win_by'].value_counts().to_dict()
-
-# Toss decision counts
-toss_counts = ipl_matches['toss_opted'].value_counts().to_dict()
-
-# Team win counts across IPL
-team_win_counts = {
-    "Mumbai Indians": 131,
-    "Chennai Super Kings": 121,
-    "Kolkata Knight Riders": 114,
-    "Royal Challengers Bengaluru": 109,
-    "Rajasthan Royals": 96,
-    "Punjab Kings": 88,
-    "Sunrisers Hyderabad": 75,
-    "Delhi Capitals": 67,
-    "Gujarat Titans": 36,
-    "Lucknow Super Giants": 29
-}
-
-# Matches won at top venues
-venue_stats = [
-    {"venue": "Eden Gardens", "wickets": 45, "runs": 32, "super_over": 1},
-    {"venue": "Wankhede Stadium", "wickets": 37, "runs": 35, "super_over": 0},
-    {"venue": "M Chinnaswamy", "wickets": 36, "runs": 26, "super_over": 0},
-    {"venue": "Arun Jaitley Stadium", "wickets": 31, "runs": 28, "super_over": 1},
-    {"venue": "Rajiv Gandhi Intl", "wickets": 28, "runs": 20, "super_over": 0},
-    {"venue": "MA Chidambaram", "wickets": 17, "runs": 30, "super_over": 0},
-    {"venue": "Sawai Mansingh (RR)", "wickets": 32, "runs": 15, "super_over": 0},
-    {"venue": "Narendra Modi Stadium", "wickets": 24, "runs": 22, "super_over": 0}
-]
-
-# Powerplay vs Death Runs for Screenshot 3
-powerplay_death = [
-    {"team": "Rajasthan Royals", "pp": 3328, "death": 3497},
-    {"team": "Mumbai Indians", "pp": 3497, "death": 3390},
-    {"team": "Chennai Super Kings", "pp": 3079, "death": 3207},
-    {"team": "Kolkata Knight Riders", "pp": 3253, "death": 3285},
-    {"team": "Royal Challengers", "pp": 3337, "death": 3328},
-    {"team": "Sunrisers Hyderabad", "pp": 3612, "death": 3140},
-    {"team": "Gujarat Titans", "pp": 3110, "death": 3215},
-    {"team": "Lucknow Super Giants", "pp": 3045, "death": 3180}
-]
-
-# Save unified JSON
 dashboard_data = {
-    "tournament_stats": {
-        "title_focus": "Rajasthan Royals (IPL 2027 Auction Target Board)",
-        "orange_cap_all": {"name": "Virat Kohli", "runs": 6634, "sr": 125.98, "fours": 581, "sixes": 219},
-        "orange_cap_pressure": {"name": "Shashank Singh", "runs": 640, "sr": 184.4, "ppi": 98.9, "fours": 48, "sixes": 38},
-        "purple_cap_all": {"name": "Dwayne Bravo", "wickets": 183, "econ": 8.38, "avg": 23.82, "sr": 17.09},
-        "purple_cap_pressure": {"name": "Jasprit Bumrah", "wickets": 50, "econ": 7.20, "runs_saved": 263.0, "ppi": 82.7},
-        "tournament_6s": "12.81K",
-        "tournament_4s": "23.28K",
-        "total_pressure_balls": 54643,
-        "pressure_pct": "27.2%"
+    "tournament_stats": prev['tournament_stats'],
+    "matches_won_by": prev['matches_won_by'],
+    "toss_decision": prev['toss_decision'],
+    "venue_stats": prev['venue_stats'],
+    "team_wins": prev['team_wins'],
+    "powerplay_death": prev['powerplay_death'],
+    "purse_and_slots": purse_and_slots,
+    "retained_dict": retained_dict,
+    "released_dict": released_dict,
+    "rr_war_room_2027": {
+        "purse_cr": 27.05,
+        "slots_total": 6,
+        "slots_overseas": 3,
+        "retained_players": retained_dict['Rajasthan Royals'],
+        "released_players": released_dict['Rajasthan Royals']
     },
-    "matches_won_by": {
-        "Wickets": int(win_by_counts.get('Wickets', 182)),
-        "Runs": int(win_by_counts.get('Runs', 172)),
-        "SuperOver": int(win_by_counts.get('SuperOver', 2)),
-        "NoResults": int(win_by_counts.get('NoResults', 15))
-    },
-    "toss_decision": {
-        "Fielding": int(toss_counts.get('Fielding', 285)),
-        "Batting": int(toss_counts.get('Batting', 83))
-    },
-    "venue_stats": venue_stats,
-    "team_wins": team_win_counts,
-    "powerplay_death": powerplay_death,
     "batters": batters_list,
     "bowlers": bowlers_list
 }
@@ -332,4 +315,4 @@ dashboard_data = {
 with open('dashboard_data.json', 'w') as f:
     json.dump(dashboard_data, f, indent=2)
 
-print(f"Successfully enriched dashboard_data.json with {len(batters_list)} batters and {len(bowlers_list)} bowlers!")
+print(f"Updated dashboard_data.json successfully with 2027 retentions & releases.")
